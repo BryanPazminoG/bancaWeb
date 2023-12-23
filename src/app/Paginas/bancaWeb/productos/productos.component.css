@@ -1,0 +1,71 @@
+/* Estilos generales */
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Estilos para el contenedor principal */
+  
+  .container {
+    width: 750px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* Estilos para la cabecera */
+  
+  h1 {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para la tabla */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos específicos para la tabla de la cuenta de ahorros */
+  
+  .table-ahorros {
+    background-color: #f5f5f5;
+  }
+  
+  .table-ahorros th {
+    background-color: #d9d9d9;
+  }
+  
+  /* Estilos específicos para la tabla de los créditos */
+  
+  .table-creditos {
+    background-color: #ffffff;
+  }
+  
+  .table-creditos th {
+    background-color: #f0f0f0;
+  }
+  
+  .custom-card {
+    border-radius: 15px; /* Bordes más redondeados */
+  }
+
+  .custom-card .card-body {
+    background-color: white; /* Fondo blanco para el cuerpo */
+  }
