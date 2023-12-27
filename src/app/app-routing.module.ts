@@ -7,7 +7,13 @@ import { ConfirmacionTransferenciaComponent } from './Paginas/bancaWeb/confirmac
 import { TraExitosaComponent } from './Paginas/bancaWeb/tra-exitosa/tra-exitosa.component';
 import { PerfilComponent } from './Paginas/bancaWeb/perfil/perfil.component';
 import { PasswordComponent } from './Paginas/bancaWeb/password/password.component';
-
+import { SolicitudesComponent } from './Paginas/bancaWeb/solicitudes/solicitudes.component';
+import { TarjetaComponent } from './Paginas/bancaWeb/tarjeta/tarjeta.component';
+import { TarjetaGenComponent } from './Paginas/bancaWeb/tarjeta-gen/tarjeta-gen.component';
+import { MovimientosComponent } from './Paginas/bancaWeb/movimientos/movimientos.component';
+import { InfoCuentaComponent } from './Paginas/bancaWeb/info-cuenta/info-cuenta.component';
+import { InfoCreditoComponent } from './Paginas/bancaWeb/info-credito/info-credito.component';
+import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizacion.component';
 
 
 const routes: Routes = [
@@ -18,6 +24,13 @@ const routes: Routes = [
   { path:'tra-exitosa' , component : TraExitosaComponent},
   { path:'perfil' , component : PerfilComponent},
   { path:'password' , component : PasswordComponent},
+  { path:'solicitudes' , component : SolicitudesComponent},
+  { path:'tarjeta' , component : TarjetaComponent},
+  { path:'tarjeta-gen' , component : TarjetaGenComponent},
+  { path:'movimientos' , component : MovimientosComponent},
+  { path:'info-cuenta' , component : InfoCuentaComponent},
+  { path:'info-credito' , component : InfoCreditoComponent},
+  { path:'amortizacion' , component : AmortizacionComponent},
   { path:'**' , component : ErrorComponent},
 
 

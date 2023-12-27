@@ -1,0 +1,44 @@
+<div class="container-fluid p-0">
+    <div class="row m-0">
+        <!-- Navbar -->
+        <div class="col-12 px-0" class="borde-ancho">
+            <app-navbarbw></app-navbarbw>
+        </div>
+    </div>
+    <div class="row m-0">
+        <!-- Sidebar -->
+        <div class="col-2 p-0 d-flex flex-column vh-100">
+            <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+        </div>
+        <!-- Main Content -->
+
+        <div class="col-10 p-0 d-flex">
+            <!-- Aquí puedes colocar el contenido principal -->
+            <div class="p-4 flex-grow-1" style="background-color: #DBD8D8;">
+                <router-outlet></router-outlet>
+                <h1 class="ms-5 mt-5" style="color: #159768; font-size: 24px; font-weight: bold; padding-left:100px;">Solicitudes</h1>
+                <div class="container d-flex flex-column align-items-center mt-1">
+                    <div class="container">                        
+                        <div class="container d-flex flex-column align-items-start mt-1">
+                            <div class="d-flex justify-content-center">
+                                <div class="white-box-custom bigger-box">
+                                    <a href="/tarjeta" style="display: block; text-decoration: none; color: inherit;">
+                                        <div class="row justify-content-center align-items-center">
+                                            <img class="logo img-fluid pt-3" src="../../../assets/img/tarjeta3.png" alt="Logo" style="max-width: 60%; height: auto;">
+                                        </div>
+                                        <div class="row text-center pt-4" style="color: #159768; font-size: 18px; ">
+                                            <a>Solicitar tarjeta de débito</a>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

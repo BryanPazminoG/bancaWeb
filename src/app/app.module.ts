@@ -14,6 +14,14 @@ import { ConfirmacionTransferenciaComponent } from './Paginas/bancaWeb/confirmac
 import { TraExitosaComponent } from './Paginas/bancaWeb/tra-exitosa/tra-exitosa.component';
 import { PerfilComponent } from './Paginas/bancaWeb/perfil/perfil.component';
 import { PasswordComponent } from './Paginas/bancaWeb/password/password.component';
+import { SolicitudesComponent } from './Paginas/bancaWeb/solicitudes/solicitudes.component';
+import { TarjetaComponent } from './Paginas/bancaWeb/tarjeta/tarjeta.component';
+import { TarjetaGenComponent } from './Paginas/bancaWeb/tarjeta-gen/tarjeta-gen.component';
+import { MovimientosComponent } from './Paginas/bancaWeb/movimientos/movimientos.component';
+import { InfoCuentaComponent } from './Paginas/bancaWeb/info-cuenta/info-cuenta.component';
+import { InfoCreditoComponent } from './Paginas/bancaWeb/info-credito/info-credito.component';
+import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizacion.component';
+
 
 
 @NgModule({
@@ -28,6 +36,14 @@ import { PasswordComponent } from './Paginas/bancaWeb/password/password.componen
     TraExitosaComponent,
     PerfilComponent,
     PasswordComponent,
+    SolicitudesComponent,
+    TarjetaComponent,
+    TarjetaGenComponent,
+    MovimientosComponent,
+    InfoCuentaComponent,
+    InfoCreditoComponent,
+    AmortizacionComponent,
+ 
 
   ],
   imports: [

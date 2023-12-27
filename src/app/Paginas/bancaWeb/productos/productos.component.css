@@ -62,10 +62,34 @@ body {
     background-color: #f0f0f0;
   }
   
+  /* Estilos específicos para las tarjetas */
   .custom-card {
     border-radius: 15px; /* Bordes más redondeados */
   }
 
   .custom-card .card-body {
     background-color: white; /* Fondo blanco para el cuerpo */
+  }
+
+  .card {
+    max-width: 24rem;
+    border-radius: 15px; /* Bordes más redondeados para la tarjeta */
+    background-color: white; /* Fondo blanco para la tarjeta */
+  }
+
+  .card-header {
+    background-color: white; /* Fondo blanco para el encabezado */
+    border-bottom: 3px solid #1C9352; /* Línea más gruesa y color verde en el encabezado */
+    padding: 10px; /* Añade un poco de espacio para separar el texto de la línea */
+  }
+
+  .card-link {
+    text-decoration: none !important;
+    color: #159768 !important;
+    font-weight: bold !important;
+  }
+
+  .card-link span:nth-child(2) {
+    font-weight: normal;
+    color: black; /* O el color deseado para el segundo span */
   }

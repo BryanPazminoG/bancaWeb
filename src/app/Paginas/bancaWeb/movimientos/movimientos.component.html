@@ -1,0 +1,106 @@
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <!-- Navbar -->
+    <div class="col-12 px-0" class="borde-ancho">
+      <app-navbarbw></app-navbarbw>
+    </div>
+  </div>
+  <div class="row m-0">
+    <!-- Sidebar -->
+    <div class="col-2 p-0 d-flex flex-column vh-100">
+      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+    </div>
+    <!-- Main Content -->
+
+    <div class="col-10 p-0 d-flex">
+      <!-- Aquí puedes colocar el contenido principal -->
+      <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+        <div class="container">
+          <div class="container-fluid">
+            <div class="container-fluid">
+              <div class="row contenido my-3 p-5 rounded-4">
+                <!-- Select para la cuenta -->
+                <select
+                  class="form-select mb-3"
+                  aria-label="Cuenta Ahorro Tradicional"
+                >
+                  <option selected>Cuenta Ahorro Tradicional</option>
+                </select>
+
+                <!-- Navbar con pestañas -->
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      [routerLink]="['/movimientos']"
+                      >Movimientos</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a style="color: gray" class="nav-link" [routerLink]="['/info-cuenta']"
+                      >Información</a
+                    >
+                  </li>
+                </ul>
+
+                <div class="border">
+                  <!-- Agregando el botón Filtrar con el ícono -->
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <button
+                        class="btn btn-secondary btn-xs"
+                        style="padding: 0.1rem 0.25rem; font-size: 0.75rem"
+                      >
+                        <i class="bi bi-funnel-fill fs-3"></i> Filtrar
+                      </button>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row mt-3">
+                    <div class="col-6 text-start">
+                      Gonzales Suarez
+                      <br />
+                      Retiro ATM
+                    </div>
+
+                    <div class="col-6 text-end">
+                      <span class="positive-value">-40.00 USD</span>
+                    </div>
+                  </div>
+
+                  <hr />
+                  <div class="row mt-3">
+                    <div class="col-6 text-start">
+                      AG. Norte
+                      <br />
+                      Transferencia_APP
+                    </div>
+
+                    <div class="col-6 text-end">
+                      <span class="positive-value">+1140.00 USD</span>
+                      <!-- <span [ngClass]="{'positive-value': amount3 > 0}">{{ amount3 }} USD</span> -->
+                    </div>
+                  </div>
+
+                  <hr />
+                  <div class="row mt-3">
+                    <div class="col-6 text-start">
+                      AG. Norte
+                      <br />
+                      Iva pago CNT
+                    </div>
+
+                    <div class="col-6 text-end">
+                      <span class="positive-value">-6.27 USD</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

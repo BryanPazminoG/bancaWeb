@@ -1,0 +1,65 @@
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <!-- Navbar -->
+    <div class="col-12 px-0" class="borde-ancho">
+      <app-navbarbw></app-navbarbw>
+    </div>
+  </div>
+  <div class="row m-0">
+    <!-- Sidebar -->
+    <div class="col-2 p-0 d-flex flex-column vh-100">
+      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+    </div>
+    <!-- Main Content -->
+
+    <div class="col-10 p-0 d-flex">
+      <!-- Aquí puedes colocar el contenido principal -->
+
+      <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+        <div class="container">
+          <div class="container-fluid">
+            <div class="row contenido my-3 p-5 rounded-4">
+              <!-- Título -->
+              <div class="row mt-3">
+                <div class="col-12 text-center">
+                  <h4>Tabla de Amortización</h4>
+                </div>
+              </div>
+
+              <!-- Línea divisoria -->
+              <hr />
+
+              <!-- Tabla de Amortización -->
+              <div class="row mt-3">
+                <div class="col-12">
+                  <table class="table">
+                    <thead class="table table-success">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Fecha Vencimiento</th>
+                        <th scope="col">Capital Vivo</th>
+                        <th scope="col">Capital Amortizado</th>
+                        <th scope="col">Interés</th>
+                        <th scope="col">Cuota</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>01/01/2023</td>
+                        <td>$1000.00</td>
+                        <td>$200.00</td>
+                        <td>$50.00</td>
+                        <td>$250.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
