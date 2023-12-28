@@ -14,10 +14,19 @@ import { MovimientosComponent } from './Paginas/bancaWeb/movimientos/movimientos
 import { InfoCuentaComponent } from './Paginas/bancaWeb/info-cuenta/info-cuenta.component';
 import { InfoCreditoComponent } from './Paginas/bancaWeb/info-credito/info-credito.component';
 import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizacion.component';
+import { LoginComponent } from './Paginas/session/login/login.component';
+import { VerifyIdentityComponent } from './Paginas/session/verify-identity/verify-identity.component';
+import { MailConfirmationComponent } from './Paginas/session/mail-confirmation/mail-confirmation.component';
+import { RegisterComponent } from './Paginas/session/register/register.component';
 
 
 const routes: Routes = [
   //{ path:'' , component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: LoginComponent},
+  { path: 'login', component: LoginComponent  },
+  { path: 'verify-identity', component: VerifyIdentityComponent  },
+  { path: 'mail-verification', component: MailConfirmationComponent  },
+  { path: 'register', component: RegisterComponent },
   { path:'productos' , component : ProductosComponent},
   { path:'transferencias' , component : TransferenciasComponent},
   { path:'confirmacion-transferencia' , component : ConfirmacionTransferenciaComponent},

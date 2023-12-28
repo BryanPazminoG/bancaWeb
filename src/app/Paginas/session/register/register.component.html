@@ -1,0 +1,76 @@
+<div class="row vh-100">
+  <div class="col-6 d-flex justify-content-center">
+    <div class="text-center mt-5">
+      <img
+        src="../../../../assets/img/logoComplete.png"
+        alt="logo"
+        width="25%"
+        class="mb-5"
+      />
+      <div class="d-flex justify-content-center">
+        <p class="fs-2 w-75" style="color: #1c9352">
+          Sigue estos pasos para registrarte en Banca Web
+        </p>
+      </div>
+      <div class="d-flex step">
+        <div class="step-number d-flex justify-content-center">1</div>
+        <p class="w-75">Verifica tu identidad</p>
+      </div>
+
+      <div class="d-flex step">
+        <div class="step-number d-flex justify-content-center">2</div>
+        <p class="w-75">Crea tu usuario y contraseña</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 left-content">
+    <div class="identity-box">
+      <div class="d-flex justify-content-center">
+        <p class="fs-2">Ingresa tus nuevas credenciales</p>
+      </div>
+
+      <form action="">
+        <div class="d-flex justify-content-center">
+          <input
+            type="text"
+            class="form-control verify-input"
+            placeholder="Nombre de usuario"
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <input
+            type="password"
+            class="form-control verify-input"
+            placeholder="Nueva contraseña"
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <input
+            type="password"
+            class="form-control verify-input"
+            placeholder="Confirmar nueva contraseña"
+          />
+        </div>
+        <hr class="mt-5 mb-5" />
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            (click)="returnToLogin()"
+            class="btn btn-primary rounded-3 w-75 mb-4 verify-button"
+          >
+            Continuar
+          </button>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            type="button"
+            (click)="returnToLogin()"
+            class="btn btn-primary rounded-2 w-75 mb-4 back-button"
+          >
+            Regresar a Banca Web
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
