@@ -1,0 +1,91 @@
+<div class="row vh-100">
+  <div class="col-6 d-flex justify-content-center">
+    <div class="text-center mt-5">
+      <img
+        src="../../../../assets/img/logoComplete.png"
+        alt="logo"
+        width="25%"
+        class="mb-5"
+      />
+      <div class="d-flex justify-content-center">
+        <p class="fs-2 w-75" style="color: #1c9352">
+          Sigue estos pasos para registrarte en Banca Web
+        </p>
+      </div>
+      <div class="d-flex step">
+        <div class="step-number d-flex justify-content-center">1</div>
+        <p class="w-75">Verifica tu identidad</p>
+      </div>
+
+      <div class="d-flex step-unchecked">
+        <div class="step-number d-flex justify-content-center">2</div>
+        <p class="w-75">Crea tu usuario y contraseña</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 left-content">
+    <div class="identity-box">
+      <div class="d-flex justify-content-center">
+        <p class="fs-2">Verifica tu identidad</p>
+      </div>
+      <p class="fs-5">Tipo de identificacion</p>
+      <form action="">
+        <div class="form-check identity-type">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            value="CED"
+          />
+          <label class="form-check-label"> Cédula </label>
+        </div>
+        <div class="form-check identity-type">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            value="RUC"
+          />
+          <label class="form-check-label"> RUC </label>
+        </div>
+        <div class="form-check identity-type">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            value="PAS"
+          />
+          <label class="form-check-label"> Pasaporte </label>
+        </div>
+        <hr class="mt-5 mb-4" />
+        <p class="fs-5 mb-4">Número de identificacion</p>
+        <div class="d-flex justify-content-center">
+          <input
+            type="text"
+            class="form-control verify-input"
+            placeholder="Numero de identificación"
+          />
+        </div>
+        <hr class="mt-5 mb-5" />
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            (click)="goToMailVerification()"
+            class="btn btn-primary rounded-3 w-75 mb-4 verify-button"
+          >
+            Continuar
+          </button>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            type="button"
+            (click)="returnToLogin()"
+            class="btn btn-primary rounded-2 w-75 mb-4 back-button"
+          >
+            Regresar a Banca Web
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

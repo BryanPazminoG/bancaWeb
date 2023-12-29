@@ -1,0 +1,67 @@
+.verify-input {
+  height: 50px;
+}
+.verify-button {
+  background-color: #1c9352;
+  border-color: #1c9352;
+  height: 50px;
+}
+.back-button {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #1c9352;
+  height: 50px;
+}
+.left-content {
+  background: linear-gradient(to top, #128681, #1c9352);
+  padding: 0;
+}
+.identity-box {
+  background-color: white;
+  margin: 5% 18%;
+  border-radius: 10%;
+  padding: 6%;
+  text-align: center;
+}
+.form-check-input:checked {
+  background-color: #1c9352;
+  border-color: #1c9352;
+}
+.identity-type {
+  margin: 30px;
+  margin-left: 50px;
+}
+.step {
+  justify-content: center;
+  align-items: center;
+  margin: 70px 30%;
+}
+.step p {
+  color: #1c9352;
+  text-align: left;
+}
+.step .step-number {
+  background-color: #1c9352;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  align-items: center;
+  margin-right: 20px;
+}
+form p {
+  font-size: medium;
+  color: #128681;
+}
+form input {
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  text-align: center;
+}
+a:hover {
+  cursor: pointer;
+  color: #128681;
+}
