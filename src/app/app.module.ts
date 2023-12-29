@@ -21,6 +21,7 @@ import { MovimientosComponent } from './Paginas/bancaWeb/movimientos/movimientos
 import { InfoCuentaComponent } from './Paginas/bancaWeb/info-cuenta/info-cuenta.component';
 import { InfoCreditoComponent } from './Paginas/bancaWeb/info-credito/info-credito.component';
 import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizacion.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -49,7 +50,8 @@ import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizac
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

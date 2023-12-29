@@ -1,7 +1,8 @@
+<!-- amortizacion.component.html -->
 <div class="container-fluid p-0">
   <div class="row m-0">
     <!-- Navbar -->
-    <div class="col-12 px-0" class="borde-ancho">
+    <div class="col-12 px-0 borde-ancho">
       <app-navbarbw></app-navbarbw>
     </div>
   </div>
@@ -14,7 +15,6 @@
 
     <div class="col-10 p-0 d-flex">
       <!-- Aquí puedes colocar el contenido principal -->
-
       <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
         <div class="container">
           <div class="container-fluid">
@@ -44,13 +44,13 @@
                       </tr>
                     </thead>
                     <tbody id="tabla-datos">
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>01/01/2023</td>
-                        <td>$1000.00</td>
-                        <td>$200.00</td>
-                        <td>$50.00</td>
-                        <td>$250.00</td>
+                      <tr *ngFor="let fila of tablaAmortizacion">
+                        <th scope="row">{{ fila.no }}</th>
+                        <td>{{ fila.fechaVencimiento | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{ fila.capitalVivo | currency }}</td>
+                        <td>{{ fila.capitalAmortizado | currency }}</td>
+                        <td>{{ fila.interes | currency }}</td>
+                        <td>{{ fila.cuota | currency }}</td>
                       </tr>
                     </tbody>
                   </table>

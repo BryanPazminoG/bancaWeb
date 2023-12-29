@@ -27,23 +27,18 @@
                             </div>
                             <div class="row contenido my-3 p-5 rounded-4">
 
-                                <form action="">
+                                <form>
                                     <div class="form-group">
-                                        <select class="form-select">
-                                            <option selected>--- Seleccione la Cuenta a Debitar ---</option>
-                                            <option value="1" style="color: #3D84A7; line-height: 0.8em;">Cuenta de Ahorros Tradicional 1</option>
-                                            <option value="2" style="color: #3D84A7; line-height: 0.8em;">Cuenta de
-                                                Ahorros Tradicional 2</option>
+                                        <select class="form-select" [(ngModel)]="cuentaId">
+                                            <option selected disabled>--- Seleccione la Cuenta a Debitar ---</option>
+                                            <option *ngFor="let cuenta of cuentasAhorro" [value]="cuenta.id" style="color: #3D84A7; line-height: 0.8em;">{{ cuenta.nombre }}</option>
                                         </select>
                                     </div>
                                 </form>
                                 <div class="px-4 mt-3">
                                     <button type="button" class="btn btn-success mx-1" (click)="generarTarjeta()">Continuar</button>
-                                     
-                                    <button type="button" class="btn btn-secondary mx-1">
-                                      Cancelar
-                                    </button>
-                                  </div>
+                                    <button type="button" class="btn btn-secondary mx-1" (click)="cancelar()">Cancelar</button>
+                                </div>
 
                             </div>
                         </div>

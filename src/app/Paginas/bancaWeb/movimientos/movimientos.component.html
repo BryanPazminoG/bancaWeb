@@ -1,7 +1,7 @@
 <div class="container-fluid p-0">
   <div class="row m-0">
     <!-- Navbar -->
-    <div class="col-12 px-0" class="borde-ancho">
+    <div class="col-12 px-0 borde-ancho">
       <app-navbarbw></app-navbarbw>
     </div>
   </div>
@@ -34,12 +34,15 @@
                       class="nav-link active"
                       aria-current="page"
                       [routerLink]="['/movimientos']"
-                      >Movimientos</a
+                    >Movimientos</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a style="color: gray" class="nav-link" [routerLink]="['/info-cuenta']"
-                      >Información</a
+                    <a
+                      style="color: gray"
+                      class="nav-link"
+                      [routerLink]="['/info-cuenta']"
+                    >Información</a
                     >
                   </li>
                 </ul>
@@ -57,42 +60,19 @@
                     </div>
                   </div>
                   <hr />
-                  <div class="row mt-3">
+                  <!--  *ngFor para mostrar la lista de movimientos -->
+                  <div *ngFor="let movimiento of movimientos" class="row mt-3">
                     <div class="col-6 text-start">
-                      Gonzales Suarez
+                      {{ movimiento.lugar }}
                       <br />
-                      Retiro ATM
+                      {{ movimiento.descripcion }}
                     </div>
 
                     <div class="col-6 text-end">
-                      <span class="positive-value">-40.00 USD</span>
-                    </div>
-                  </div>
-
-                  <hr />
-                  <div class="row mt-3">
-                    <div class="col-6 text-start">
-                      AG. Norte
-                      <br />
-                      Transferencia_APP
-                    </div>
-
-                    <div class="col-6 text-end">
-                      <span class="positive-value">+1140.00 USD</span>
-                      <!-- <span [ngClass]="{'positive-value': amount3 > 0}">{{ amount3 }} USD</span> -->
-                    </div>
-                  </div>
-
-                  <hr />
-                  <div class="row mt-3">
-                    <div class="col-6 text-start">
-                      AG. Norte
-                      <br />
-                      Iva pago CNT
-                    </div>
-
-                    <div class="col-6 text-end">
-                      <span class="positive-value">-6.27 USD</span>
+                      <!--clase condicional con [ngClass] -->
+                      <span [ngClass]="{'positive-value': movimiento.monto > 0, 'negative-value': movimiento.monto < 0}">
+                        {{ movimiento.monto | currency }}
+                      </span>
                     </div>
                   </div>
                 </div>
