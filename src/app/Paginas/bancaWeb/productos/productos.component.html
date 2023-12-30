@@ -22,12 +22,12 @@
         <div class="row">
           <div *ngFor="let cuenta of cuentasAhorro" class="col-md-6">
             <a
-              [routerLink]="['/movimientos', cuenta.id]"
+              [routerLink]="['/movimientos', cuenta.codCuenta]"
               class="card text-dark custom-card mb-3 card-link"
             >
               <div class="card-header d-flex justify-content-between">
-                <span>{{ cuenta.tipo }}</span>
-                <span class="second-span">{{ cuenta.numero }}</span>
+                <span>{{ cuenta.codTipoCuenta }}</span>
+                <span class="second-span">{{ cuenta.numeroCuenta }}</span>
               </div>
               <div class="card-body">
                 <div class="d-flex justify-content-between">
@@ -35,14 +35,14 @@
                     <p class="card-text">Disponible:</p>
                   </div>
                   <div>
-                    <p class="card-text">{{ cuenta.disponible | currency }}</p>
+                    <p class="card-text">{{ cuenta.saldoDisponible | currency }}</p>
                   </div>
                 </div>
               </div>
             </a>
           </div>
-        </div>
-        <br />
+        <!-- Comienzo de la sección de créditos comentada -->
+        <!-- <br />
         <div>
           <h5>Créditos</h5>
         </div>
@@ -76,7 +76,8 @@
               </div>
             </a>
           </div>
-        </div>
+        </div> -->
+        <!-- Fin de la sección de créditos comentada -->
       </div>
     </div>
   </div>
