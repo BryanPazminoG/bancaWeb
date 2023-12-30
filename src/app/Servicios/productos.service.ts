@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ProductosService {
 
   private cuentasAhorroApi = "http://localhost:8080/cuenta/obtenerCuentasCliente/1";
-  private creditosApi = "http://localhost:8080/productos/creditos";
+  private creditosApi = "http://localhost:8080/credito/obtener-creditos/1";
 
   constructor(private http: HttpClient) { }
 

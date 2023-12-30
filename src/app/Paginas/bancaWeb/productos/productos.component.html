@@ -35,49 +35,51 @@
                     <p class="card-text">Disponible:</p>
                   </div>
                   <div>
-                    <p class="card-text">{{ cuenta.saldoDisponible | currency }}</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        <!-- Comienzo de la sección de créditos comentada -->
-        <!-- <br />
-        <div>
-          <h5>Créditos</h5>
-        </div>
-        <br />
-        <div class="row">
-          <div *ngFor="let credito of creditos" class="col-md-6">
-            <a
-              [routerLink]="['/info-credito', credito.id]"
-              class="card text-dark custom-card mb-3 card-link"
-            >
-              <div class="card-header d-flex justify-content-between">
-                <span>{{ credito.tipo }}</span>
-                <span class="second-span">{{ credito.numero }}</span>
-              </div>
-              <div class="card-body">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <p class="card-text">Disponible</p>
-                    <p class="card-text">Fecha de Pago</p>
-                  </div>
-                  <div>
-                    <p class="card-text">{{ credito.disponible | currency }}</p>
-                    <p
-                      class="card-text"
-                      style="color: black; font-weight: normal"
-                    >
-                      {{ credito.fechaPago | date }}
+                    <p class="card-text">
+                      {{ cuenta.saldoDisponible | currency }}
                     </p>
                   </div>
                 </div>
               </div>
             </a>
           </div>
-        </div> -->
-        <!-- Fin de la sección de créditos comentada -->
+
+          <br />
+          <div>
+            <h5>Créditos</h5>
+          </div>
+          <br />
+          <div class="row">
+            <div *ngFor="let credito of creditos" class="col-md-6">
+              <a
+                [routerLink]="['/info-credito', credito.codCredito]"
+                class="card text-dark custom-card mb-3 card-link"
+              >
+                <div class="card-header d-flex justify-content-between">
+                  <span>{{ credito.tipoCredito.nombre }}</span>
+                  <span class="second-span">{{ credito.numeroOperacion }}</span>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p class="card-text">Monto</p>
+                      <p class="card-text">Fecha Ultimo Pago</p>
+                    </div>
+                    <div>
+                      <p class="card-text">{{ credito.monto | currency }}</p>
+                      <p
+                        class="card-text"
+                        style="color: black; font-weight: normal"
+                      >
+                        {{ credito.fechaUltimoPago | date }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
