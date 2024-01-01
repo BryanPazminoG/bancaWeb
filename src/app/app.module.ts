@@ -22,6 +22,10 @@ import { InfoCuentaComponent } from './Paginas/bancaWeb/info-cuenta/info-cuenta.
 import { InfoCreditoComponent } from './Paginas/bancaWeb/info-credito/info-credito.component';
 import { AmortizacionComponent } from './Paginas/bancaWeb/amortizacion/amortizacion.component';
 import { FormsModule } from '@angular/forms';
+import { VerifyIdentityComponent } from './Paginas/session/verify-identity/verify-identity.component';
+import { LoginComponent } from './Paginas/session/login/login.component';
+import { MailConfirmationComponent } from './Paginas/session/mail-confirmation/mail-confirmation.component';
+import { RegisterComponent } from './Paginas/session/register/register.component';
 
 
 
@@ -44,8 +48,10 @@ import { FormsModule } from '@angular/forms';
     InfoCuentaComponent,
     InfoCreditoComponent,
     AmortizacionComponent,
- 
-
+    VerifyIdentityComponent,
+    LoginComponent,
+    MailConfirmationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
