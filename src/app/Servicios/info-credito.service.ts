@@ -7,14 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class InfoCreditoService {
 
-  private infoCreditoApi = "http://localhost:8080/info-credito/info-credito";
+  // Cambiar la URL para apuntar al servidor correcto
+  private infoCreditoApi = "http://34.125.114.60:8080/credito/getbyid";
 
   constructor(private http: HttpClient) { }
 
-  obtenerInfoCredito(): Observable<any> {
+  // Modificar el método para aceptar un parámetro (id del crédito)
+  obtenerInfoCredito(codCredito: string): Observable<any> {
+    
+    // Construir la URL con el parámetro codCredito
+    const url = `${this.infoCreditoApi}?id=${codCredito}`;
    
-    return this.http.get<any>(this.infoCreditoApi);
+    return this.http.get<any>(url);
   }
-
- 
 }

@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 
 export class ProductosService {
 
-  private cuentasAhorroApi = "http://localhost:8080/cuenta/obtenerCuentasCliente/1";
-  private creditosApi = "http://localhost:8080/credito/obtener-creditos/1";
+  private cuentasAhorroApi = "http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/1";
+  private creditosApi = "http://34.125.114.60:8080/credito/buscar-codigo-cliente?codCliente=1";
 
   constructor(private http: HttpClient) { }
 

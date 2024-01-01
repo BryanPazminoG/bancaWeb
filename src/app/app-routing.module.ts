@@ -38,7 +38,7 @@ const routes: Routes = [
   { path:'tarjeta-gen' , component : TarjetaGenComponent},
   { path:'movimientos' , component : MovimientosComponent},
   { path:'info-cuenta' , component : InfoCuentaComponent},
-  { path:'info-credito' , component : InfoCreditoComponent},
+  { path:'info-credito/:id' , component : InfoCreditoComponent},
   { path:'amortizacion' , component : AmortizacionComponent},
   { path:'**' , component : ErrorComponent},
 

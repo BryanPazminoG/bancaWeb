@@ -11,7 +11,6 @@
       <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
     </div>
     <!-- Main Content -->
-
     <div class="col-10 p-0 d-flex">
       <!-- Aquí puedes colocar el contenido principal -->
       <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
@@ -20,15 +19,15 @@
             <div class="row contenido my-3 p-5 rounded-4">
               <!-- Primer título -->
               <div class="row mt-3">
-                <div class="col-12 text-start" id="nombreCredito">
-                  <h4>{{ infoCredito.nombreCredito }}</h4>
+                <div class="col-12 text-start">
+                  <h4>{{ infoCredito.tipoCredito.nombre }}</h4>
                 </div>
               </div>
 
               <!-- Número de cuenta -->
-              <div class="row mt-3 mt-2" id="numCuenta">
+              <div class="row mt-3 mt-2">
                 <div class="col-6 text-start">
-                  <p>Nro.{{ infoCredito.numeroCuenta }}</p>
+                  <p>Nro.{{ infoCredito.numeroOperacion }}</p>
                 </div>
               </div>
 
@@ -40,7 +39,7 @@
 
               <div class="row mt-3 mb-4">
                 <div class="col-12 text-end">
-                  <strong>{{ infoCredito.cuotaAPagar | currency }}</strong>
+                  <strong>{{ infoCredito.monto | currency }}</strong>
                 </div>
               </div>
 
@@ -48,10 +47,10 @@
 
               <div class="row mt-3">
                 <div class="col-6 text-start">
-                  Fecha del próximo pago
+                  Fecha del último pago
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.fechaProximoPago | date: 'dd MMM yyyy' }}
+                  {{ infoCredito.fechaUltimoPago | date: 'dd MMM yyyy' }}
                 </div>
               </div>
 
@@ -74,12 +73,13 @@
               </div>
 
               <hr>
+
               <div class="row mt-3">
                 <div class="col-6 text-start">
                   Valor inicial
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.valorInicial | currency }}
+                  {{ infoCredito.monto | currency }}
                 </div>
               </div>
 
@@ -88,7 +88,7 @@
                   Deuda actual
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.deudaActual | currency }}
+                  {{ infoCredito.capitalPendiente | currency }}
                 </div>
               </div>
 
