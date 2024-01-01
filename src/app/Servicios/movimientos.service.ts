@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MovimientosService {
 
-  private movimientosApi = "http://localhost:8080/movimientos/movimientos";
+  private movimientosApi = "http://localhost:8080/transaccion/obtener-transacciones/1";
 
   constructor(private http: HttpClient) { }
 
