@@ -28,10 +28,10 @@
                 <!-- Navbar con pestañas -->
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" style="color: gray" [routerLink]="['/movimientos']">Movimientos</a>
+                    <a class="nav-link " aria-current="page" style="color: gray" [routerLink]="['/movimientos/', codCuenta]">Movimientos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" [routerLink]="['/info-cuenta']">Información</a>
+                    <a class="nav-link active" [routerLink]="['/info-cuenta', codCuenta]">Información</a>
                   </li>
                 </ul>
 

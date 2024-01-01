@@ -12,17 +12,17 @@ import { MovimientosService } from 'src/app/Servicios/movimientos.service';
 export class MovimientosComponent implements OnInit {
 
   movimientos: any[] = [];
-  idCuenta: string = ''; // Inicializar la propiedad aquí
+  codCuenta: string = ''; // Inicializar la propiedad aquí
 
   constructor(private movimientosService: MovimientosService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.idCuenta = this.route.snapshot.params['id'];
+    this.codCuenta = this.route.snapshot.params['id'];
     this.obtenerMovimientosCuenta();
   }
 
   obtenerMovimientosCuenta() {
-    this.movimientosService.obtenerMovimientosCuenta(this.idCuenta).subscribe(
+    this.movimientosService.obtenerMovimientosCuenta(this.codCuenta).subscribe(
       (data) => {
         this.movimientos = data;
       },

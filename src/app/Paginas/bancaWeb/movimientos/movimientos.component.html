@@ -33,7 +33,7 @@
                     <a
                       class="nav-link active"
                       aria-current="page"
-                      [routerLink]="['/movimientos']"
+                      [routerLink]="['/movimientos', codCuenta]"
                     >Movimientos</a
                     >
                   </li>
@@ -41,7 +41,7 @@
                     <a
                       style="color: gray"
                       class="nav-link"
-                      [routerLink]="['/info-cuenta']"
+                      [routerLink]="['/info-cuenta', codCuenta]"
                     >Información</a
                     >
                   </li>
@@ -54,14 +54,15 @@
                     <div class="col-6 text-start">
                       {{ movimiento.lugar }}
                       <br />
-                      {{ movimiento.descripcion }}
+                      {{ movimiento.detalle }}
                     </div>
 
                     <div class="col-6 text-end">
                       <!--clase condicional con [ngClass] -->
-                      <span [ngClass]="{'positive-value': movimiento.monto > 0, 'negative-value': movimiento.monto < 0}">
-                        {{ movimiento.monto | currency }}
+                      <span [ngClass]="{'positive-value': movimiento.valorDebe > 0, 'negative-value': movimiento.valorHaber > 0}">
+                        {{ movimiento.valorDebe > 0 ? movimiento.valorDebe : movimiento.valorHaber | currency }}
                       </span>
+                      
                     </div>
                   </div>
                 </div>
