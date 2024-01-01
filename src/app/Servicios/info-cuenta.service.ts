@@ -7,14 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InfoCuentaService {
-
-  private infoCuentaApi = "http://localhost:8080/cuenta/obtenerCuentasCliente/1";
+  private infoCuentaApi = "http://34.125.120.215:8080/cuenta/getbyid";
 
   constructor(private http: HttpClient) { }
 
-  obtenerInfoCuenta(): Observable<any> {
-   
-    return this.http.get<any>(this.infoCuentaApi);
+  obtenerInfoCuenta(codCuenta: string): Observable<any> {
+    const url = `${this.infoCuentaApi}/${codCuenta}`;
+    return this.http.get<any>(url);
   }
-
 }
