@@ -42,6 +42,7 @@
             maxlength="6"
             name="codigo"
             [(ngModel)]="codigo"
+            (keypress)="validateInputCodigo($event)"
           />
         </div>
         <a style="color: #128681">Reenviar el código</a>

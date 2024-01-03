@@ -26,6 +26,7 @@ import { VerifyIdentityComponent } from './Paginas/session/verify-identity/verif
 import { LoginComponent } from './Paginas/session/login/login.component';
 import { MailConfirmationComponent } from './Paginas/session/mail-confirmation/mail-confirmation.component';
 import { RegisterComponent } from './Paginas/session/register/register.component';
+import { CurrencyPipe } from '@angular/common';
 
 
 
@@ -51,13 +52,16 @@ import { RegisterComponent } from './Paginas/session/register/register.component
     VerifyIdentityComponent,
     LoginComponent,
     MailConfirmationComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+  ],
+  exports: [
+    TransferenciasComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

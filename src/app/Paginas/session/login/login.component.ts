@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Credenciales, LoginService } from 'src/app/Servicios/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,12 @@ export class LoginComponent {
     this.loginService.autenticarUsuario(credenciales).subscribe(
       data => {
         if(!data){
-          alert("Usuario o contraseña incorrectos")
+          Swal.fire({
+            title: 'Usuario o contraseña incorrectos',
+            text: 'Verifique su usuario y contraseña',
+            icon: 'error'
+          });
+          // alert("Usuario o contraseña incorrectos")
         }else {
           this.usuarioEncontrado;
           this.goToProductos()

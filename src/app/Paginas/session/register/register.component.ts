@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 import { LoginService, Usuario } from 'src/app/Servicios/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -34,14 +35,23 @@ export class RegisterComponent  {
 
   validarContrasena(): void {
     if(this.contrasena === this.newContrasena){
-      alert("Contraseñas correctas")
+      Swal.fire({
+        title: 'Contraseña Correctas',
+        icon: "success"
+      });
+      // alert("Contraseñas correctas")
       this.mfa = this.flujoDatosService.getCodigo()
       this.fechaCreacion = new Date().toString()
       this.fechaUltimaModificacion = new Date().toString()
       this.crearUsuario();
       this.returnToLogin()
     }else{
-      alert("Las contraseñas no coinciden")
+      Swal.fire({
+        title: 'Las Contraseñas No Coinciden',
+        text: 'Vuelva a ingresar las contraseñas',
+        icon: 'error'
+      });
+      // alert("Las contraseñas no coinciden")
     }
   }
 
@@ -56,7 +66,11 @@ export class RegisterComponent  {
     this.loginService.crearUsuario(usuario).subscribe(
       data => {
         console.log("USUARIO CREADO: ", data)
-        alert("Usuario registrado")
+        Swal.fire({
+          title: 'Usuario Registrado con Exito',
+          icon: "success"
+        });
+        // alert("Usuario registrado")
       },
       error => {
         console.error("Error al registrar cliente", error)

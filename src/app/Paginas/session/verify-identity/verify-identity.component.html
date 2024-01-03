@@ -68,6 +68,9 @@
             class="form-control verify-input"
             placeholder="Numero de identificación"
             name="numeroIdentificacion"
+            (keypress)="validateFormatIdentificacion($event)"
+            [disabled]="!isInputEnabled()"
+            [maxlength]="getMaxLengthForTipoIdentificacion()"
             [(ngModel)]="numeroIdentificacion"
           />
         </div>

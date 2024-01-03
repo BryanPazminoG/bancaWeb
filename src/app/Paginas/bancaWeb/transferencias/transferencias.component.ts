@@ -23,6 +23,40 @@ export class TransferenciasComponent implements OnInit {
     this.obtenerCuentasAhorro();
   }
 
+  validateFormatCuenta(event: KeyboardEvent | ClipboardEvent): void {
+    let key;
+
+    if (event.type === 'paste') {
+      key = (event as ClipboardEvent).clipboardData?.getData('text/plain') || '';
+    } else {
+      key = (event as KeyboardEvent).key || String.fromCharCode((event as KeyboardEvent).keyCode);
+    }
+
+    const regex = /[0-9]|\./;
+
+    if (!regex.test(key)) {
+      event.preventDefault?.();
+      (event as any).returnValue = false;
+    }
+  }
+
+  validateFormatNombre(event: KeyboardEvent | ClipboardEvent): void {
+    let key;
+
+    if (event.type === 'paste') {
+      key = (event as ClipboardEvent).clipboardData?.getData('text/plain') || '';
+    } else {
+      key = (event as KeyboardEvent).key || String.fromCharCode((event as KeyboardEvent).keyCode);
+    }
+
+    const regex = /[a-zA-Z]/;
+
+    if (!regex.test(key)) {
+      event.preventDefault?.();
+      (event as any).returnValue = false;
+    }
+  }
+
   obtenerCuentasAhorro() {
     this.productosService.obtenerCuentasAhorro().subscribe(
       (data) => {
