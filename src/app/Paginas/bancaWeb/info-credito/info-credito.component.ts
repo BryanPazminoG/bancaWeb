@@ -20,13 +20,14 @@ export class InfoCreditoComponent implements OnInit {
   ngOnInit(): void {
     this.codCredito = this.route.snapshot.params['id'];
     this.obtenerInfoCredito();
-    this.obtenerInfoAdicional();
+    
   }
 
   obtenerInfoCredito() {
     this.infoCreditoService.obtenerInfoCredito(this.codCredito).subscribe(
       (data) => {
         this.infoCredito = data;
+        this.obtenerInfoAdicional();
       },
       (error) => {
         console.error('Error obteniendo información del crédito', error);
