@@ -1,14 +1,19 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 
 @Component({
   selector: 'app-mail-confirmation',
   templateUrl: './mail-confirmation.component.html',
   styleUrls: ['./mail-confirmation.component.css']
 })
-export class MailConfirmationComponent implements AfterViewInit  {
+export class MailConfirmationComponent {
+  codigo: string = '';
+  codigoReal: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private flujoDatosService: FlujoDatosService,
+  ) { }
 
   returnToLogin() {
     this.router.navigate(['/login']);
@@ -18,23 +23,13 @@ export class MailConfirmationComponent implements AfterViewInit  {
     this.router.navigate(['/register']);
   }
 
-  @ViewChild('verifyInput1') verifyInput1!: ElementRef<HTMLInputElement>;
-  @ViewChild('verifyInput2') verifyInput2!: ElementRef<HTMLInputElement>;
-  @ViewChild('verifyInput3') verifyInput3!: ElementRef<HTMLInputElement>;
-  @ViewChild('verifyInput4') verifyInput4!: ElementRef<HTMLInputElement>;
-  @ViewChild('verifyInput5') verifyInput5!: ElementRef<HTMLInputElement>;
-  @ViewChild('verifyInput6') verifyInput6!: ElementRef<HTMLInputElement>;
-
-  ngAfterViewInit(): void {
-    // Los elementos verifyInput están disponibles después de la vista
-  }
-
-  onInput(event: any, nextInput: any): void {
-    const inputElement = event.target as HTMLInputElement;
-    const maxLength = 1;
-
-    if (inputElement.value.length === maxLength && nextInput) {
-      nextInput.nativeElement.focus();
+  validarCodigo(): void {
+    this.codigoReal = this.flujoDatosService.getCodigo()
+    if(this.codigoReal===this.codigo){
+      alert("Codigo correcto");
+      this.goToRegister();
+    }else{
+      alert("Codigo incorrecto");
     }
   }
 

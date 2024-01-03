@@ -1,5 +1,6 @@
 .verify-input {
   height: 50px;
+  min-width: 200px;
 }
 .verify-button {
   background-color: #1c9352;

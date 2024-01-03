@@ -34,14 +34,15 @@
       <p class="fs-5" style="color: #128681">
         Escribe el código a continuación
       </p>
-      <form action="">
+      <form (ngSubmit)="validarCodigo()">
         <div class="d-flex justify-content-center">
-          <input type="text" class="form-control verify-input" maxlength="1" />
-          <input type="text" class="form-control verify-input" maxlength="1" />
-          <input type="text" class="form-control verify-input" maxlength="1" />
-          <input type="text" class="form-control verify-input" maxlength="1" />
-          <input type="text" class="form-control verify-input" maxlength="1" />
-          <input type="text" class="form-control verify-input" maxlength="1" />
+          <input
+            type="text"
+            class="form-control verify-input"
+            maxlength="6"
+            name="codigo"
+            [(ngModel)]="codigo"
+          />
         </div>
         <a style="color: #128681">Reenviar el código</a>
 
@@ -49,7 +50,6 @@
         <div class="d-flex justify-content-center">
           <button
             type="submit"
-            (click)="goToRegister()"
             class="btn btn-primary rounded-3 w-75 mb-4 verify-button"
           >
             Continuar
