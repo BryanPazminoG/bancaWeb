@@ -55,8 +55,8 @@ export class TransferenciasComponent implements OnInit {
     );
   }
 
-  saldoContable: number = 1;
-  saldoDisponible: number = 1;
+  saldoContable: number = 0;
+  saldoDisponible: number = 0;
   
   actualizarValores(event: any) {
     console.log(event.target.value);
