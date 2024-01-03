@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 import { Credenciales, LoginService } from 'src/app/Servicios/login.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent {
   usuarioEncontrado: Usuario | null = null;
 
   constructor(private router: Router,
-    private loginService: LoginService  
+    private loginService: LoginService,
+    private flujoDatosService: FlujoDatosService 
   ) { }
 
   goToVerify () {
@@ -39,7 +41,8 @@ export class LoginComponent {
         if(!data){
           alert("Usuario o contraseña incorrectos")
         }else {
-          this.usuarioEncontrado;
+          this.usuarioEncontrado=data;
+          this.flujoDatosService.setUsuarioLogin(data)
           this.goToProductos()
         }
       },
