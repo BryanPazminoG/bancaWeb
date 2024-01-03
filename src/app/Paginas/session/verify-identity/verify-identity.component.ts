@@ -65,14 +65,14 @@ export class VerifyIdentityComponent {
 
   buscarNuevoUsuario(): void {
     this.clienteService.buscarUsuario(this.idCliente).subscribe(
-      (data) => {
+      (data: any) => {
         if(!data){
           this.enviarEmailVerificacion()
         }else{
           alert('Este usuario ya posee una cuenta en banca web');
         }
       },
-      (error) => {
+      (error: any) => {
         this.enviarEmailVerificacion()
         console.error("Usuario no enncontrado", error);
       }
@@ -81,7 +81,7 @@ export class VerifyIdentityComponent {
 
   buscarUsuario(): void {
     this.clienteService.buscarUsuario(this.idCliente).subscribe(
-      (data) => {
+      (data: any) => {
         if(!data){
           console.log("USUARIO BUSCADO", data)
           alert("Usted no posee una cuenta en banca web")
@@ -89,7 +89,7 @@ export class VerifyIdentityComponent {
           this.enviarEmailVerificacion()
         }
       },
-      (error) => {
+      (error: any) => {
         alert("Usted no posee una cuenta en banca web")
         console.error("Usuario no encontrado", error)
       }
