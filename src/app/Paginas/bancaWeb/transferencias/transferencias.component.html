@@ -1,83 +1,80 @@
 <div class="container-fluid p-0">
     <div class="row m-0">
-    <!-- Navbar -->
-    <div class="col-12 px-0" class="borde-ancho">
+      <!-- Navbar -->
+      <div class="col-12 px-0" class="borde-ancho">
         <app-navbarbw></app-navbarbw>
-    </div>
+      </div>
     </div>
     <div class="row m-0">
-        <!-- Sidebar -->
-        <div class="col-2 p-0 d-flex flex-column vh-100">
+      <!-- Sidebar -->
+      <div class="col-2 p-0 d-flex flex-column vh-100">
         <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
-    </div>
-    <!-- Main Content -->
-    
-    <div class="col-10 p-0 d-flex">
+      </div>
+      <!-- Main Content -->
+  
+      <div class="col-10 p-0 d-flex">
         <!-- Aquí puedes colocar el contenido principal -->
         <div class="p-4 flex-grow-1" style="background-color: #DBD8D8;">
-            <div class="container">
-                <div class="container-fluid">
-
-                    <div class="container-fluid">
-                        <div class="row title mt-5">
-                            <h4>Transferencias Directas</h4>
-                        </div>
-                        
-                        <div class="row contenido my-3 p-5 rounded-4">
-                            <hr>
-                            <form action="">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <select class="form-select" id="selectCuentas">
-                                            <option selected>Seleccionar Cuenta</option>
-                                            <option value="1">Cuenta de Ahorro 1</option>
-                                            <option value="2">Cuenta de Ahorro 2</option>
-                                            <option value="3">Cuenta de Ahorro 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <h5>Monto</h5>
-                                </div>
-                                <div class="col-3 my-3 rounded-3" >
-                                    <input type="number" id="monto" class="form-control" style="background-color: #DBD8D8;">
-                                </div>
-                                <div class="row mt-3">
-                                    <h5>Beneficiario</h5>
-                                </div>
-                                <div class="col-12 my-3 rounded-3" >
-                                    <input type="number" id="benNumCuenta" class="form-control" style="background-color: #DBD8D8;" placeholder="Número de cuenta">
-                                   
-                                </div>
-                                <div class="col-12 my-3 rounded-3" >
-                                    <input type="text" id="benNombre" class="form-control" style="background-color: #DBD8D8;" placeholder="Nombre del beneficiario">
-                                </div>
-                                <div class="row mt-3">
-                                    <h5>Descripción</h5>
-                                </div>
-                                <div class="col-12 my-3 rounded-3" >
-                                    <input type="text" id="descripcion" class="form-control" style="background-color: #DBD8D8; height: 100px;" placeholder="Descripción (opcional)">
-                                   
-                                </div>
-                                <div class="row mt-3">
-                                    <h5>Notificación</h5>
-                                </div>
-                                <div class="col-12 my-3 rounded-3" >
-                                    <input type="text" id="noticorreo" class="form-control" style="background-color: #DBD8D8;" placeholder="Correo electrónico (opcional)">
-                                   
-                                </div>
-                            </form>
-                            <div class="px-4 mt-3">
-                                <button type="button" class="btn btn-success mx-1" (click)="confirmarTransferencia()">Continuar</button>
-                                <button type="button" class="btn btn-secondary mx-1">Limpiar</button>
-                            </div>
-                        </div>
-                    </div>
+          <div class="container">
+            <div class="container-fluid">
+              <div class="container-fluid">
+                <div class="row title mt-5">
+                  <h4>Transferencias Directas</h4>
                 </div>
+  
+                <div class="row contenido my-3 p-5 rounded-4">
+                  <hr>
+                  <form (ngSubmit)="confirmarTransferencia()" #transferenciaForm="ngForm">
+                    <div class="row">
+                        <div class="col-12">
+                          <select class="form-select" id="selectCuentas" name="cuentaOrigen" [(ngModel)]="transferencia.cuentaOrigen">
+                            <option selected disabled>Seleccionar Cuenta</option>
+                            <option *ngFor="let cuenta of cuentas" [value]="cuenta.codCuenta">
+                                {{ cuenta.codTipoCuenta }} - {{ cuenta.numeroCuenta }}
+                              </option>
+                          </select>
+                        </div>
+                      </div>
+                    <div class="row mt-3">
+                      <h5>Monto</h5>
+                    </div>
+                    <div class="col-3 my-3 rounded-3">
+                      <input type="number" id="monto" class="form-control" style="background-color: #DBD8D8;" name="monto" [(ngModel)]="transferencia.monto">
+                    </div>
+                    <div class="row mt-3">
+                      <h5>Beneficiario</h5>
+                    </div>
+                    <div class="col-12 my-3 rounded-3">
+                      <input type="number" id="benNumCuenta" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNumeroCuenta" [(ngModel)]="transferencia.beneficiarioNumeroCuenta" placeholder="Número de cuenta">
+                    </div>
+                    <div class="col-12 my-3 rounded-3">
+                      <input type="text" id="benNombre" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNombre" [(ngModel)]="transferencia.beneficiarioNombre" placeholder="Nombre del beneficiario">
+                    </div>
+                    <div class="row mt-3">
+                      <h5>Descripción</h5>
+                    </div>
+                    <div class="col-12 my-3 rounded-3">
+                      <textarea id="descripcion" class="form-control" style="background-color: #DBD8D8; height: 100px;" name="descripcion" [(ngModel)]="transferencia.descripcion" placeholder="Descripción (opcional)"></textarea>
+                    </div>
+                    <!-- <div class="row mt-3">
+                      <h5>Notificación</h5>
+                    </div>
+                    <div class="col-12 my-3 rounded-3">
+                      <input type="text" id="noticorreo" class="form-control" style="background-color: #DBD8D8;" name="notificacionCorreo" [(ngModel)]="transferencia.notificacionCorreo" placeholder="Correo electrónico (opcional)">
+                    </div> -->
+  
+                    <div class="px-4 mt-3">
+                      <button type="submit" class="btn btn-success mx-1">Continuar</button>
+                      <button type="button" class="btn btn-secondary mx-1" (click)="limpiarFormulario(transferenciaForm)">Limpiar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+  
     </div>
-
-
-    </div>
-</div>
+  </div>
+  

@@ -52,16 +52,16 @@
                   <!--  *ngFor para mostrar la lista de movimientos -->
                   <div *ngFor="let movimiento of movimientos" class="row mt-3">
                     <div class="col-6 text-start">
-                      {{ movimiento.lugar }}
-                      <br />
+                     
                       {{ movimiento.detalle }}
                     </div>
 
                     <div class="col-6 text-end">
-                      <!--clase condicional con [ngClass] -->
+                     
                       <span [ngClass]="{'positive-value': movimiento.valorDebe > 0, 'negative-value': movimiento.valorHaber > 0}">
-                        {{ movimiento.valorDebe > 0 ? movimiento.valorDebe : movimiento.valorHaber | currency }}
+                        {{ (movimiento.valorDebe > 0 ? '+' : '-') + (movimiento.valorDebe > 0 ? movimiento.valorDebe : movimiento.valorHaber | currency) }} USD
                       </span>
+                      
                       
                     </div>
                   </div>
