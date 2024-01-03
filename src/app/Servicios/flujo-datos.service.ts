@@ -4,9 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FlujoDatosService {
-  private usuarioLogin: Object = {
-    nombre: "",
-    usuario: ""
+  private usuarioLogin: Usuario = {
+    codCliente: 0,
+    usuario: "",
+    contrasena: "",
+    mfa: "",
+    fechaCreacion: "",
+    fechaUltimaModificacion: "",
+    version: 0
   }
 
   private datosCompartidos: any;
@@ -34,11 +39,21 @@ export class FlujoDatosService {
   }
 
 /*************** SETTER AND GETTER DE LOGIN ******************/
-  public setUsuarioLogin(usuario: object) {
+  public setUsuarioLogin(usuario: Usuario) {
     this.usuarioLogin = usuario;
   }
-  public getUsuarioLogin(): object {
+  public getUsuarioLogin(): Usuario {
     return this.usuarioLogin;
   }
 
+}
+
+export interface Usuario {
+  codCliente: number,
+  usuario: string,
+  contrasena: string,
+  mfa: string,
+  fechaCreacion: string,
+  fechaUltimaModificacion: string,
+  version: number
 }

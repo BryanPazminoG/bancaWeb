@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 import { ProductosService } from 'src/app/Servicios/productos.service';
 
 @Component({
@@ -11,11 +12,15 @@ export class ProductosComponent implements OnInit {
   cuentasAhorro: any[] = [];
   creditos: any[] = [];
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private productosService: ProductosService,
+    private flujoDatosService: FlujoDatosService  
+  ) { }
 
   ngOnInit(): void {
     this.obtenerCuentasAhorro();
     this.obtenerCreditos();
+    const usuario = this.flujoDatosService.getUsuarioLogin()
+    console.log("USUARIO", usuario);
   }
 
   obtenerCuentasAhorro() {
