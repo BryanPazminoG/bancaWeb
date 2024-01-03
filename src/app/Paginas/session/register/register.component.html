@@ -7,7 +7,12 @@
         width="25%"
         class="mb-5"
       />
-      <div class="d-flex justify-content-center">
+      <div *ngIf="!isNew" class="d-flex justify-content-center">
+        <p class="fs-2 w-75" style="color: #1c9352">
+          Sigue estos pasos para recuperar tu contraseña de Banca Web
+        </p>
+      </div>
+      <div *ngIf="isNew" class="d-flex justify-content-center">
         <p class="fs-2 w-75" style="color: #1c9352">
           Sigue estos pasos para registrarte en Banca Web
         </p>
@@ -29,14 +34,25 @@
         <p class="fs-2">Ingresa tus nuevas credenciales</p>
       </div>
 
-      <form action="">
+      <form (ngSubmit)="validarContrasena()">
         <div class="d-flex justify-content-center">
           <input
+            *ngIf="isNew"
             type="text"
             class="form-control verify-input"
             name="usuario"
             placeholder="Nombre de usuario"
             [(ngModel)]="usuario"
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <input
+            *ngIf="!isNew"
+            type="text"
+            class="form-control verify-input"
+            name="usuario"
+            placeholder="Contraseña antigua"
+            [(ngModel)]="antiguaContrasena"
           />
         </div>
         <div class="d-flex justify-content-center">
@@ -61,7 +77,6 @@
         <div class="d-flex justify-content-center">
           <button
             type="submit"
-            (click)="returnToLogin()"
             class="btn btn-primary rounded-3 w-75 mb-4 verify-button"
           >
             Continuar

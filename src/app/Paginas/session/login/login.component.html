@@ -11,7 +11,7 @@
       <p class="fs-5">Ingresa sesión con tu usuario y contraseña</p>
 
       <form class="text-center mt-5" (ngSubmit)="autenticarCliente()">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mb-3">
           <input
             type="text"
             class="form-control w-75 login-input"
@@ -19,11 +19,6 @@
             name="usuario"
             [(ngModel)]="usuario"
           />
-        </div>
-        <div class="d-flex justify-content-center">
-          <p class="mb-3 text-end w-75">
-            <a (click)="goToVerify()">Olvidé mi usuario</a>
-          </p>
         </div>
         <div class="d-flex justify-content-center">
           <input
@@ -36,7 +31,7 @@
         </div>
         <div class="d-flex justify-content-center">
           <p class="mb-3 text-end w-75">
-            <a (click)="goToVerify()">Olvidé mi contraseña</a>
+            <a (click)="goToRecoveryPassword()">Olvidé mi contraseña</a>
           </p>
         </div>
         <button type="submit" class="btn btn-primary w-75 mb-4 login-button">
