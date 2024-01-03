@@ -51,10 +51,7 @@
           <br />
           <div class="row">
             <div *ngFor="let credito of creditos" class="col-md-6">
-              <a
-                [routerLink]="['/info-credito', credito.codCredito]"
-                class="card text-dark custom-card mb-3 card-link"
-              >
+              <a [routerLink]="['/info-credito', credito.codCredito]" class="card text-dark custom-card mb-3 card-link">
                 <div class="card-header d-flex justify-content-between">
                   <span>{{ credito.tipoCredito.nombre }}</span>
                   <span class="second-span">{{ credito.numeroOperacion }}</span>
@@ -63,22 +60,19 @@
                   <div class="d-flex justify-content-between">
                     <div>
                       <p class="card-text">Monto</p>
-                      <p class="card-text">Fecha Ultimo Pago</p>
+                      <p class="card-text">Fecha Creacion</p>
                     </div>
                     <div>
                       <p class="card-text">{{ credito.monto | currency }}</p>
-                      <p
-                        class="card-text"
-                        style="color: black; font-weight: normal"
-                      >
-                        {{ credito.fechaUltimoPago | date }}
-                      </p>
+                      <p class="card-text" style="color: black; font-weight: normal">{{ credito.fechaCreacion | date }}</p>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
           </div>
+          
+          
         </div>
       </div>
     </div>

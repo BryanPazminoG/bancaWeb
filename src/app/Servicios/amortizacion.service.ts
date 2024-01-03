@@ -1,4 +1,3 @@
-// amortizacion.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,13 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class AmortizacionService {
 
-  private amortizacionApi = "http://34.125.114.60:8080/amortizacion/amortizacion";
+  private amortizacionApi = "http://34.125.114.60:8080/creditotablapagos/tabla-amortizacion";
 
   constructor(private http: HttpClient) { }
 
-  obtenerTablaAmortizacion(): Observable<any[]> {
-    
-    return this.http.get<any[]>(this.amortizacionApi);
+  obtenerTablaAmortizacion(codCredito: string): Observable<any[]> {
+    const apiUrl = `${this.amortizacionApi}?codCredito=${codCredito}`;
+    return this.http.get<any[]>(apiUrl);
   }
 
 }
