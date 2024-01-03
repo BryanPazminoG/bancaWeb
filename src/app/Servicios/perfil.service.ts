@@ -14,10 +14,21 @@ export class PerfilService {
   constructor(private http: HttpClient, private flujoDatosService: FlujoDatosService) { }
 
   obtenerDatosPerfil(): Observable<any> {
-   
-    const codCliente = this.flujoDatosService.getUsuarioLogin().codCliente;
-    const perfilApi = `${this.perfilApiBase}?id=${codCliente}`;
-    return this.http.get<any>(perfilApi);
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      const usuario = JSON.parse(usuarioGuardado);
+      const codCliente = usuario.codCliente;
+      console.log(codCliente); // Esto mostrará el codCliente en la consola
+      const perfilApi = `${this.perfilApiBase}?id=${codCliente}`;
+      return this.http.get<any>(perfilApi);
+    } else {
+      // Si no se encuentra ningún usuario en el LocalStorage, se devuelve un observable vacío o se maneja según tu lógica
+      return new Observable<any>((observer) => {
+        observer.error('No se encontró ningún usuario en el LocalStorage');
+      });
+    }
   }
+
+  
 
 }

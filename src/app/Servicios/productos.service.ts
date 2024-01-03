@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,17 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class ProductosService {
 
-  private cuentasAhorroApi = "http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/1";
-  private creditosApi = "http://34.125.114.60:8080/credito/buscar-codigo-cliente?codCliente=7";
+  private cuentasAhorroApi = 'http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/';
+  private creditosApi = 'http://34.125.114.60:8080/credito/buscar-codigo-cliente';
 
   constructor(private http: HttpClient) { }
 
-  obtenerCuentasAhorro(): Observable<any> {
-    return this.http.get<any>(this.cuentasAhorroApi);
+  obtenerCuentasAhorro(idCliente: number): Observable<any> {
+    const url = `${this.cuentasAhorroApi}${idCliente}`;
+    return this.http.get<any>(url);
   }
 
-  obtenerCreditos(): Observable<any> {
-    return this.http.get<any>(this.creditosApi);
+  obtenerCreditos(codCliente: number): Observable<any> {
+    const url = `${this.creditosApi}`;
+    const params = new HttpParams().set('codCliente', codCliente.toString());
+    return this.http.get<any>(url, { params });
   }
-
 }

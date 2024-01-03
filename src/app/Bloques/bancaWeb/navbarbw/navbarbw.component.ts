@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarbwComponent implements OnInit {
 
+  nombre: string = '';
   constructor() { }
 
   ngOnInit(): void {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      const usuario = JSON.parse(usuarioGuardado);
+      const codCliente = usuario.usuario;
+      this.nombre = codCliente;
+    }
+    
   }
 
 }

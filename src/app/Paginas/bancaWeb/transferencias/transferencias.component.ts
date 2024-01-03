@@ -31,13 +31,20 @@ export class TransferenciasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro();
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      const usuario = JSON.parse(usuarioGuardado);
+      const codCliente = usuario.codCliente;
+      console.log(codCliente);
+      this.obtenerCuentasAhorro(codCliente);
+    }
+    
   }
 
   
 
-  obtenerCuentasAhorro() {
-    this.productosService.obtenerCuentasAhorro().subscribe(
+  obtenerCuentasAhorro(codCliente: any) {
+    this.productosService.obtenerCuentasAhorro(codCliente).subscribe(
       (data) => {
         this.cuentas = data;
         console.log(data);

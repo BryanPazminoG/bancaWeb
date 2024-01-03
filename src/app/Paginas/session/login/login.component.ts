@@ -48,6 +48,7 @@ export class LoginComponent {
         }else {
           this.usuarioEncontrado=data;
           this.flujoDatosService.setUsuarioLogin(data)
+          localStorage.setItem('usuario', JSON.stringify(data));
           this.goToProductos()
         }
       },

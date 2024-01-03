@@ -29,12 +29,13 @@
 
                                 <form>
                                     <div class="form-group">
-                                        <select class="form-select" [(ngModel)]="cuentaId">
+                                        <select class="form-select" [(ngModel)]="cuentaId" name="cuentaId">
                                             <option selected disabled>--- Seleccione la Cuenta a Debitar ---</option>
-                                            <option *ngFor="let cuenta of cuentasAhorro" [value]="cuenta.id" style="color: #3D84A7; line-height: 0.8em;">{{ cuenta.nombre }}</option>
+                                            <option *ngFor="let cuenta of cuentasAhorro" [value]="cuenta.id" style="color: #3D84A7; line-height: 0.8em;">{{ cuenta.numeroCuenta }}</option>
                                         </select>
                                     </div>
                                 </form>
+
                                 <div class="px-4 mt-3">
                                     <button type="button" class="btn btn-success mx-1" (click)="generarTarjeta()">Continuar</button>
                                     <button type="button" class="btn btn-secondary mx-1" (click)="cancelar()">Cancelar</button>

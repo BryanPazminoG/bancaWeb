@@ -93,3 +93,7 @@ body {
     font-weight: normal;
     color: black; /* O el color deseado para el segundo span */
   }
+
+  .borde-ancho {
+    border-bottom: 5px solid #ccc; 
+}
