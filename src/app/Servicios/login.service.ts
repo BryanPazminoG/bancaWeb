@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class LoginService {
   private autenticarApi = 'http://34.125.230.91:8080/seg-cliente/autenticar';
   private actualizarMFAApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-mfa';
-  private crearUsuarioApi = 'http://34.125.230.91:8080/crear';
+  private crearUsuarioApi = 'http://34.125.230.91:8080/seg-cliente/crear';
+  private actualizarContrasenaApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-contrasena'
 
   constructor(private http: HttpClient) {}
 
@@ -24,6 +25,10 @@ export class LoginService {
   crearUsuario(usuario: Usuario): Observable<any> {
     return this.http.post<any>(this.crearUsuarioApi, usuario);
   }
+
+  actualizarContrasena(contrasena: Contrasena): Observable<any> {
+    return this.http.put<any>(this.actualizarContrasenaApi, contrasena)
+  }
 }
 
 export interface Credenciales {
@@ -32,9 +37,16 @@ export interface Credenciales {
 }
 
 export interface Usuario {
+  codCliente: any;
   usuario: string;
   contrasena: string;
   mfa: string;
-  fechaCreacion: string;
-  fechaUltimaModificacion: string;
+  fechaCreacion: Date;
+  fechaUltimaModificacion: Date;
+}
+
+export interface Contrasena {
+  idCliente: string;
+  contrasenaAntigua: string;
+  nuevaContrasena: string;
 }

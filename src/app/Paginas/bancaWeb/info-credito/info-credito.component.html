@@ -18,7 +18,7 @@
           <div class="container-fluid">
             <div class="row contenido my-3 p-5 rounded-4">
               <!-- Primer título -->
-              <div class="row mt-3">
+              <div class="row mt-3" *ngIf="infoCredito && infoCredito.tipoCredito">
                 <div class="col-12 text-start">
                   <h4>{{ infoCredito.tipoCredito.nombre }}</h4>
                 </div>
@@ -47,30 +47,30 @@
 
               <div class="row mt-3">
                 <div class="col-6 text-start">
-                  Fecha del último pago
+                  Fecha próximo pago
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.fechaUltimoPago | date: 'dd MMM yyyy' }}
-                </div>
-              </div>
-
-              <div class="row mt-3">
-                <div class="col-6 text-start">
-                  Pagos Realizados
-                </div>
-                <div class="col-6 text-end">
-                  {{ infoCredito.pagosRealizados }}
+                  {{ infoAdicional.fechaPlanificadaPago | date: 'yyyy MMM dd' }}
                 </div>
               </div>
 
               <div class="row mt-3 mb-4">
+                <div class="col-6 text-start">
+                  Pagos Realizados
+                </div>
+                <div class="col-6 text-end">
+                  {{ infoCredito.cadenaPagos }}
+                </div>
+              </div>
+
+              <!-- <div class="row mt-3 mb-4">
                 <div class="col-6 text-start">
                   Nro. de cuenta de débito
                 </div>
                 <div class="col-6 text-end">
                   {{ infoCredito.numeroCuentaDebito }}
                 </div>
-              </div>
+              </div> -->
 
               <hr>
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class InfoCreditoService {
 
   private infoCreditoApi = "http://34.125.114.60:8080/credito/getbyid";
-
+  private infoAdicionalCreditoApi = "http://34.125.114.60:8080/creditotablapagos/pagos-realizados"
   constructor(private http: HttpClient) { }
 
 
@@ -18,4 +18,10 @@ export class InfoCreditoService {
 
     return this.http.get<any>(url);
   }
+
+  obtenerInfoAdicional(codCredito: string): Observable<any> {
+    const url = `${this.infoAdicionalCreditoApi}?codCredito=${codCredito}`;
+    return this.http.get<any>(url);
+  }
+  
 }

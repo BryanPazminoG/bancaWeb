@@ -26,7 +26,7 @@ export class FlujoDatosService {
     return this.datosCompartidos;
   }
 
-/*************** SETTER AND GETTER DE LOGIN ******************/
+/*************** SETTER AND GETTER CODIGO ******************/
 
   private codigoVerificacion: string = "";
 
@@ -47,6 +47,24 @@ export class FlujoDatosService {
   }
 
 
+/*************** SETTER AND GETTER DE Nuevo Usuario ******************/
+
+  private isNew: boolean = false;
+  setIsNew(value: boolean){
+    this.isNew = value;
+  }
+
+  getIsNew(): boolean {
+    return this.isNew;
+  }
+
+  private id: any = "";
+  setId(value: any){
+    this.id = value;
+  }
+  getId(): any {
+    return this.id;
+  }
 }
 
 export interface Usuario {

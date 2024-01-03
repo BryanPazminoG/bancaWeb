@@ -10,6 +10,7 @@ import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 export class MailConfirmationComponent {
   codigo: string = '';
   codigoReal: string = '';
+  isNew: boolean = this.flujoDatosService.getIsNew();
 
   constructor(private router: Router,
     private flujoDatosService: FlujoDatosService,
@@ -26,7 +27,6 @@ export class MailConfirmationComponent {
   validarCodigo(): void {
     this.codigoReal = this.flujoDatosService.getCodigo()
     if(this.codigoReal===this.codigo){
-      alert("Codigo correcto");
       this.goToRegister();
     }else{
       alert("Codigo incorrecto");

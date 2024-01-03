@@ -21,4 +21,5 @@ export class ClienteService {
     const params = new HttpParams().set('id', id.toString());
     return this.http.get<any>(`${this.buscarClientePorIdApi}?id=${id}`);
   }
+
 }

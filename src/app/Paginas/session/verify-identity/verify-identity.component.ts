@@ -19,6 +19,7 @@ export class VerifyIdentityComponent {
   nombreUsuario: string = '';
   idCliente: number = 0;
   nuevoMFA: string = '';
+  isNew: boolean = this.flujoDatosService.getIsNew()
 
   constructor(private router: Router,
     private clienteService: ClienteService,
@@ -46,8 +47,14 @@ export class VerifyIdentityComponent {
           this.destino = this.clienteEncontrado!.correoElectronico;
           this.nombreUsuario = this.clienteEncontrado!.nombres;
           this.idCliente = this.clienteEncontrado!.codigo;
-  
-          this.enviarMailVerificacion()
+          this.flujoDatosService.setId(this.idCliente);
+
+          const isNew = this.flujoDatosService.getIsNew()
+          if(isNew){
+            this.buscarNuevoUsuario();
+          }else {
+            this.buscarUsuario()
+          }
         }
       },
       (error) => {
@@ -56,7 +63,40 @@ export class VerifyIdentityComponent {
     );
   }
 
-  enviarMailVerificacion(): void {
+  buscarNuevoUsuario(): void {
+    this.clienteService.buscarUsuario(this.idCliente).subscribe(
+      (data) => {
+        if(!data){
+          this.enviarEmailVerificacion()
+        }else{
+          alert('Este usuario ya posee una cuenta en banca web');
+        }
+      },
+      (error) => {
+        this.enviarEmailVerificacion()
+        console.error("Usuario no enncontrado", error);
+      }
+    )
+  }
+
+  buscarUsuario(): void {
+    this.clienteService.buscarUsuario(this.idCliente).subscribe(
+      (data) => {
+        if(!data){
+          console.log("USUARIO BUSCADO", data)
+          alert("Usted no posee una cuenta en banca web")
+        }else{
+          this.enviarEmailVerificacion()
+        }
+      },
+      (error) => {
+        alert("Usted no posee una cuenta en banca web")
+        console.error("Usuario no encontrado", error)
+      }
+    )
+  }
+
+  enviarEmailVerificacion(): void {
     const codigoVerificacion = Math.floor(100000 + Math.random() * 900000).toString();
     this.codigo = codigoVerificacion;
     this.nuevoMFA = codigoVerificacion;

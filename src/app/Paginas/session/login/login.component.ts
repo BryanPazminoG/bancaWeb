@@ -25,6 +25,11 @@ export class LoginComponent {
   ) { }
 
   goToVerify () {
+    this.flujoDatosService.setIsNew(true);
+    this.router.navigate(['/verify-identity']);
+  }
+  goToRecoveryPassword () {
+    this.flujoDatosService.setIsNew(false);
     this.router.navigate(['/verify-identity']);
   }
   goToProductos () {
@@ -55,7 +60,7 @@ export class LoginComponent {
 }
 
 export interface Usuario {
-  codCliente: number,
+  codCliente: any,
   usuario: string,
   contrasena: string,
   mfa: string,
