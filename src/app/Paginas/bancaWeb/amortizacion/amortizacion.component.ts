@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AmortizacionService } from 'src/app/Servicios/amortizacion.service';
 
 @Component({
@@ -9,15 +10,25 @@ import { AmortizacionService } from 'src/app/Servicios/amortizacion.service';
 export class AmortizacionComponent implements OnInit {
 
   tablaAmortizacion: any[] = [];
+  codCredito: string = ''; 
 
-  constructor(private amortizacionService: AmortizacionService) { }
+  constructor(
+    private amortizacionService: AmortizacionService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.obtenerTablaAmortizacion();
+   
+    this.route.params.subscribe(params => {
+      this.codCredito = params['id'];
+     
+      this.obtenerTablaAmortizacion();
+    });
   }
 
   obtenerTablaAmortizacion() {
-    this.amortizacionService.obtenerTablaAmortizacion().subscribe(
+    // Ahora puedes pasar el código de crédito al servicio
+    this.amortizacionService.obtenerTablaAmortizacion(this.codCredito).subscribe(
       (data) => {
         this.tablaAmortizacion = data;
       },

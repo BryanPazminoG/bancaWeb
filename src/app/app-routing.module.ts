@@ -39,7 +39,7 @@ const routes: Routes = [
   { path:'movimientos/:id' , component : MovimientosComponent},
   { path:'info-cuenta/:id' , component : InfoCuentaComponent},
   { path:'info-credito/:id' , component : InfoCreditoComponent},
-  { path:'amortizacion' , component : AmortizacionComponent},
+  { path:'amortizacion/:id' , component : AmortizacionComponent},
   { path:'**' , component : ErrorComponent},
 
 

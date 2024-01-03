@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InfoCreditoService } from 'src/app/Servicios/info-credito.service';
 
@@ -9,6 +9,8 @@ import { InfoCreditoService } from 'src/app/Servicios/info-credito.service';
 })
 export class InfoCreditoComponent implements OnInit {
 
+  @Output() verTablaAmortizacion = new EventEmitter<string>(); // Cambio en el tipo de EventEmitter
+
   infoCredito: any = {};
   codCredito: string = '';
 
@@ -16,7 +18,6 @@ export class InfoCreditoComponent implements OnInit {
 
   ngOnInit(): void {
     this.codCredito = this.route.snapshot.params['id'];
-    
     this.obtenerInfoCredito();
   }
 
@@ -30,4 +31,9 @@ export class InfoCreditoComponent implements OnInit {
       }
     );
   }
+
+  mostrarTablaAmortizacion() {
+    this.verTablaAmortizacion.emit(this.codCredito);
+  }
+
 }

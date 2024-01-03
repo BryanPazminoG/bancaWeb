@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class ProductosService {
 
   private cuentasAhorroApi = "http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/1";
@@ -21,4 +20,8 @@ export class ProductosService {
     return this.http.get<any>(this.creditosApi);
   }
 
+  obtenerInformacionAdicionalCredito(codCredito: string): Observable<any> {
+    const infoAdicionalApi = `http://34.125.114.60:8080/creditotablapagos/proximo-pago/${codCredito}`;
+    return this.http.get<any>(infoAdicionalApi);
+  }
 }

@@ -95,13 +95,12 @@
               <hr>
               <div class="row mt-3">
                 <div class="col-12 text-center">
-                  <div>
-                    <a href="/amortizacion" style="text-decoration: none; font-weight: bold; color: #0071B0;">
-                      <i class="bi bi-table fs-3" style="color: #0071B0;"></i>&nbsp;&nbsp; Ver tabla de amortización
-                    </a>
-                  </div>
+                  <a [routerLink]="['/amortizacion', infoCredito.codCredito]" style="text-decoration: none; font-weight: bold; color: #0071B0; cursor: pointer;">
+                    <i class="bi bi-table fs-3" style="color: #0071B0;"></i>&nbsp;&nbsp; Ver tabla de amortización
+                  </a>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

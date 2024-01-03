@@ -37,20 +37,20 @@
                       <tr>
                         <th scope="col">No</th>
                         <th scope="col">Fecha Vencimiento</th>
-                        <th scope="col">Capital Vivo</th>
                         <th scope="col">Capital Amortizado</th>
                         <th scope="col">Interés</th>
                         <th scope="col">Cuota</th>
+                        <th scope="col">Capital Vivo</th>
                       </tr>
                     </thead>
                     <tbody id="tabla-datos">
-                      <tr *ngFor="let fila of tablaAmortizacion">
-                        <th scope="row">{{ fila.no }}</th>
-                        <td>{{ fila.fechaVencimiento | date: 'dd/MM/yyyy' }}</td>
-                        <td>{{ fila.capitalVivo | currency }}</td>
-                        <td>{{ fila.capitalAmortizado | currency }}</td>
-                        <td>{{ fila.interes | currency }}</td>
-                        <td>{{ fila.cuota | currency }}</td>
+                      <tr *ngFor="let cuota of tablaAmortizacion; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ cuota.fechaPlanificadaPago | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{ cuota.capital | currency }}</td>
+                        <td>{{ cuota.interes | currency }}</td>
+                        <td>{{ cuota.montoCuota | currency }}</td>
+                        <td>{{ cuota.capitalRestante | currency }}</td>
                       </tr>
                     </tbody>
                   </table>
