@@ -27,29 +27,48 @@
                   <form (ngSubmit)="confirmarTransferencia()" #transferenciaForm="ngForm">
                     <div class="row">
                         <div class="col-12">
-                          <select class="form-select" id="selectCuentas" name="cuentaOrigen" [(ngModel)]="transferencia.cuentaOrigen">
+                          <select class="form-select" id="selectCuentas" name="selectCuentas"  [(ngModel)]="transferencia.cuentaOrigen"  (change)="actualizarValores($event)">
                             <option selected disabled>Seleccionar Cuenta</option>
-                            <option *ngFor="let cuenta of cuentas" [value]="cuenta.codCuenta">
+                            <option *ngFor="let cuenta of cuentas" [value]="cuenta.numeroCuenta" >
                                 {{ cuenta.codTipoCuenta }} - {{ cuenta.numeroCuenta }}
                               </option>
                           </select>
                         </div>
                       </div>
-                    <div class="row mt-3">
-                      <h5>Monto</h5>
+                    <div class="row">
+                      <div class="row mt-3">
+                        <h5>Monto</h5>
+                      </div>
+                      <div class="col-3 my-3 rounded-3">
+                        <input type="number" id="monto" placeholder="$" class="form-control" style="background-color: #DBD8D8;" name="monto" [(ngModel)]="transferencia.monto">
+                      </div>
+                      <div class="col-2"></div>
+                      <div class="col-3 my-3">
+                        <p name="saldoDisponible" >Saldo Disponible: {{ saldoDisponible }}</p>
+                      </div>
+                      <div class="col-3 my-3">
+                        <p name="saldoContable" >Saldo Contable: {{ saldoContable }}</p>
+                      </div>
                     </div>
-                    <div class="col-3 my-3 rounded-3">
-                      <input type="number" id="monto" class="form-control" style="background-color: #DBD8D8;" name="monto" [(ngModel)]="transferencia.monto">
-                    </div>
+
+
                     <div class="row mt-3">
                       <h5>Beneficiario</h5>
                     </div>
-                    <div class="col-12 my-3 rounded-3">
-                      <input type="number" id="benNumCuenta" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNumeroCuenta" [(ngModel)]="transferencia.beneficiarioNumeroCuenta" placeholder="Número de cuenta">
+
+                    <div class="row">
+                        <div class="col-9 my-3 rounded-3">
+                          <input type="number" id="benNumCuenta" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNumeroCuenta" [(ngModel)]="transferencia.beneficiarioNumeroCuenta" placeholder="Número de cuenta" #benNumCuentaInput>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-1 my-3">
+                          <button type="button" class="btn btn-success" (click)="validarCuenta(benNumCuentaInput.value)">Validar</button>
+                        </div>
+                        <div class="col-12 my-3 rounded-3">
+                          <input type="text" id="benNombre" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNombre" [(ngModel)]="transferencia.beneficiarioNombre" placeholder="Nombre del beneficiario">
+                        </div>
                     </div>
-                    <div class="col-12 my-3 rounded-3">
-                      <input type="text" id="benNombre" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNombre" [(ngModel)]="transferencia.beneficiarioNombre" placeholder="Nombre del beneficiario">
-                    </div>
+
                     <div class="row mt-3">
                       <h5>Descripción</h5>
                     </div>

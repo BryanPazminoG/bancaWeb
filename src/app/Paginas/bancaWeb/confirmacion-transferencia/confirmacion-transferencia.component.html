@@ -31,13 +31,13 @@
                             <div class="col-12 my-3 rounded-3 border d-flex justify-content-between">
                                
                                 <div class="mt-4 mb-4" id="cuentaDesde">
-                                    <strong style="color: #128681;">Cuenta de Ahorro Tradicional 1</strong>
+                                    <strong style="color: #128681;">Cuenta de Origen</strong>
                                     <br>
-                                    2234567890
+                                    {{ datosTransferencia.cuentaDepositante }}
                                 </div>
                                 
                                 <div class="text-end mt-4">
-                                    <strong style="color: #1C9352;">$ 1897,68</strong>
+                                    <strong style="color: #1C9352;">$ {{ datosTransferencia.monto }}</strong>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -46,14 +46,11 @@
                             <div class="col-12 my-3 rounded-3 border d-flex justify-content-between" id="cuentaPara">
                                 
                                 <div class="mt-4 mb-4"> 
-                                    <strong style="color: #128681;">FAICAN CAMACHO DOMENCA LIZBETH</strong>
+                                    <strong style="color: #128681;">{{ datosTransferencia.beneficiarioNombre }}</strong>
                                     <br>
-                                    22345665432
+                                    {{ datosTransferencia.valorInput }}
                                 </div>
                                 
-                                <div class="text-end mt-4">
-                                    <strong style="color: #1C9352;">$ 100,68</strong>
-                                </div>
                             </div>
                             
                             
