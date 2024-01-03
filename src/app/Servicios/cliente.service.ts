@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private buscarClienteApi = "http://34.29.239.225:8080/cliente/buscar";
+  private buscarClienteApi = "http://34.102.85.160:8080/cliente/buscar";
 
   constructor(private http: HttpClient) { }
 

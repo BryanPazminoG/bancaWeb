@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AmortizacionService {
 
-  private amortizacionApi = "http://localhost:8080/amortizacion/amortizacion";
+  private amortizacionApi = "http://34.125.114.60:8080/amortizacion/amortizacion";
 
   constructor(private http: HttpClient) { }
 
