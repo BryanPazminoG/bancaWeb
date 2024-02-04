@@ -18,7 +18,10 @@ import { LoginComponent } from './Paginas/session/login/login.component';
 import { VerifyIdentityComponent } from './Paginas/session/verify-identity/verify-identity.component';
 import { MailConfirmationComponent } from './Paginas/session/mail-confirmation/mail-confirmation.component';
 import { RegisterComponent } from './Paginas/session/register/register.component';
-
+import { CreditosComponent } from './Paginas/bancaWeb/creditos/creditos.component';
+import { ConsumoComponent } from './Paginas/bancaWeb/consumo/consumo.component'; 
+import { HistorialComponent } from './Paginas/bancaWeb/historial/historial.component';
+import { DatosCreditoComponent } from './Paginas/bancaWeb/datos-credito/datos-credito.component';
 
 const routes: Routes = [
   //{ path:'' , component: HomeComponent, pathMatch: 'full' },
@@ -39,7 +42,13 @@ const routes: Routes = [
   { path:'movimientos/:id' , component : MovimientosComponent},
   { path:'info-cuenta/:id' , component : InfoCuentaComponent},
   { path:'info-credito/:id' , component : InfoCreditoComponent},
+  { path:'info-credito' , component : InfoCreditoComponent},
   { path:'amortizacion/:id' , component : AmortizacionComponent},
+  { path:'amortizacion' , component : AmortizacionComponent},
+  { path:'creditos' , component : CreditosComponent},
+  { path:'consumo' , component : ConsumoComponent},
+  { path:'historial' , component : HistorialComponent},
+  { path:'datosCredito' , component : DatosCreditoComponent},
   { path:'**' , component : ErrorComponent},
 
 

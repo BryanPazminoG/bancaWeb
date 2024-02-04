@@ -7,11 +7,12 @@
     </div>
     <div class="row m-0">
       <!-- Sidebar -->
-      <div class="col-2 p-0 d-flex flex-column vh-100">
+      <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
         <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
       </div>
       <!-- Main Content -->
-  
+      <div class="scroll-container">
+        <div class="scroll-content">
       <div class="col-10 p-0 d-flex">
         <!-- Aquí puedes colocar el contenido principal -->
         <div class="p-4 flex-grow-1" style="background-color: #DBD8D8;">
@@ -27,6 +28,7 @@
                   <form (ngSubmit)="confirmarTransferencia()" #transferenciaForm="ngForm">
                     <div class="row">
                         <div class="col-12">
+                          <h5>Cuenta</h5>
                           <select class="form-select" id="selectCuentas" name="selectCuentas"  [(ngModel)]="transferencia.cuentaOrigen"  (change)="actualizarValores($event)">
                             <option selected disabled>Seleccionar Cuenta</option>
                             <option *ngFor="let cuenta of cuentas" [value]="cuenta.numeroCuenta" >
@@ -93,7 +95,8 @@
           </div>
         </div>
       </div>
-  
+        </div>
+      </div>
     </div>
   </div>
   

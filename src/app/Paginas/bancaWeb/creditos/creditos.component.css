@@ -1,0 +1,182 @@
+  .productos, .consultas, .transferencias, .perfil{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 100%;
+    color: #fff;
+  }
+
+  .productos{
+    background-color: #1d837a;
+  }
+
+  .productos p , .consultas p, .transferencias p, .perfil p{
+    font-size: 17.5px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .consultas:hover, .transferencias:hover, .perfil:hover {
+    background-color: #1d837a;
+    color: #fff;
+  }
+
+  .salir{
+    margin-bottom: 100px;
+  }
+  .salir img {
+    margin-top: 130px;
+    width: 37%;
+    max-width: 90%;
+  }
+  
+  .salir:hover,
+  .credito:hover,
+  .clientes:hover {
+    cursor: pointer;
+  }
+  
+  .salir p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  
+  .columna-gris {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buttons-container h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 30px;
+    text-align: left;
+    color: #000000d3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.386);
+    margin-top: 25px;
+    margin-left: 75px;
+    font-weight: lighter;
+    cursor: default;
+  }
+
+  .buttons-container {
+    display: flex;
+    padding-left: 10px;
+    text-align: center;
+  }
+
+  .container {
+      max-width: 500px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 30px;
+      margin-bottom: 75px;
+    }
+
+  .button-container {
+    display: flex;
+    padding-top: -10%;
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  .button-1{
+    width: 175px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(to top, #e9ebf0, #d4d2d8);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    color: #097D7D;
+    font-weight: bold;
+    margin-left: 0%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container{
+    margin-top: 2.5%;
+    background: linear-gradient(to top, rgb(239, 239, 239), #dedede);
+    width: 50%;
+    cursor: default;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .container:hover{
+    background: linear-gradient(to top, rgb(255, 254, 254), #a7a7a7);
+  }
+
+  .container p{
+    font-size: 20px;
+    font-weight:normal;
+    margin: 5px;
+  }
+  
+  .button-1:hover {
+    background: linear-gradient(to top, #ffffff, #dbdbdb);
+  }
+
+  .button-2:hover {
+    background: linear-gradient(to top, #11d0c0, #19c1b3);
+  }
+
+  .centrado {
+    text-align: center;
+    display: flex;
+    gap: 125px;
+    justify-content: center;
+  }
+  
+  .cuadro-gris {
+    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    border-color: #cdcfce;
+    border-style: solid; 
+    border-width: 5px;
+    width: 26%;
+    height: 90%;
+  }
+  
+  .cuadro-gris:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  .cuadro-gris img {
+    width: 40%;
+    height:80%;
+    padding: -20px;
+  }
+  
+  .cuadro-gris p {
+    font-family: "Times New Roman", serif;
+    font-size: 25px;
+    color: #159768;
+    font-weight: normal;
+  }
+  
+  .borde-ancho {
+    border-bottom: 5px solid #ccc; 
+}
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to top, #186f3f, #5eae75);
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12.5px;
+  }

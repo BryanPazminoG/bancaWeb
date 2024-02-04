@@ -6,12 +6,14 @@
   /* Estilos CSS */
 
 .sidebar {
-  height: 100vh; /* 100% de la altura de la ventana */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .navbar-nav {
-  flex-grow: 1; /* Ocupa el espacio restante */
+  flex-grow: 1; 
+  font-family: 'Times New Roman', serif;
+  font-size: 115%;
 }
