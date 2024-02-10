@@ -5,7 +5,20 @@
 
 h4, h5{
     color: #159768;
+    font-family: 'Times New Roman', Times, serif;
 }
+
+h1 {
+    font-family: 'Times New Roman', serif;
+      font-size: 32px !important;
+      text-align: center;
+      color: #159768;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.386);
+      margin-top: 40px;
+      font-weight: lighter;
+      cursor: default;
+}
+
 .title{
     margin-left: auto;
     margin-right: auto;
@@ -25,18 +38,33 @@ button {
     width: 100px;
 }
 
-/* Estilos para los cuadros blancos personalizados */
+
 .white-box-custom {
-    width: 150px; /* Ancho de los cuadros */
-    height: 150px; /* Altura de los cuadros */
+    width: 150px; 
+    height: 150px; 
     background-color: white;
     margin: 60px;
+    margin-left: 475px;
+}
+
+.white-box-custom:hover {
+    width: 240px; 
+    height: 240px; 
+    background-color: white;
+    margin: 60px;
+    margin-left: 462px;
 }
 
 /* Estilos para aumentar el tamaño de los cuadros */
 .bigger-box {
     width: 240px; /* Ancho más grande */
     height: 240px; /* Altura más grande */
+    border-radius: 15px; 
+}
+
+.bigger-box:hover {
+    width: 260px; /* Ancho más grande */
+    height: 260px; /* Altura más grande */
     border-radius: 15px; 
 }
 
@@ -52,5 +80,17 @@ button {
     /* Asegúrate de que no haya desbordamiento horizontal */
     overflow-x: hidden;
   }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to top, #186f3f, #5eae75);
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12.5px;
+  }
+  
   
 

@@ -1,80 +1,91 @@
-<div class="container-fluid p-0">
-  <div class="row m-0">
-    <!-- Navbar -->
-    <div class="col-12 px-0 borde-ancho">
-      <app-navbarbw></app-navbarbw>
+<body>
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <!-- Navbar -->
+      <div class="col-12 px-0 borde-ancho">
+        <app-navbarbw></app-navbarbw>
+      </div>
     </div>
-  </div>
-  <div class="row m-0">
-    <!-- Sidebar -->
-    <div class="col-2 p-0 d-flex flex-column vh-100">
-      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
-    </div>
-    <!-- Main Content -->
-    <div class="col-10 p-0 d-flex flex-wrap">
-      <!-- Aquí puedes colocar el contenido principal -->
+    <div class="row m-0">
+      <!-- Sidebar -->
+      <div class="col-2 p-0 d-flex flex-column" style="height: 85vh">
+        <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+      </div>
+      <!-- Main Content -->
+      <div class="col-10 p-0 d-flex flex-wrap">
+        <!-- Aquí puedes colocar el contenido principal -->
 
-      <div class="container mt-4 contenido">
-        <div>
-          <h5>Cuenta de Ahorros</h5>
-        </div>
-        <br />
-        <div class="row">
-          <div *ngFor="let cuenta of cuentasAhorro" class="col-md-6">
-            <a
-              [routerLink]="['/movimientos', cuenta.codCuenta]"
-              class="card text-dark custom-card mb-3 card-link"
-            >
-              <div class="card-header d-flex justify-content-between">
-                <span>{{ cuenta.codTipoCuenta }}</span>
-                <span class="second-span">{{ cuenta.numeroCuenta }}</span>
-              </div>
-              <div class="card-body">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <p class="card-text">Disponible:</p>
-                  </div>
-                  <div>
-                    <p class="card-text">
-                      {{ cuenta.saldoDisponible | currency }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <br />
+        <div class="container mt-4 contenido">
           <div>
-            <h5>Créditos</h5>
+            <h5>Cuenta de Ahorros</h5>
           </div>
           <br />
           <div class="row">
-            <div *ngFor="let credito of creditos" class="col-md-6">
-              <a [routerLink]="['/info-credito', credito.codCredito]" class="card text-dark custom-card mb-3 card-link">
+            <div *ngFor="let cuenta of cuentasAhorro" class="col-md-6">
+              <a
+                [routerLink]="['/movimientos', cuenta.codCuenta]"
+                class="card text-dark custom-card mb-3 card-link"
+              >
                 <div class="card-header d-flex justify-content-between">
-                  <span>{{ credito.tipoCredito.nombre }}</span>
-                  <span class="second-span">{{ credito.numeroOperacion }}</span>
+                  <span>{{ cuenta.codTipoCuenta }}</span>
+                  <span class="second-span">{{ cuenta.numeroCuenta }}</span>
                 </div>
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                     <div>
-                      <p class="card-text">Monto</p>
-                      <p class="card-text">Fecha Creacion</p>
+                      <p class="card-text">Disponible:</p>
                     </div>
                     <div>
-                      <p class="card-text">{{ credito.monto | currency }}</p>
-                      <p class="card-text" style="color: black; font-weight: normal">{{ credito.fechaCreacion | date }}</p>
+                      <p class="card-text">
+                        {{ cuenta.saldoDisponible | currency }}
+                      </p>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
+
+            <br />
+            <div>
+              <h5>Créditos</h5>
+            </div>
+            <br />
+            <div class="row">
+              <div *ngFor="let credito of creditos" class="col-md-6">
+                <a
+                  [routerLink]="['/info-credito', credito.codCredito]"
+                  class="card text-dark custom-card mb-3 card-link"
+                >
+                  <div class="card-header d-flex justify-content-between">
+                    <span>{{ credito.tipoCredito.nombre }}</span>
+                    <span class="second-span">{{
+                      credito.numeroOperacion
+                    }}</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <p class="card-text">Monto</p>
+                        <p class="card-text">Fecha Creacion</p>
+                      </div>
+                      <div>
+                        <p class="card-text">{{ credito.monto | currency }}</p>
+                        <p
+                          class="card-text"
+                          style="color: black; font-weight: normal"
+                        >
+                          {{ credito.fechaCreacion | date }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
-          
-          
         </div>
       </div>
     </div>
   </div>
-</div>
+  <footer>© 2023 BancoBanquito. Todos los derechos reservados.</footer>
+</body>

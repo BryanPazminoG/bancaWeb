@@ -26,6 +26,10 @@ import { VerifyIdentityComponent } from './Paginas/session/verify-identity/verif
 import { LoginComponent } from './Paginas/session/login/login.component';
 import { MailConfirmationComponent } from './Paginas/session/mail-confirmation/mail-confirmation.component';
 import { RegisterComponent } from './Paginas/session/register/register.component';
+import { CreditosComponent } from './Paginas/bancaWeb/creditos/creditos.component';
+import { ConsumoComponent } from './Paginas/bancaWeb/consumo/consumo.component';
+import { HistorialComponent } from './Paginas/bancaWeb/historial/historial.component';
+import { DatosCreditoComponent } from './Paginas/bancaWeb/datos-credito/datos-credito.component';
 
 
 
@@ -51,7 +55,11 @@ import { RegisterComponent } from './Paginas/session/register/register.component
     VerifyIdentityComponent,
     LoginComponent,
     MailConfirmationComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreditosComponent,
+    ConsumoComponent,
+    HistorialComponent,
+    DatosCreditoComponent
   ],
   imports: [
     BrowserModule,

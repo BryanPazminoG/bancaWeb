@@ -7,16 +7,16 @@
     </div>
     <div class="row m-0">
         <!-- Sidebar -->
-        <div class="col-2 p-0 d-flex flex-column vh-100">
+        <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
             <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
         </div>
         <!-- Main Content -->
 
         <div class="col-10 p-0 d-flex">
             <!-- Aquí puedes colocar el contenido principal -->
-            <div class="p-4 flex-grow-1" style="background-color: #DBD8D8;">
+            <div class="p-4 flex-grow-1" style="background-color: #e7e1e1;">
                 <router-outlet></router-outlet>
-                <h1 class="ms-5 mt-5" style="color: #159768; font-size: 24px; font-weight: bold; padding-left:100px;">Solicitudes</h1>
+                <h1 class="ms-5 mt-5" >Solicitudes</h1>
                 <div class="container d-flex flex-column align-items-center mt-1">
                     <div class="container">                        
                         <div class="container d-flex flex-column align-items-start mt-1">
@@ -26,19 +26,21 @@
                                         <div class="row justify-content-center align-items-center">
                                             <img class="logo img-fluid pt-3" src="../../../assets/img/tarjeta3.png" alt="Logo" style="max-width: 60%; height: auto;">
                                         </div>
-                                        <div class="row text-center pt-4" style="color: #159768; font-size: 18px; ">
+                                        <div class="row text-center pt-4" style="color: #159768; font-size: 18px; padding: 20px;">
                                             <a>Solicitar tarjeta de débito</a>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>                      
-                        
+                        </div>  
                     </div>
                 </div>
             </div>
         </div>
 
+        <footer>
+            © 2023 BancoBanquito. Todos los derechos reservados.
+          </footer>
 
     </div>
 </div>

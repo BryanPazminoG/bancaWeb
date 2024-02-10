@@ -1,18 +1,15 @@
-/* Estilos generales */
-
-body {
-    font-family: sans-serif;
-    font-size: 16px;
-  }
-  
   /* Estilos para el contenedor principal */
   
   .container {
-    width: 750px;
+    width: 100%;
     margin: 0 auto;
-    padding: 10px;
+    overflow: hidden;
+
   }
   
+  .borde-ancho {
+    border-bottom: 5px solid #ccc; 
+}
   /* Estilos para la cabecera */
   
   h1 {
@@ -97,3 +94,25 @@ body {
   .borde-ancho {
     border-bottom: 5px solid #ccc; 
 }
+  h5{
+      font-family: 'Times New Roman', serif;
+      font-size: 25px;
+      text-align: left;
+      color: #000000d3;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.386);
+      margin-top: 40px;
+      margin-left: 80px;
+      font-weight: lighter;
+      cursor: default;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to top, #186f3f, #5eae75);
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12.5px;
+  }
