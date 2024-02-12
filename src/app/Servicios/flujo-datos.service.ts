@@ -26,11 +26,11 @@ export class FlujoDatosService {
     return this.datosCompartidos;
   }
 
-/*************** SETTER AND GETTER CODIGO ******************/
+  /*************** SETTER AND GETTER CODIGO ******************/
 
   private codigoVerificacion: string = "";
 
-  setCodigo(value: string){
+  setCodigo(value: string) {
     this.codigoVerificacion = value;
   }
 
@@ -38,7 +38,7 @@ export class FlujoDatosService {
     return this.codigoVerificacion;
   }
 
-/*************** SETTER AND GETTER DE LOGIN ******************/
+  /*************** SETTER AND GETTER DE LOGIN ******************/
   public setUsuarioLogin(usuario: Usuario) {
     this.usuarioLogin = usuario;
   }
@@ -47,10 +47,10 @@ export class FlujoDatosService {
   }
 
 
-/*************** SETTER AND GETTER DE Nuevo Usuario ******************/
+  /*************** SETTER AND GETTER DE Nuevo Usuario ******************/
 
   private isNew: boolean = false;
-  setIsNew(value: boolean){
+  setIsNew(value: boolean) {
     this.isNew = value;
   }
 
@@ -59,11 +59,35 @@ export class FlujoDatosService {
   }
 
   private id: any = "";
-  setId(value: any){
+  setId(value: any) {
     this.id = value;
   }
   getId(): any {
     return this.id;
+  }
+  /* ************* VARIABLES COMPARTIDOS DE CREDITO ***********************/
+  private participePrincipal = {};
+  private participeSecundario = [{}]
+  private credito = {}
+
+  /************** SETTER AND GETTER DE CREDITOS ************* */
+  public setParticipePrincipal(participePrincipal: any) {
+    this.participePrincipal = participePrincipal;
+  }
+  public getParticipePrincipal(): object {
+    return this.participePrincipal;
+  }
+  public setParticipeSecundario(participeSecundario: any) {
+    this.participeSecundario = participeSecundario;
+  }
+  public getParticipeSecundario(): object {
+    return this.participeSecundario;
+  }
+  public setCredito(credito: any) {
+    this.credito = credito;
+  }
+  public getCredito(): object {
+    return this.credito;
   }
 }
 

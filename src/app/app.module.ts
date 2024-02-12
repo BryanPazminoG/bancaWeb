@@ -30,6 +30,7 @@ import { CreditosComponent } from './Paginas/bancaWeb/creditos/creditos.componen
 import { ConsumoComponent } from './Paginas/bancaWeb/consumo/consumo.component';
 import { HistorialComponent } from './Paginas/bancaWeb/historial/historial.component';
 import { DatosCreditoComponent } from './Paginas/bancaWeb/datos-credito/datos-credito.component';
+import { InfoAmortizacionComponent } from './Paginas/bancaWeb/info-amortizacion/info-amortizacion.component';
 
 
 
@@ -59,7 +60,8 @@ import { DatosCreditoComponent } from './Paginas/bancaWeb/datos-credito/datos-cr
     CreditosComponent,
     ConsumoComponent,
     HistorialComponent,
-    DatosCreditoComponent
+    DatosCreditoComponent,
+    InfoAmortizacionComponent
   ],
   imports: [
     BrowserModule,

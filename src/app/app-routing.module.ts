@@ -22,6 +22,7 @@ import { CreditosComponent } from './Paginas/bancaWeb/creditos/creditos.componen
 import { ConsumoComponent } from './Paginas/bancaWeb/consumo/consumo.component'; 
 import { HistorialComponent } from './Paginas/bancaWeb/historial/historial.component';
 import { DatosCreditoComponent } from './Paginas/bancaWeb/datos-credito/datos-credito.component';
+import { InfoAmortizacionComponent } from './Paginas/bancaWeb/info-amortizacion/info-amortizacion.component';
 
 const routes: Routes = [
   //{ path:'' , component: HomeComponent, pathMatch: 'full' },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path:'info-cuenta/:id' , component : InfoCuentaComponent},
   { path:'info-credito/:id' , component : InfoCreditoComponent},
   { path:'info-credito' , component : InfoCreditoComponent},
+  { path:'info-amortizacion' , component : InfoAmortizacionComponent},
   { path:'amortizacion/:id' , component : AmortizacionComponent},
   { path:'amortizacion' , component : AmortizacionComponent},
   { path:'creditos' , component : CreditosComponent},
