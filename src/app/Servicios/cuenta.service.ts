@@ -6,17 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CuentaService {
+  
   private getCuentaByClienteApi: string = "http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/";
-  private getCuentaByIdApi: string = "http://34.125.120.215:8080/cuenta/getbyid/";
-  private getCuentaByNumeroApi: string = "  http://34.125.120.215:8080/cuenta/buscar/";
+  private getCuentaByNumeroApi: string = "http://35.192.152.130:8089/api/v1/cuentas/numero/";
   private postCuentaSaveApi: string = "http://34.125.120.215:8080/cuenta/save";
-  private getTipoCuentaAllApi: string = "http://34.125.120.215:8080/tipocuenta/getall"
-  private getTipoCuentaByIdApi: string = "http://34.125.120.215:8080/tipocuenta/getbyid/"
-  private getInterByCuentadApi: string = "http://34.125.120.215:8080/cuentaintervinientes/getbycuenta/"
-  private getInterByClienteApi: string = "http://34.125.120.215:8080/cuentaintervinientes/getbycliente/"
-  private postCuentaApi: string = "http://34.125.120.215:8080/cuenta/save"
-  private postCuentaParticipantesApi: string = "http://34.125.120.215:8080/cuentaintervinientes/save"
-  private postTransaccionApi: string = "http://34.125.120.215:8080/transaccion/transferencia"
+  
+  private getTipoCuentaAllApi: string = "http://35.192.152.130:8089/api/v1/tiposcuentas"
+  private getTipoCuentaByIdApi: string = "http://35.192.152.130:8089/api/v1/tiposcuentas/"
+  private postCuentaApi: string = "http://35.192.152.130:8089/api/v1/cuentas"
+  private postCuentaParticipantesApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes"
+  private getInterByClienteApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes/clientes/"
+  private getCuentaByIdApi: string = "http://35.192.152.130:8089/api/v1/cuentas/";
+  private getInterByCuentadApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes/cuentas/"
+  private postTransaccionApi: string = "http://35.192.152.130:8089/api/v1/transacciones"
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +38,7 @@ export class CuentaService {
     return this.http.get<any>(this.getCuentaByNumeroApi + numeroCuenta);
   }
   getTipoCuentaAllAPI(): Observable<any> {
-    return this.http.get<any>(this.getTipoCuentaAllApi);
+    return this.http.get<any>(this.getTipoCuentaAllApi); //as
   }
   getTipoCuentaByIdAPI(id: string): Observable<any> {
     return this.http.get<any>(this.getTipoCuentaByIdApi + id);
@@ -44,7 +46,7 @@ export class CuentaService {
   getInterByCuentadAPI(id: number): Observable<any> {
     return this.http.get<any>(this.getInterByCuentadApi + id);
   }
-  getInterByClienteAPI(id: number): Observable<any> {
+  getInterByClienteAPI(id: any): Observable<any> {
     return this.http.get<any>(this.getInterByClienteApi + id);
   }
   postTransaccionAPI(registroTransaccion: any): Observable<any> {

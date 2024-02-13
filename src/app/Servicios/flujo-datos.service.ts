@@ -13,10 +13,23 @@ export class FlujoDatosService {
     fechaUltimaModificacion: "",
     version: 0
   }
-
+  /********** Mostrar Tabla Amortizacion **************** */
+  idCredito:number = 0;
+  /*************************************************** */
   private datosCompartidos: any;
 
   constructor() { }
+
+    /********** Mostrar Tabla Amortizacion **************** */
+    setIdCredito(idCredito: number) {
+      this.idCredito = idCredito;
+    }
+  
+    getIdCredito() {
+      return this.idCredito;
+    }
+  /*************************************************** */
+
 
   setDatos(datos: any) {
     this.datosCompartidos = datos;
