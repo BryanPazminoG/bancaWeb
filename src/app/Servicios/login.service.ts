@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  private autenticarApi = 'http://34.125.230.91:8080/seg-cliente/autenticar';
+  //private autenticarApi = 'http://34.125.230.91:8080/seg-cliente/autenticar';
+  private autenticarApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente/sesion';
+  
+  
   private actualizarMFAApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-mfa';
   private crearUsuarioApi = 'http://34.125.230.91:8080/seg-cliente/crear';
   private actualizarContrasenaApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-contrasena'

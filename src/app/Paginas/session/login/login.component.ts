@@ -40,17 +40,23 @@ export class LoginComponent {
     const credenciales = {
       usuario: this.usuario,
       contrasena: this.contrasena,
+      idCliente: "78836b78e1f268b2709e17c27481866d",
     }
+
     this.loginService.autenticarUsuario(credenciales).subscribe(
       data => {
-        if(!data){
-          alert("Usuario o contraseña incorrectos")
-        }else {
+
+        if(data == null){
           this.usuarioEncontrado=data;
           this.flujoDatosService.setUsuarioLogin(data)
-          localStorage.setItem('usuario', JSON.stringify(data));
+          localStorage.setItem('usuario', JSON.stringify(credenciales));
           this.goToProductos()
-        }
+          
+        
+        } 
+
+      
+      
       },
       error => {
         console.error("Error al autenticar el cliente: ", error)

@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class ProductosService {
 
-  private cuentasAhorroApi = 'http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/';
+  private cuentasAhorroApi = 'http://35.192.152.130:8089/api/v1/cuentas/clientes/';
   private creditosApi = 'http://34.125.114.60:8080/credito/buscar-codigo-cliente';
 
   constructor(private http: HttpClient) { }
 
-  obtenerCuentasAhorro(idCliente: number): Observable<any> {
+  obtenerCuentasAhorro(idCliente: string): Observable<any> {
     const url = `${this.cuentasAhorroApi}${idCliente}`;
     return this.http.get<any>(url);
   }
