@@ -17,18 +17,19 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro('f1fb99c8d2b972c535cda1f2fc289958');
-    /*const usuarioGuardado = localStorage.getItem('usuario');
+    const usuarioGuardado = localStorage.getItem('usuario');
+    console.log(usuarioGuardado);
     if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
-      const codCliente = usuario.codCliente;
+      const codCliente = usuario.idCliente;
+      console.log(usuario);
       this.obtenerCuentasAhorro(codCliente);
       this.obtenerCreditos(codCliente);
-    }*/
-
+    }
   }
 
-  obtenerCuentasAhorro(codCliente: any) {
+  obtenerCuentasAhorro(codCliente: string) {
+    console.log(codCliente);
     this.productosService.obtenerCuentasAhorro(codCliente).subscribe(
       (data) => {
         this.cuentasAhorro = data;

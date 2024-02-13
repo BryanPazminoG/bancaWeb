@@ -29,19 +29,18 @@ export class TransferenciasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro('f1fb99c8d2b972c535cda1f2fc289958');
     const usuarioGuardado = localStorage.getItem('usuario');
     this.transferencia.cuentaOrigen = '';
     this.transferencia.monto = 0;
     this.transferencia.beneficiarioNombre = '';
     this.transferencia.beneficiarioNumeroCuenta = '';
     this.transferencia.descripcion = '';
-    /*if (usuarioGuardado) {
+    if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
       const codCliente = usuario.codCliente;
       console.log(codCliente);
       this.obtenerCuentasAhorro(codCliente);
-    }*/
+    }
   }
 
   obtenerCuentasAhorro(codCliente: any) {
