@@ -13,7 +13,10 @@
 }
 
 .navbar-nav {
-  flex-grow: 1; 
-  font-family: 'Times New Roman', serif;
+  flex-grow: 1;
   font-size: 115%;
+}
+
+.nav-item {
+  margin-top: 20px;
 }

@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InfoCuentaService {
-  private infoClienteCuentaApi = "http://34.125.120.215:8080/cuenta/getbyid";
-  private infoCuentaByCodCuentaApi = "http://34.125.120.215:8080/cuenta/buscar";
-  private actualizarDatosCuenta = "http://34.125.120.215:8080/cuenta/update";
+  private infoClienteCuentaApi = "  http://34.176.119.102:9090/api/v1/cuentas/";
+  private infoCuentaByCodCuentaApi = "http://34.176.119.102:9090/api/v1/cuentas/numero";
+  private actualizarDatosCuenta = "http://34.176.119.102:9090/api/v1/cuentas";
 
   constructor(private http: HttpClient) { }
 

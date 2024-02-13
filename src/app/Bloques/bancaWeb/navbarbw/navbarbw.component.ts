@@ -14,8 +14,9 @@ export class NavbarbwComponent implements OnInit {
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
-      const codCliente = usuario.usuario;
-      this.nombre = codCliente;
+      //const codCliente = usuario.usuario;
+      //const codCliente = ;
+      this.nombre = "78836b78e1f268b2709e17c27481866d";
     }
     
   }
