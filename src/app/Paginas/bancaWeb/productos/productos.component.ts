@@ -17,14 +17,14 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const usuarioGuardado = localStorage.getItem('usuario');
+    this.obtenerCuentasAhorro('f1fb99c8d2b972c535cda1f2fc289958');
+    /*const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
       const codCliente = usuario.codCliente;
-      console.log(codCliente); // Esto mostrará el codCliente en la consola
       this.obtenerCuentasAhorro(codCliente);
       this.obtenerCreditos(codCliente);
-    }
+    }*/
 
   }
 

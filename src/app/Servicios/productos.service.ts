@@ -7,19 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class ProductosService {
 
-  private cuentasAhorroApi = 'http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/';
-  private creditosApi = 'http://34.125.114.60:8080/credito/buscar-codigo-cliente';
+  private cuentasAhorroApi = 'http://34.176.119.102:9090/api/v1/cuentas/clientes/';
+  private creditosApi = 'http://34.176.119.102:9090/api/v1/creditos/clientes/';
 
   constructor(private http: HttpClient) { }
 
-  obtenerCuentasAhorro(idCliente: number): Observable<any> {
+  obtenerCuentasAhorro(idCliente: string): Observable<any> {
     const url = `${this.cuentasAhorroApi}${idCliente}`;
     return this.http.get<any>(url);
   }
 
   obtenerCreditos(codCliente: number): Observable<any> {
-    const url = `${this.creditosApi}`;
-    const params = new HttpParams().set('codCliente', codCliente.toString());
-    return this.http.get<any>(url, { params });
+    const url = `${this.creditosApi}${codCliente}`;
+    return this.http.get<any>(url);
   }
 }
