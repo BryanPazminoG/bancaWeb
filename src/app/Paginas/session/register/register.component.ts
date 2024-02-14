@@ -67,14 +67,15 @@ export class RegisterComponent  {
 
   crearUsuario(): void {
     console.log("usuarioInfo", this.usuarioInfo)
-    this.loginService.crearUsuario(this.usuarioInfo!).subscribe(
+    const usuarioACrear = {usuario: this.usuarioInfo?.usuario!, contrasena: this.usuarioInfo?.contrasena!}
+    this.loginService.crearUsuario(usuarioACrear).subscribe(
       data => {
-        console.log("USUARIO CREADO: ", data)
         this.usuarioCreado = data
         alert("Usuario registrado")
         this.returnToLogin()
       },
       error => {
+        alert("Error al registrar el cliente")
         console.error("Error al registrar cliente", error)
       }
     )

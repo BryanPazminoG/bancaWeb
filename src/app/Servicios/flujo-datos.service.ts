@@ -49,7 +49,7 @@ export class FlujoDatosService {
 
   /*************** SETTER AND GETTER DE Nuevo Usuario ******************/
 
-  private isNew: boolean = false;
+  private isNew: boolean = true;
   setIsNew(value: boolean) {
     this.isNew = value;
   }

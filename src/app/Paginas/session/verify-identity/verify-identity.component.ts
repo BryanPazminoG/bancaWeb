@@ -58,6 +58,7 @@ export class VerifyIdentityComponent {
         }
       },
       (error) => {
+        alert('Cliente no encontrado. Verifica la información ingresada.');
         console.error('Error al buscar cliente: ', error);
       }
     );
@@ -107,7 +108,6 @@ export class VerifyIdentityComponent {
         console.log(data);
         // this.actualizarMFA();     
         // TODO: no se puede actualizar MFA debido a que el cliente aun no esta registrado como usuario de banca Web
-        this.goToMailVerification();
       },
       error => {
         console.error('Error al enviar el email: ', error);
@@ -115,6 +115,7 @@ export class VerifyIdentityComponent {
       )
       const codiguSaved = this.flujoDatosService.getCodigo()
       console.log(codiguSaved)
+      this.goToMailVerification();
   }
 
   actualizarMFA(): void {
