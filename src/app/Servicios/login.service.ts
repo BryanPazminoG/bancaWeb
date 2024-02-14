@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   //private autenticarApi = 'http://34.125.230.91:8080/seg-cliente/autenticar';
-  private autenticarApi = 'http://localhost:8080/api/v1/seguridad-cliente/sesion';
-  private crearUsuarioApi = 'http://localhost:8080/api/v1/seguridadCliente';
+  private autenticarApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente/sesion';
+  private crearUsuarioApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente';
   
   
   private actualizarMFAApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-mfa';
-  private actualizarContrasenaApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-contrasena'
+  private actualizarContrasenaApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente/actualizar-contrasena'
 
   constructor(private http: HttpClient) {}
 

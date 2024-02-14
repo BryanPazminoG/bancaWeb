@@ -41,12 +41,13 @@ export class VerifyIdentityComponent {
         if(!data){
           alert('Cliente no encontrado. Verifica la información ingresada.');
         }else{
-          console.log('Cliente encontrado:', data);
+          console.log('Id del Cliente encontrado:', data);
           this.clienteEncontrado = data;
           this.flujoDatosService.setDatos(data); 
           this.destino = this.clienteEncontrado!.correoElectronico;
           this.nombreUsuario = this.clienteEncontrado!.nombres;
           this.idCliente = this.clienteEncontrado!.codigo;
+          localStorage.setItem('codigoCliente', data.idCliente)
           this.flujoDatosService.setId(this.idCliente);
 
           const isNew = this.flujoDatosService.getIsNew()

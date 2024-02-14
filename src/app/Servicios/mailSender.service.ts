@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MailSenderService {
-  private enviarMailVerificacionApi = 'http://34.125.230.91:8080/enviarCorreo';
+  private enviarMailVerificacionApi = 'http://34.72.67.43:8095/api/v1/correo';
 
   constructor(private http: HttpClient) {}
 
