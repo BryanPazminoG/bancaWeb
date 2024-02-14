@@ -12,7 +12,11 @@
         <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
       </div>
       <!-- Main Content -->
-      <div class="col-10 p-0 d-flex flex-wrap">
+
+      <div
+        class="col-10 p-0 d-flex flex-wrap"
+        style="background-color: #dbd8d8"
+      >
         <!-- Aquí puedes colocar el contenido principal -->
 
         <div class="container mt-4 contenido">
@@ -69,7 +73,9 @@
                         <p class="card-text">Fecha Creacion</p>
                       </div>
                       <div>
-                        <p class="card-text">{{ credito.monto | currency }}</p>
+                        <p class="card-text">
+                          {{ credito.monto | currency }}
+                        </p>
                         <p
                           class="card-text"
                           style="color: black; font-weight: normal"
@@ -89,9 +95,6 @@
   </div>
   <footer>© 2023 BancoBanquito. Todos los derechos reservados.</footer>
 </body>
-
-
-
 
 <!-- <div class="row">
   <div *ngFor="let credito of creditos" class="col-md-6">

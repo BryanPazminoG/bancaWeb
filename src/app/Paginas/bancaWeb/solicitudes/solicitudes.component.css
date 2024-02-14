@@ -5,15 +5,12 @@
 
 h4, h5{
     color: #159768;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 h1 {
-    font-family: 'Times New Roman', serif;
       font-size: 32px !important;
       text-align: center;
       color: #159768;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.386);
       margin-top: 40px;
       font-weight: lighter;
       cursor: default;

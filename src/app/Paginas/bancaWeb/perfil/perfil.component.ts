@@ -21,6 +21,7 @@ export class PerfilComponent implements OnInit {
     this.perfilService.obtenerDatosPerfil().subscribe(
       (data) => {
         this.datosPerfil = data;
+        console.log("PERFIL", this.datosPerfil)
       },
       (error) => {
         console.error('Error obteniendo datos de perfil', error);

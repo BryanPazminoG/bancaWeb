@@ -7,126 +7,150 @@
   </div>
   <div class="row m-0">
     <!-- Sidebar -->
-    <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
+    <div class="col-2 p-0 d-flex flex-column" style="height: 85vh">
       <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
     </div>
     <!-- Main Content -->
     <div class="scroll-container">
       <div class="scroll-content">
-    <div class="col-10 p-0 d-flex">
-      <!-- Aquí puedes colocar el contenido principal -->
-      <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
-        <div class="container">
-          <div class="container-fluid">
-            <div class="row contenido my-3 p-5 rounded-4">
-              <div class="d-flex align-items-center pb-5">
-                <img
-                  src="../../../../assets/img/user.png"
-                  alt="Avatar"
-                  class="rounded-circle border border-2"
-                  style="width: 150px; height: 150px; object-fit: cover"
-                />
-                <div class="ms-5">
-                  {{ datosPerfil.nombres }} {{ datosPerfil.apellidos }}
-                  <!-- <br />
+        <div class="col-10 p-0 d-flex">
+          <!-- Aquí puedes colocar el contenido principal -->
+          <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+            <div class="container">
+              <div class="container-fluid">
+                <div class="row contenido my-3 p-5 rounded-4">
+                  <div class="d-flex align-items-center pb-5">
+                    <img
+                      src="../../../../assets/img/user.png"
+                      alt="Avatar"
+                      class="rounded-circle border border-2"
+                      style="width: 150px; height: 150px; object-fit: cover"
+                    />
+                    <div class="ms-5">
+                      {{ datosPerfil.nombres }} {{ datosPerfil.apellidos }}
+                      <!-- <br />
                   Último ingreso {{ datosPerfil.ultimoIngreso }} -->
-                </div>
-              </div>
+                    </div>
+                  </div>
 
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/perfil">Detalle</a>
-                </li>
-                <li class="nav-item">
-                  <a style="color: gray" class="nav-link" [routerLink]="['/password']">Cambio de Contraseña</a>
-                </li>
-              </ul>
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/perfil"
+                        >Detalle</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        style="color: gray"
+                        class="nav-link"
+                        [routerLink]="['/password']"
+                        >Cambio de Contraseña</a
+                      >
+                    </li>
+                  </ul>
 
-              <div class="mt-5">
-                <h6>Datos personales</h6>
-              </div>
-              <div class="border">
-                <div class="row mt-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-person-circle fs-3"></i>
+                  <div class="mt-5">
+                    <h6>Datos personales</h6>
                   </div>
-                  <div class="col-6">
-                    Número de identificación
-                    <br />
-                    {{ datosPerfil.numeroIdentificacion }}
+                  <div class="border">
+                    <div class="row mt-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-person-circle fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Número de identificación
+                        <br />
+                        {{ datosPerfil.numeroIdentificacion }}
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-calendar-date fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Fecha de nacimiento
+                        <br />
+                        {{ datosPerfil.fechaNacimiento.split("T")[0] }}
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-3 mb-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-person-check-fill fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Actividad
+                        <br />
+                        Estado: {{ datosPerfil.estado }}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <hr />
-                <div class="row mt-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-calendar-date fs-3"></i>
-                  </div>
-                  <div class="col-6">
-                    Fecha de nacimiento
-                    <br />
-                    {{ datosPerfil.fechaNacimiento }}
-                  </div>
-                </div>
-                <hr />
-                <div class="row mt-3 mb-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-person-check-fill fs-3"></i>
-                  </div>
-                  <div class="col-6">
-                    Actividad
-                    <br />
-                    Estado: {{ datosPerfil.estado }}
-                  </div>
-                </div>
-              </div>
 
-              <div class="mt-5">
-                <h6>Datos de contacto</h6>
-              </div>
-              <div class="border">
-                <div class="row mt-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-telephone-fill fs-3"></i>
+                  <div class="mt-5">
+                    <h6>Datos de contacto</h6>
                   </div>
-                  <div class="col-6">
-                    Teléfono
-                    <br />
-                    {{ datosPerfil.telefono }}
+                  <div class="border">
+                    <div class="row mt-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-telephone-fill fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Teléfono
+                        <br />
+                        {{ datosPerfil.telefonos[0].numero }}
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-3 mb-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-envelope-at-fill fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Correo electrónico
+                        <br />
+                        {{ datosPerfil.correoElectronico }}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <hr />
-                <div class="row mt-3 mb-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-envelope-at-fill fs-3"></i>
-                  </div>
-                  <div class="col-6">
-                    Correo electrónico
-                    <br />
-                    {{ datosPerfil.correoElectronico }}
-                  </div>
-                </div>
-              </div>
 
-              <div class="mt-5">
-                <h6>Datos de ubicación</h6>
-              </div>
-              <div class="border">
-                <div class="row mt-3 mb-3">
-                  <div class="col-2 text-center align-self-center justify-content-center">
-                    <i class="bi bi-geo-alt-fill fs-3"></i>
+                  <div class="mt-5">
+                    <h6>Datos de ubicación</h6>
                   </div>
-                  <div class="col-6">
-                    Dirección
-                    <br />
-                    {{ datosPerfil.direccion }}
+                  <div class="border">
+                    <div class="row mt-3 mb-3">
+                      <div
+                        class="col-2 text-center align-self-center justify-content-center"
+                      >
+                        <i class="bi bi-geo-alt-fill fs-3"></i>
+                      </div>
+                      <div class="col-6">
+                        Dirección
+                        <ul>
+                          <li>{{ datosPerfil.direcciones[0].linea1 }}</li>
+                          <li>{{ datosPerfil.direcciones[0].linea2 }}</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
       </div>
     </div>
   </div>

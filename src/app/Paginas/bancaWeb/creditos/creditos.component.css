@@ -52,11 +52,9 @@
   }
   
   .buttons-container h3 {
-    font-family: 'Times New Roman', serif;
     font-size: 30px;
     text-align: left;
     color: #000000d3;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.386);
     margin-top: 25px;
     margin-left: 75px;
     font-weight: lighter;
@@ -89,7 +87,6 @@
     height: 40px;
     border-radius: 10px;
     background: linear-gradient(to top, #e9ebf0, #d4d2d8);
-    font-family: "Times New Roman", Times, serif;
     font-size: 25px;
     color: #097D7D;
     font-weight: bold;
@@ -106,7 +103,6 @@
     width: 50%;
     cursor: default;
     text-align: center;
-    font-family: "Times New Roman", Times, serif;
   }
 
   .container:hover{
@@ -160,7 +156,6 @@
   }
   
   .cuadro-gris p {
-    font-family: "Times New Roman", serif;
     font-size: 25px;
     color: #159768;
     font-weight: normal;

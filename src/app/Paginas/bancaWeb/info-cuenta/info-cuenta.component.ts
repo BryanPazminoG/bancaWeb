@@ -26,6 +26,7 @@ export class InfoCuentaComponent implements OnInit {
     this.infoCuentaService.obtenerInfoCuenta(this.codCuenta).subscribe(
       (data) => {
         this.infoCuenta = data;
+        console.log("INFO DE LA CUENTA", data)
       },
       (error) => {
         console.error('Error obteniendo información de cuenta', error);
