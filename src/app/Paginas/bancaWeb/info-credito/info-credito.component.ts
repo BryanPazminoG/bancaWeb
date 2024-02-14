@@ -53,9 +53,14 @@ ProximoPago: any = {
 
 
   ngOnInit(): void {
-    this.CreditosLoad.pop();
-    var codigoCliente: any = localStorage.getItem("codigoCliente");
-    this.getClienteP(codigoCliente);
+    const usuarioLoggeado = localStorage.getItem('usuario');
+    
+    if (usuarioLoggeado) {
+      const usuario = JSON.parse(usuarioLoggeado);
+      const codCliente = usuario.codCliente;
+      this.getClienteP(codCliente);
+      this.CreditosLoad.pop();
+    }
   }
   getClienteP(codCliente:String) {
     this.serviceCliente.buscarClientePorId(codCliente).subscribe(

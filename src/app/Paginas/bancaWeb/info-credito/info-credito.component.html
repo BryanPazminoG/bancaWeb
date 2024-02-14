@@ -28,7 +28,7 @@
                 <div class="col-12">
                   <select class="form-select" name="creditos" (change)="obtenerInfoCredito($event)">
                     <option value="">Seleccione el credito</option>
-                    <option *ngFor="let opcion of CreditosLoad" [value]="opcion.codCredito">{{opcion.numeroOperacion}} - {{opcion.fechaCreacion}}</option>
+                    <option *ngFor="let opcion of CreditosLoad" [value]="opcion.codCredito">{{opcion.numeroOperacion}} - {{opcion.fechaCreacion | date}}</option>
                   </select>
                 </div>
               </div>

@@ -72,12 +72,17 @@ export class ConsumoComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    var codCliente : any = localStorage.getItem("codigoCliente");
+
+    const usuarioLoggeado = localStorage.getItem('usuario');
     
-    this.getClienteP(codCliente);
-    this.listaIntervinientes.pop();
-    this.cuentasClienteP.pop();
-    this.cuentasClienteS.pop();
+    if (usuarioLoggeado) {
+      const usuario = JSON.parse(usuarioLoggeado);
+      const codCliente = usuario.codCliente;
+      this.getClienteP(codCliente);
+      this.listaIntervinientes.pop();
+      this.cuentasClienteP.pop();
+      this.cuentasClienteS.pop();
+    }
   }
 
   getClienteP(codCliente:String) {
