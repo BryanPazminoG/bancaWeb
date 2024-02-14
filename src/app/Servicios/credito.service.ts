@@ -1,41 +1,54 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { FlujoDatosService } from './flujo-datos.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreditoService {
-  private getAllTipoCreApi: string = "http://34.125.114.60:8080/tipocredito/getall";
-  private getByIdTipoCreApi: string = "http://34.125.114.60:8080/tipocredito/getbyid";
-  private getByIdTasaIntApi: string = "http://34.125.114.60:8080/tasainteres/getbyid";
-  private getCalculoTasaIntApi: string = "http://34.125.114.60:8080/tasainteres/calcular";
-  private getPreTablaPagoApi: string = "http://34.125.114.60:8080/creditotablapagos/pretablapagos";
-  private postCreditoApi: string = "http://34.125.114.60:8080/credito/save";
-  private postCredIntApi: string = "http://34.125.114.60:8080/creditointerviniente/save";
-  private postTablaPagApi: string = "http://34.125.114.60:8080/creditotablapagos/save";
+  private getAllTipoCreApi: string = "http://104.154.60.233:8091/api/v1/tipoCreditos";
+  private getByIdTipoCreApi: string = "http://104.154.60.233:8091/api/v1/tipoCreditos/";
+  private getByIdTasaIntApi: string = "http://104.154.60.233:8091/api/v1/tasainteres/";
+  private getCalculoTasaIntApi: string = "http://104.154.60.233:8091/api/v1/tasainteres/";
+  private getPreTablaPagoApi: string = "http://104.154.60.233:8091/api/v1/pagos/";
+  private postCreditoApi: string = "http://104.154.60.233:8091/api/v1/creditos";
+  private postCredIntApi: string = "http://104.154.60.233:8091/api/v1/intervinientes";
+  private postTablaPagApi: string = "http://104.154.60.233:8091/api/v1/pagos";
+  private getCreditoByIdent: string = "http://104.154.60.233:8091/api/v1/creditos/clientes/";
+  private getCreditoById: string = "http://104.154.60.233:8091/api/v1/creditos/";
+  private getPoximoPago: string = "http://104.154.60.233:8091/api/v1/pagos/proximo/";
+  private getTablaAmortizacion: string = "http://104.154.60.233:8091/api/v1/pagos/";
 
   constructor(private http: HttpClient, private flujoDatosService: FlujoDatosService) { }
 
   getAllTipoCreAPI(): Observable<any> {
     return this.http.get<any>(this.getAllTipoCreApi);
   }
+  getATablaAmortizacionAPI(idCredito: number): Observable<any> {
+    return this.http.get<any>(this.getTablaAmortizacion + idCredito);
+  }
+  getCreditoByIdentAPI(identificacion: String): Observable<any> {
+    return this.http.get<any>(this.getCreditoByIdent + identificacion);
+  }
+  getCreditoByIdAPI(id: number): Observable<any> {
+    return this.http.get<any>(this.getCreditoById + id);
+  }
+  getProximoPago(id: number): Observable<any> {
+    return this.http.get<any>(this.getPoximoPago + id);
+  }
   getByIdTipoCreAPI(id: number): Observable<any> {
-    let params = new HttpParams().set('id', id);
-    return this.http.get<any>(this.getByIdTipoCreApi, { params: params });
+    return this.http.get<any>(this.getByIdTipoCreApi + id);
   }
   getByIdTasaIntAPI(id: string): Observable<any> {
-    let params = new HttpParams().set('id', id);
-    return this.http.get<any>(this.getByIdTasaIntApi, { params: params });
+    return this.http.get<any>(this.getByIdTasaIntApi + id);
   }
   getCalculoTasaIntAPI(id: string, monto: number, plazo: number): Observable<any> {
-    let params = new HttpParams().set('id', id).set('monto', monto).set('plazo', plazo);
-    return this.http.get<any>(this.getCalculoTasaIntApi, { params: params });
+    console.log(this.getCalculoTasaIntApi + id + "/" + monto + "/" + plazo);
+    return this.http.get<any>(this.getCalculoTasaIntApi + id + "/" + monto + "/" + plazo);
   }
   getPreTablaPagoAPI(tasaInteres: number, montoPrestamo: number, numeroPagos: number): Observable<any> {
-    let params = new HttpParams().set('tasaInteres', tasaInteres).set('montoPrestamo', montoPrestamo).set('numeroPagos', numeroPagos);
-    return this.http.get<any>(this.getPreTablaPagoApi, { params: params });
+    return this.http.get<any>(this.getPreTablaPagoApi + tasaInteres + "/" + montoPrestamo + "/" + numeroPagos);
   }
   postCreditoAPI(registroCredito: any): Observable<any> {
     return this.http.post<any>(this.postCreditoApi, registroCredito);

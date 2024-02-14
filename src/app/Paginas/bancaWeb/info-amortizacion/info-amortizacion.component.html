@@ -1,65 +1,70 @@
 <!-- amortizacion.component.html -->
 <div class="container-fluid p-0">
-    <div class="row m-0">
-      <!-- Navbar -->
-      <div class="col-12 px-0 borde-ancho">
-        <app-navbarbw></app-navbarbw>
-      </div>
+  <div class="row m-0">
+    <!-- Navbar -->
+    <div class="col-12 px-0 borde-ancho">
+      <app-navbarbw></app-navbarbw>
     </div>
-    <div class="row m-0">
-      <!-- Sidebar -->
-      <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
-        <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
-      </div>
-      <!-- Main Content -->
-  
-      <div class="col-10 p-0 d-flex">
-        <!-- Aquí puedes colocar el contenido principal -->
-        <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
-          <div class="container">
-            <div class="container-fluid">
-              <div class="row contenido my-3 p-5 rounded-4">
-                <!-- Título -->
-                <div class="row mt-3">
-                  <div class="col-12 text-center">
-                    <h4>Tabla de Amortización</h4>
-                  </div>
-                </div>
-  
-                <!-- Línea divisoria -->
-                <hr />
-  
-                <!-- Tabla de Amortización -->
-                <div class="row mt-3">
-                  <div class="col-12">
-                    <table class="table">
-                      <thead class="table table-success">
-                        <tr>
-                          <th scope="col">No</th>
-                          <th scope="col">Fecha Vencimiento</th>
-                          <th scope="col">Capital Amortizado</th>
-                          <th scope="col">Interés</th>
-                          <th scope="col">Cuota</th>
-                          <th scope="col">Capital Vivo</th>
-                        </tr>
-                      </thead>
-                      <tbody id="tabla-datos">
-                        <tr *ngFor="let cuota of tablaAmortizacion; let i = index">
-                          <th scope="row">{{ i + 1 }}</th>
-                          <td>{{ cuota.fechaPlanificadaPago | date: 'dd/MM/yyyy' }}</td>
-                          <td>{{ cuota.capital | currency }}</td>
-                          <td>{{ cuota.interes | currency }}</td>
-                          <td>{{ cuota.montoCuota | currency }}</td>
-                          <td>{{ cuota.capitalRestante | currency }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+  </div>
+  <div class="row m-0">
+    <!-- Sidebar -->
+    <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
+      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+    </div>
+    <!-- Main Content -->
+
+    <div class="col-10 p-0 d-flex">
+      <!-- Aquí puedes colocar el contenido principal -->
+      <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+        <div class="container">
+          <div class="container-fluid">
+            <div class="row contenido my-3 p-5 rounded-4">
+              <!-- Título -->
+              <div class="row mt-3">
+                <div class="col-12 text-center">
+                  <h4>Tabla de Amortización</h4>
                 </div>
               </div>
+
+              <!-- Línea divisoria -->
+              <hr />
+
+              <!-- Tabla de Amortización -->
+              <div class="p-5" #contenedor>
+                <h5>Tabla de amortizacion</h5>
+                <hr>
+                <table class="table table-hover">
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col">Periodo</th>
+                      <th scope="col">Fecha Pagos</th>
+                      <th scope="col">Monto Cuota</th>
+                      <th scope="col">Interes</th>
+                      <th scope="col">Capital</th>
+                      <th scope="col">Capital Restante</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let fila of TablaAmortizacion">
+                      <th scope="row">{{fila.codCuota}}</th>
+                      <td>{{formatoFecha(fila.fechaPlanificadaPago)}}</td>
+                      <td>{{fila.capital}}</td>
+                      <td>{{fila.interes}}</td>
+                      <td>{{fila.montoCuota}}</td>
+                      <td>{{fila.capitalRestante}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="px-4 mt-5">
+                <button type="button" class="btn btn-success mx-1"
+                    (click)="btnImprimir()">Imprimir</button>
+                <button type="button" class="btn btn-secondary mx-1" (click)="regresar()">Regresar</button>
+            </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

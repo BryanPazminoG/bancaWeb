@@ -26,8 +26,9 @@
 
               <div class="row my-3">
                 <div class="col-12">
-                  <select class="form-select" name="cuentaP">
+                  <select class="form-select" name="creditos" (change)="obtenerInfoCredito($event)">
                     <option value="">Seleccione el credito</option>
+                    <option *ngFor="let opcion of CreditosLoad" [value]="opcion.codCredito">{{opcion.numeroOperacion}} - {{opcion.fechaCreacion}}</option>
                   </select>
                 </div>
               </div>
@@ -35,19 +36,20 @@
               <!-- Número de cuenta -->
               <div class="row mt-3 mt-2">
                 <div class="col-6 text-start">
-                  <p>Nro.{{ infoCredito.numeroOperacion }}</p>
+                  <p>Nro.{{ CreditoSeleccionado.numeroOperacion }}</p>
                 </div>
               </div>
 
               <div class="row mt-3">
                 <div class="col-12 text-end">
                   <strong>Cuota a Pagar</strong>
+                  <p>{{ CreditoSeleccionado.plazo }}</p>
                 </div>
               </div>
 
               <div class="row mt-3 mb-4">
                 <div class="col-12 text-end">
-                  <strong>{{ infoCredito.monto | currency }}</strong>
+                  <strong>{{ CreditoSeleccionado.monto | currency }}</strong>
                 </div>
               </div>
 
@@ -58,7 +60,7 @@
                   Fecha próximo pago
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoAdicional.fechaPlanificadaPago | date: 'yyyy MMM dd' }}
+                  {{ ProximoPago.fechaPlanificadaPago | date: 'yyyy MMM dd' }}
                 </div>
               </div>
 
@@ -67,7 +69,7 @@
                   Pagos Realizados
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.cadenaPagos }}
+                  0
                 </div>
               </div>
 
@@ -87,7 +89,7 @@
                   Valor inicial
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.monto | currency }}
+                  {{ CreditoSeleccionado.monto | currency }}
                 </div>
               </div>
 
@@ -96,7 +98,7 @@
                   Deuda actual
                 </div>
                 <div class="col-6 text-end">
-                  {{ infoCredito.capitalPendiente | currency }}
+                  {{ CreditoSeleccionado.capitalPendiente | currency }}
                 </div>
               </div>
 
