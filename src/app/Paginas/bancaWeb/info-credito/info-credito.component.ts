@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { InfoCreditoService } from 'src/app/Servicios/info-credito.service';
+import { Router } from '@angular/router';
+import { CreditoService } from 'src/app/Servicios/credito.service';
+import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 
 @Component({
   selector: 'app-info-credito',
@@ -15,42 +16,82 @@ export class InfoCreditoComponent implements OnInit {
   infoAdicional: any = {};
   codCredito: string = '';
 
-  constructor(private infoCreditoService: InfoCreditoService, private route: ActivatedRoute) { }
+  CreditosLoad: any = [{
+    "codCredito": 0,
+    "numeroOperacion": "",
+    "fechaCreacion": "",
+  }];
+  CreditoSeleccionado: any = {
+    "codCredito": 0,
+    "codTipoCredito": 0,
+    "identificacionCliente": "",
+    "tipoCliente": "",
+    "numeroCuenta": "",
+    "numeroOperacion": "",
+    "fechaCreacion": "",
+    "monto": 0,
+    "plazo": 0,
+    "tasaInteres": 0,
+    "estado": "",
+    "fechaDesembolso": "",
+    "fechaUltimoPago": "",
+    "capitalPendiente": 0
+}
+ProximoPago: any = {
+  "codCredito": 0,
+  "codCuota": 0,
+  "capital": 0,
+  "interes": 0,
+  "montoCuota": 0,
+  "capitalRestante": 0,
+  "fechaPlanificadaPago": "",
+  "estado": "",
+}
+
+  constructor(private router: Router, private creditoService: CreditoService, private flujoDatosService: FlujoDatosService) { }
+
 
   ngOnInit(): void {
-    this.codCredito = this.route.snapshot.params['id'];
-    this.obtenerInfoCredito();
-    
+    this.CreditosLoad.pop();
+    var numIdentificacion: any = localStorage.getItem("identificacion");
+    this.cargarCreditosRealizados(numIdentificacion);
   }
+  cargarCreditosRealizados(identificacion: String) {
 
-  obtenerInfoCredito() {
-    this.infoCreditoService.obtenerInfoCredito(this.codCredito).subscribe(
+    this.creditoService.getCreditoByIdentAPI(identificacion).subscribe(
       (data) => {
-        this.infoCredito = data;
-        this.obtenerInfoAdicional();
+        if (data) {
+          this.CreditosLoad = data;
+        }
+      },
+      (error) => {
+        console.error('Error al hacer la solicitud:', error);
+      }
+    );
+  }
+  obtenerInfoCredito(event: any) {
+    const valorSeleccionado = event.target.value;
+    this.creditoService.getCreditoByIdAPI(valorSeleccionado).subscribe(
+      (data) => {
+        this.CreditoSeleccionado = data;
+        this.flujoDatosService.setIdCredito(valorSeleccionado);
+        this.proximoPagoCredito(this.CreditoSeleccionado.codCredito);
       },
       (error) => {
         console.error('Error obteniendo información del crédito', error);
       }
     );
   }
-
-  obtenerInfoAdicional() {
-    this.infoCreditoService.obtenerInfoAdicional(this.codCredito).subscribe(
-      (data: any[]) => {
-        if (data && data.length > 0) {
-          this.infoAdicional = data[data.length - 1];
-          const plazoTotal = this.infoAdicional.credito.plazo;
-          const pagosRealizados = data.filter((pago: any) => pago.estado === 'PAG').length;
-          this.infoCredito.cadenaPagos = `${pagosRealizados}/${plazoTotal}`;
-        }
+  proximoPagoCredito(id: number) {
+    this.creditoService.getProximoPago(id).subscribe(
+      (data) => {
+        this.ProximoPago = data;
       },
       (error) => {
-        console.error('Error obteniendo información adicional', error);
+        console.error('Error obteniendo información del crédito', error);
       }
     );
   }
-  
 
   mostrarTablaAmortizacion() {
     this.verTablaAmortizacion.emit(this.codCredito);

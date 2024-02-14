@@ -22,11 +22,10 @@ export class ProductosComponent implements OnInit {
     if (usuarioGuardado) {
       const usuario = JSON.parse(usuarioGuardado);
       const codCliente = usuario.idCliente;
-      console.log(usuario); // Esto mostrará el codCliente en la consola
+      console.log(usuario);
       this.obtenerCuentasAhorro(codCliente);
       this.obtenerCreditos(codCliente);
     }
-
   }
 
   obtenerCuentasAhorro(codCliente: string) {

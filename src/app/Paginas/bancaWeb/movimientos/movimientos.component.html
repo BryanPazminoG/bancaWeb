@@ -58,8 +58,8 @@
 
                     <div class="col-6 text-end">
                      
-                      <span [ngClass]="{'positive-value': movimiento.valorDebe > 0, 'negative-value': movimiento.valorHaber > 0}">
-                        {{ (movimiento.valorDebe > 0 ? '+' : '-') + (movimiento.valorDebe > 0 ? movimiento.valorDebe : movimiento.valorHaber | currency) }} USD
+                      <span [ngClass]="{'negative-value': movimiento.valorDebe < 0, 'positive-value': movimiento.valorHaber > 0}">
+                        {{ (movimiento.valorDebe > 0 ? '-' : '+') + (movimiento.valorDebe > 0 ? movimiento.valorDebe : movimiento.valorHaber | currency) }} USD
                       </span>
                       
                       

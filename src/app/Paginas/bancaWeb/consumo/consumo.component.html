@@ -29,15 +29,17 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <p>Nombres</p>
-                                            <input type="text" class="form-control my-2" name="numero_identificacion" [(ngModel)]="participePrincipal.numero_identificacion" disabled>
+                                            <input type="text" class="form-control my-2" name="nombres" [(ngModel)]="participePrincipal.nombres" disabled>
                                         </div>
                                         <div class="col-6">
                                             <p>Apellidos</p>
-                                            <input type="text" class="form-control my-2" name="numero_identificacion" [(ngModel)]="participePrincipal.numero_identificacion" disabled>
+                                            <input type="text" class="form-control my-2" name="apellidos" [(ngModel)]="participePrincipal.apellidos" disabled>
                                             </div>
                                     </div>
-                                    <hr><select class="form-select" name="cuentaP">
+                                    <hr>
+                                    <select class="form-select" name="cuentaP" [(ngModel)]="participePrincipal.numeroCuenta">
                                         <option value="">Seleccione una cuenta</option>
+                                        <option *ngFor="let opcion of cuentasClienteP" [value]="opcion.numeroCuenta">{{ opcion.numeroCuenta }}</option>
                                     </select>
                                     <small id="mensajeIdentificacionP" class="form-text text-danger" *ngIf="!identPFirst && !identPValidacion">Identificacion Incorrecta</small>
                                 </div>
@@ -48,7 +50,7 @@
                             <hr>
                             <form action="">
                                 <div class="form-group">
-                                    <select class="form-select" name="tipoIdentificacion" [(ngModel)]="participantes.tipo_identificacion">
+                                    <select class="form-select" name="tipoIdentificacion" [(ngModel)]="participantes.tipo_identificacion" (change)="restValorClienteS(); this.participantes.numero_identificacion = '';">
                                         <option value="">Tipo de Identificacion</option>
                                         <option value="CED">Cedula</option>
                                         <option value="PAS">Pasaporte</option>
@@ -56,20 +58,21 @@
                                     </select>
                                     <div class="row">
                                         <div class="col-10">
-                                            <input type="text" class="form-control my-2" name="identificacion" placeholder="No. de identificacion" [(ngModel)]="participantes.numero_identificacion">
-                                            <small id="mensajeIdentificacion" class="form-text text-danger" *ngIf="!identSFirst && !identSValidacion">Identificacion Incorrecta</small>
+                                            <input type="text" class="form-control my-2" name="identificacion" placeholder="No. de identificacion" [(ngModel)]="participantes.numero_identificacion" (change)="restValorClienteS();">
+                                            <small id="mensajeIdentificacion" class="form-text text-danger" *ngIf="!identSFirst && !identSValidacion">{{mensajeIdentificacionDos}}</small>
                                         </div>
                                         <div class="col-2 d-flex align-items-center justify-content-center">
                                             <button type="button" class="btn btn-success" (click)="getClienteS()">Validar</button>
                                         </div>
                                     </div>
                                     <hr>
-                                    <input type="text" class="form-control my-3" name="nombres" placeholder="____" value="{{participantes.apellidos}} {{participantes.nombres}}" readonly>
-                                    <small id="mensajeExistencia" class="form-text text-danger" *ngIf="existencia">El cliente y existe</small>
+                                    <input type="text" class="form-control my-3" name="nombres" placeholder="____" value="{{participantes.apellidos}} {{participantes.nombres}} {{participantes.razonSocial}}" readonly>
+                                    <small id="mensajeExistencia" class="form-text text-danger" *ngIf="existencia">{{mensajeValidacion}}</small>
                                     <div class="row">
                                         <div class="col-11">
-                                            <select class="form-select" name="cuentaS">
+                                            <select class="form-select" name="cuentaS" [(ngModel)]="participantes.numeroCuenta">
                                                 <option value="">Seleccione una cuenta</option>
+                                                <option *ngFor="let opcion of cuentasClienteS" [value]="opcion.numeroCuenta">{{ opcion.numeroCuenta }}</option>
                                             </select>
                                         </div>
                                         <div class="col-1 text-center d-flex align-items-center">
@@ -91,6 +94,7 @@
                                                     <th scope="col">#</th>
                                                     <th scope="col">Tipo</th>
                                                     <th scope="col">Identificacion</th>
+                                                    <th scope="col">Cuenta</th>
                                                     <th scope="col">Nombres</th>
                                                     <th scope="col"></th>
                                                 </tr>

@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class TransferenciasService {
 
-  private transferenciasApi = "URL_DE_TU_API_PARA_TRANSFERENCIAS"; 
+  private transferenciasApi = "http://35.192.152.130:8089/api/v1/transacciones/transferencias"; 
 
   constructor(private http: HttpClient) { }
 
   realizarTransferencia(datosTransferencia: any): Observable<any> {
   
-    return this.http.post<any>(this.transferenciasApi, datosTransferencia);
+    return this.http.put<any>(this.transferenciasApi, datosTransferencia);
   }
 }

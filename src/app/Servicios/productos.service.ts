@@ -10,6 +10,7 @@ export class ProductosService {
   private cuentasAhorroApi = 'http://35.192.152.130:8089/api/v1/cuentas/clientes/';
   // private creditosApi = 'http://34.125.114.60:8080/credito/buscar-codigo-cliente';
   private creditosApi = 'http://104.154.60.233:8091/api/v1/creditos/clientes/';
+  
 
   constructor(private http: HttpClient) { }
 

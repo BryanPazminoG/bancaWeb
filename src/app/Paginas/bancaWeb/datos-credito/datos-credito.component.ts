@@ -11,10 +11,6 @@ import Swal from 'sweetalert2'
   styleUrls: ['./datos-credito.component.css']
 })
 export class DatosCreditoComponent implements OnInit{
-  listaTipoCredito = [{
-    'codTipoCredito': 0,
-    'nombre': '',
-  }];
   tipoCredito = {
     'codTipoCredito': 0,
     'codTasaInteres': '',
@@ -33,16 +29,21 @@ export class DatosCreditoComponent implements OnInit{
   };
   credito = {
     'codTipoCredito': 0,
-    'codCliente': 0,
+    'codCliente': '',
     'fecha_creacion': '',
     'tasaInteres': 0,
     'monto': 0,
     'plazo': 0,
   };
+  listaTipoCredito = [{
+    'codTipoCredito': 0,
+    'nombre': '',
+  }];
 
   constructor(
     private router: Router,
     private serviceCredito: CreditoService,
+    private flujoDatosService: FlujoDatosService
   ) { }
 
   ngOnInit(): void {
@@ -77,7 +78,7 @@ export class DatosCreditoComponent implements OnInit{
   }
   getByIdTasaInt() {
     const valorSeleccionado = this.tipoCredito.codTasaInteres;
-
+    console.log(valorSeleccionado);
     if (valorSeleccionado != "") {
       this.serviceCredito.getByIdTasaIntAPI(valorSeleccionado).subscribe(
         (data) => {
@@ -91,6 +92,7 @@ export class DatosCreditoComponent implements OnInit{
       );
     }
   }
+
   validacionesEnteros(event: any, min: number, max: number) {
     let valor = Math.round(event.target.value);
     if (valor < min) event.target.value = min;
@@ -123,12 +125,26 @@ export class DatosCreditoComponent implements OnInit{
     let fechaFormateada = `${año}-${mes < 10 ? '0' + mes : mes}-${dia < 10 ? '0' + dia : dia}`;
     return fechaFormateada;
   }
-  continuar() {  
-      this.router.navigate(["creditos/amortizacion"]);
-    }
 
+  continuar() {
+    if (this.credito.monto > 0 && this.credito.plazo > 0) {
+      this.credito.fecha_creacion = this.fechaActual();
+      this.credito.codTipoCredito = this.tipoCredito.codTipoCredito;
+      this.credito.codCliente = "";
+      this.flujoDatosService.setCredito(this.credito);
+      this.router.navigate(["amortizacion"]);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Completar los datos",
+        text: "Todos los campos obligatorios deben ser llenados",
+        showConfirmButton: false,
+        timer: 2500
+      });
+    }
+  }
   regresar() {
-    this.router.navigate(["clientes"]);
+    this.router.navigate(["consumo"]);
   }
 }
 
