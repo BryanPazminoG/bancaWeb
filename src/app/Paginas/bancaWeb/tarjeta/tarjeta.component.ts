@@ -61,7 +61,7 @@ export class TarjetaComponent implements OnInit {
           Swal.fire({
             icon: "success",
             title: "Éxito",
-            text: "Tarjeta generada correctamente. Numero:   "+nuevaTarjeta.numero +", CVC: "+nuevaTarjeta.cvc + ", pin: "+nuevaTarjeta.pin +", Fecha Vencimiento: "+nuevaTarjeta.fechaVencimiento,
+            text: "Tarjeta generada correctamente. Numero:   \n"+nuevaTarjeta.numero +"\n CVC: "+nuevaTarjeta.cvc + "\n pin: "+nuevaTarjeta.pin +"\n Fecha Vencimiento: "+ nuevaTarjeta.fechaVencimiento.substring(0, 10),
             
           });      
         },
