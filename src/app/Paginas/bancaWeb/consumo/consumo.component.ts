@@ -72,16 +72,15 @@ export class ConsumoComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    var tipoIdentificacion : any = localStorage.getItem("tipoIdent");
-    var numIdentificacion : any = localStorage.getItem("identificacion");
+    var codCliente : any = localStorage.getItem("codigoCliente");
     
-    this.getClienteP(tipoIdentificacion, numIdentificacion);
+    this.getClienteP(codCliente);
     this.listaIntervinientes.pop();
     this.cuentasClienteP.pop();
     this.cuentasClienteS.pop();
   }
 
-  getClienteP(tipoIdentificacion: string, numIdentificacion: string) {
+  getClienteP(codCliente:String) {
     this.participePrincipal.cod_cliente = '';
     this.participePrincipal.apellidos = '';
     this.participePrincipal.nombres = '';
@@ -110,7 +109,7 @@ export class ConsumoComponent implements OnInit{
     
     this.restValorClienteP();
 
-    this.serviceCliente.buscarClientePorParametros(tipoIdentificacion, numIdentificacion).subscribe(
+    this.serviceCliente.buscarClientePorId(codCliente).subscribe(
       (data) => {
         this.identPFirst = false;
         this.identPValidacion = true;

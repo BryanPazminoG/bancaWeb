@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/Servicios/cliente.service';
 import { CreditoService } from 'src/app/Servicios/credito.service';
 import { FlujoDatosService } from 'src/app/Servicios/flujo-datos.service';
 
@@ -48,13 +49,25 @@ ProximoPago: any = {
   "estado": "",
 }
 
-  constructor(private router: Router, private creditoService: CreditoService, private flujoDatosService: FlujoDatosService) { }
+  constructor(private router: Router, private creditoService: CreditoService, private flujoDatosService: FlujoDatosService, private serviceCliente: ClienteService) { }
 
 
   ngOnInit(): void {
     this.CreditosLoad.pop();
-    var numIdentificacion: any = localStorage.getItem("identificacion");
-    this.cargarCreditosRealizados(numIdentificacion);
+    var codigoCliente: any = localStorage.getItem("codigoCliente");
+    this.getClienteP(codigoCliente);
+  }
+  getClienteP(codCliente:String) {
+    this.serviceCliente.buscarClientePorId(codCliente).subscribe(
+      (data) => {
+        if (data) {
+          this.cargarCreditosRealizados(data.numeroIdentificacion);
+        }
+      },
+      (error) => {
+        console.error('Error al hacer la solicitud:', error);
+      }
+    );
   }
   cargarCreditosRealizados(identificacion: String) {
 

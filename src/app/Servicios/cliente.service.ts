@@ -19,7 +19,7 @@ export class ClienteService {
     return this.http.get<any>(url);
   }
 
-  buscarClientePorId(id: number): Observable<any> {
+  buscarClientePorId(id: String): Observable<any> {
     const params = new HttpParams().set('id', id.toString());
     let url = `${this.clientesApi}/${id}`;
     return this.http.get<any>(url);

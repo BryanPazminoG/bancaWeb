@@ -118,7 +118,7 @@ export class AmortizacionComponent implements OnInit {
     //var numeroOperacion = Math.floor(Math.random() * 100000000).toString().padStart(8, '0');
 
     let transaccionCredito = {
-      "codCuentaOrigen": 59,
+      "codCuentaOrigen": 1,
       "codCuentaDestino": this.participePrincipal.codCuenta,
       "codUnico": this.generarCadenaAlfanumerica(64),
       "tipoAfectacion": "C",

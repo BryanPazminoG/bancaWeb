@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/Servicios/cliente.service';
 
 @Component({
   selector: 'app-navbarbw',
@@ -8,17 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarbwComponent implements OnInit {
 
   nombre: string = '';
-  constructor() { }
+  constructor(private serviceCliente: ClienteService) { }
 
   ngOnInit(): void {
-    const usuarioGuardado = localStorage.getItem('usuario');
+    const usuarioGuardado = localStorage.getItem('codigoCliente');
     if (usuarioGuardado) {
-      const usuario = JSON.parse(usuarioGuardado);
-      //const codCliente = usuario.usuario;
-      //const codCliente = ;
-      this.nombre = "Nombre de usuario";
+      this.getClienteP(usuarioGuardado);
     }
     
+  }
+
+  getClienteP(codCliente:String) {
+    this.serviceCliente.buscarClientePorId(codCliente).subscribe(
+      (data) => {
+        if (data) {
+          this.nombre = data.nombres + " " + data.apellidos;
+        }
+      },
+      (error) => {
+        console.error('Error al hacer la solicitud:', error);
+      }
+    );
   }
 
 }
