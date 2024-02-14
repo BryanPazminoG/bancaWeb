@@ -9,7 +9,7 @@ import { FlujoDatosService } from './flujo-datos.service';
 })
 export class PerfilService {
 
-  private perfilApiBase = "http://34.102.85.160:8080/cliente/buscar-cliente";
+  private perfilApiBase = "http://35.192.130.249:8081/api/v1/clientes";
 
   constructor(private http: HttpClient, private flujoDatosService: FlujoDatosService) { }
 
@@ -19,7 +19,7 @@ export class PerfilService {
       const usuario = JSON.parse(usuarioGuardado);
       const codCliente = usuario.codCliente;
       console.log(codCliente); // Esto mostrará el codCliente en la consola
-      const perfilApi = `${this.perfilApiBase}?id=${codCliente}`;
+      const perfilApi = `${this.perfilApiBase}/${codCliente}`;
       return this.http.get<any>(perfilApi);
     } else {
       // Si no se encuentra ningún usuario en el LocalStorage, se devuelve un observable vacío o se maneja según tu lógica
