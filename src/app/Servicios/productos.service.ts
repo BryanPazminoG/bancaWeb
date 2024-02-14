@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductosService {
-  private cuentasAhorroApi = 'http://34.176.119.102:9090/api/v1/cuentas/clientes/';
-  private creditosApi = 'http://34.176.119.102:9090/api/v1/creditos/clientes/';
+
+  private cuentasAhorroApi = 'http://35.192.152.130:8089/api/v1/cuentas/clientes/';
+  // private creditosApi = 'http://34.125.114.60:8080/credito/buscar-codigo-cliente';
+  private creditosApi = 'http://104.154.60.233:8091/api/v1/creditos/clientes/';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +20,11 @@ export class ProductosService {
   }
 
   obtenerCreditos(codCliente: number): Observable<any> {
-    const url = `${this.creditosApi}${codCliente}`;
+    // const url = `${this.creditosApi}`;
+    // const params = new HttpParams().set('codCliente', codCliente.toString());
+    // return this.http.get<any>(url, { params });
+
+    const url = `${this.creditosApi}${codCliente.toString()}`;
     return this.http.get<any>(url);
   }
 }

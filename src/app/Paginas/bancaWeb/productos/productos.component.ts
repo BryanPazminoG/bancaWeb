@@ -41,6 +41,7 @@ export class ProductosComponent implements OnInit {
   }
 
   obtenerCreditos(codCliente: any) {
+    console.log(codCliente);
     this.productosService.obtenerCreditos(codCliente).subscribe(
       (data) => {
         this.creditos = data;
