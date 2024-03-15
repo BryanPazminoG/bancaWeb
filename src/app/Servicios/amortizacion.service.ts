@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AmortizacionService {
 
-  private amortizacionApi = "http://34.125.114.60:8080/creditotablapagos/tabla-amortizacion";
+  private amortizacionApi = "http://34.72.172.227:8080/creditotablapagos/tabla-amortizacion";
 
   constructor(private http: HttpClient) { }
 
