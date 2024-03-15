@@ -17,14 +17,14 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro();
-    this.obtenerCreditos();
+    this.obtenerCuentasAhorro(1);
+    this.obtenerCreditos(1);
     const usuario = this.flujoDatosService.getUsuarioLogin()
     console.log("USUARIO", usuario);
   }
 
-  obtenerCuentasAhorro() {
-    this.productosService.obtenerCuentasAhorro().subscribe(
+  obtenerCuentasAhorro(codCliente: number) {
+    this.productosService.obtenerCuentasAhorro(codCliente).subscribe(
       (data) => {
         this.cuentasAhorro = data;
       },
@@ -34,8 +34,8 @@ export class ProductosComponent implements OnInit {
     );
   }
 
-  obtenerCreditos() {
-    this.productosService.obtenerCreditos().subscribe(
+  obtenerCreditos(codCliente: number) {
+    this.productosService.obtenerCreditos(codCliente).subscribe(
       (data) => {
         this.creditos = data;
       },

@@ -1,102 +1,162 @@
 <div class="container-fluid p-0">
-    <div class="row m-0">
-      <!-- Navbar -->
-      <div class="col-12 px-0" class="borde-ancho">
-        <app-navbarbw></app-navbarbw>
-      </div>
+  <div class="row m-0">
+    <!-- Navbar -->
+    <div class="col-12 px-0" class="borde-ancho">
+      <app-navbarbw></app-navbarbw>
     </div>
-    <div class="row m-0">
-      <!-- Sidebar -->
-      <div class="col-2 p-0 d-flex flex-column" style="height: 85vh;">
-        <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
-      </div>
-      <!-- Main Content -->
-      <div class="scroll-container">
-        <div class="scroll-content">
-      <div class="col-10 p-0 d-flex">
-        <!-- Aquí puedes colocar el contenido principal -->
-        <div class="p-4 flex-grow-1" style="background-color: #DBD8D8;">
-          <div class="container">
-            <div class="container-fluid">
+  </div>
+  <div class="row m-0">
+    <!-- Sidebar -->
+    <div class="col-2 p-0 d-flex flex-column" style="height: 85vh">
+      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+    </div>
+    <!-- Main Content -->
+
+    <div class="scroll-container">
+      <div class="scroll-content">
+        <div class="col-10 p-0 d-flex">
+          <!-- Aquí puedes colocar el contenido principal -->
+          <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+            <div class="container">
               <div class="container-fluid">
-                <div class="row title mt-5">
-                  <h4>Transferencias Directas</h4>
-                </div>
-  
-                <div class="row contenido my-3 p-5 rounded-4">
-                  <hr>
-                  <form (ngSubmit)="confirmarTransferencia()" #transferenciaForm="ngForm">
-                    <div class="row">
+                <div class="container-fluid">
+                  <div class="row title mt-5">
+                    <h4>Transferencias Directas</h4>
+                  </div>
+
+                  <div class="row contenido my-3 p-5 rounded-4">
+                    <hr />
+                    <form
+                      (ngSubmit)="confirmarTransferencia()"
+                      #transferenciaForm="ngForm"
+                    >
+                      <div class="row">
                         <div class="col-12">
                           <h5>Cuenta</h5>
-                          <select class="form-select" id="selectCuentas" name="selectCuentas"  [(ngModel)]="transferencia.cuentaOrigen"  (change)="actualizarValores($event)">
-                            <option selected disabled>Seleccionar Cuenta</option>
-                            <option *ngFor="let cuenta of cuentas" [value]="cuenta.numeroCuenta" >
-                                {{ cuenta.codTipoCuenta }} - {{ cuenta.numeroCuenta }}
-                              </option>
+                          <select
+                            class="form-select"
+                            id="selectCuentas"
+                            name="selectCuentas"
+                            [(ngModel)]="transferencia.cuentaOrigen"
+                            (change)="actualizarValores($event)"
+                          >
+                            <option selected value="" disabled>
+                              Seleccionar Cuenta
+                            </option>
+                            <option
+                              *ngFor="let cuenta of cuentas"
+                              [value]="cuenta.numeroCuenta"
+                            >
+                              {{ cuenta.codTipoCuenta }} -
+                              {{ cuenta.numeroCuenta }}
+                            </option>
                           </select>
                         </div>
                       </div>
-                    <div class="row">
+                      <div class="row">
+                        <div class="row mt-3">
+                          <h5>Monto</h5>
+                        </div>
+                        <div style="width: 25%; height: 20%;" class="input-group col-3 my-3 rounded-3">
+                          <span style="background-color: #dbd8d8; width: 15%;" class="input-group-text">$</span>
+                          <input
+                            type="number"
+                            id="monto"
+                            min="0"
+                            class="form-control"
+                            style="background-color: #dbd8d8;"
+                            name="monto"
+                            [(ngModel)]="transferencia.monto"
+                          />
+                        </div>
+                        <div class="col-2"></div>
+                        <div style="width: 26%;" class="col-3 my-3">
+                          <p name="saldoDisponible">
+                            Saldo Disponible: <br>{{ saldoDisponible }}
+                          </p>
+                        </div>
+                        <div style="width: 32%;" class="col-3 my-3">
+                          <p name="saldoContable">
+                            Saldo Contable: <br>{{ saldoContable }}
+                          </p>
+                        </div>
+                      </div>
+
                       <div class="row mt-3">
-                        <h5>Monto</h5>
+                        <h5>Beneficiario</h5>
                       </div>
-                      <div class="col-3 my-3 rounded-3">
-                        <input type="number" id="monto" placeholder="$" class="form-control" style="background-color: #DBD8D8;" name="monto" [(ngModel)]="transferencia.monto">
-                      </div>
-                      <div class="col-2"></div>
-                      <div class="col-3 my-3">
-                        <p name="saldoDisponible" >Saldo Disponible: {{ saldoDisponible }}</p>
-                      </div>
-                      <div class="col-3 my-3">
-                        <p name="saldoContable" >Saldo Contable: {{ saldoContable }}</p>
-                      </div>
-                    </div>
 
-
-                    <div class="row mt-3">
-                      <h5>Beneficiario</h5>
-                    </div>
-
-                    <div class="row">
+                      <div class="row">
                         <div class="col-9 my-3 rounded-3">
-                          <input type="number" id="benNumCuenta" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNumeroCuenta" [(ngModel)]="transferencia.beneficiarioNumeroCuenta" placeholder="Número de cuenta" #benNumCuentaInput>
+                          <input
+                            type="text"
+                            id="benNumCuenta"
+                            class="form-control"
+                            style="background-color: #dbd8d8"
+                            name="beneficiarioNumeroCuenta"
+                            [(ngModel)]="transferencia.beneficiarioNumeroCuenta"
+                            placeholder="Número de cuenta"
+                            #benNumCuentaInput
+                          />
                         </div>
                         <div class="col-2"></div>
                         <div class="col-1 my-3">
-                          <button type="button" class="btn btn-success" (click)="validarCuenta(benNumCuentaInput.value)">Validar</button>
+                          <button
+                            type="button"
+                            class="btn btn-success"
+                            (click)="validarCuenta(benNumCuentaInput.value)"
+                          >
+                            Validar
+                          </button>
                         </div>
                         <div class="col-12 my-3 rounded-3">
-                          <input type="text" id="benNombre" class="form-control" style="background-color: #DBD8D8;" name="beneficiarioNombre" [(ngModel)]="transferencia.beneficiarioNombre" placeholder="Nombre del beneficiario">
+                          <input
+                            type="text"
+                            id="benNombre"
+                            class="form-control"
+                            style="background-color: #dbd8d8"
+                            name="beneficiarioNombre"
+                            [(ngModel)]="transferencia.beneficiarioNombre"
+                            placeholder="Nombre del beneficiario"
+                            readonly
+                          />
                         </div>
-                    </div>
+                      </div>
 
-                    <div class="row mt-3">
-                      <h5>Descripción</h5>
-                    </div>
-                    <div class="col-12 my-3 rounded-3">
-                      <textarea id="descripcion" class="form-control" style="background-color: #DBD8D8; height: 100px;" name="descripcion" [(ngModel)]="transferencia.descripcion" placeholder="Descripción (opcional)"></textarea>
-                    </div>
-                    <!-- <div class="row mt-3">
-                      <h5>Notificación</h5>
-                    </div>
-                    <div class="col-12 my-3 rounded-3">
-                      <input type="text" id="noticorreo" class="form-control" style="background-color: #DBD8D8;" name="notificacionCorreo" [(ngModel)]="transferencia.notificacionCorreo" placeholder="Correo electrónico (opcional)">
-                    </div> -->
-  
-                    <div class="px-4 mt-3">
-                      <button type="submit" class="btn btn-success mx-1">Continuar</button>
-                      <button type="button" class="btn btn-secondary mx-1" (click)="limpiarFormulario(transferenciaForm)">Limpiar</button>
-                    </div>
-                  </form>
+                      <div class="row mt-3">
+                        <h5>Descripción</h5>
+                      </div>
+                      <div class="col-12 my-3 rounded-3">
+                        <textarea
+                          id="descripcion"
+                          class="form-control"
+                          style="background-color: #dbd8d8; height: 100px"
+                          name="descripcion"
+                          [(ngModel)]="transferencia.descripcion"
+                          placeholder="Descripción (opcional)"
+                        ></textarea>
+                      </div>
+                      
+                      <div class="px-4 mt-3">
+                        <button type="submit" class="btn btn-success mx-1">
+                          Continuar
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-secondary mx-1"
+                          (click)="limpiarFormulario(transferenciaForm)"
+                        >
+                          Limpiar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-        </div>
-      </div>
     </div>
   </div>
-  
+</div>

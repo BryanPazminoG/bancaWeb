@@ -16,11 +16,11 @@ export class TarjetaComponent implements OnInit {
   constructor(private router: Router, private productosService: ProductosService, private tarjetaService: TarjetaService) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro();
+    this.obtenerCuentasAhorro(1);
   }
 
-  obtenerCuentasAhorro() {
-    this.productosService.obtenerCuentasAhorro().subscribe(
+  obtenerCuentasAhorro(codCliente: number) {
+    this.productosService.obtenerCuentasAhorro(codCliente).subscribe(
       (data) => {
         this.cuentasAhorro = data;
       },
