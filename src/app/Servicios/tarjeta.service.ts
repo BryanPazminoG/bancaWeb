@@ -7,12 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class TarjetaService {
 
-  private tarjetaApi = "http://34.125.120.215:8080/tarjetas"; 
+  private tarjetaApi = "http://35.192.152.130:8089/api/v1/tarjetas"; 
 
   constructor(private http: HttpClient) { }
 
-  generarTarjeta(cuentaId: string): Observable<any> {
-    const params = { cuentaId };
-    return this.http.post<any>(`${this.tarjetaApi}/generar`, params);
+  generarTarjeta(tarjeta: any): Observable<any> {
+    //const params = { tarjeta };
+    console.log("el cuerpo de envio es: ",tarjeta);
+    console.log("El resultado es: ",this.http.post<any>(`${this.tarjetaApi}`, tarjeta));
+    return this.http.post<any>(`${this.tarjetaApi}`, tarjeta);
   }
 }

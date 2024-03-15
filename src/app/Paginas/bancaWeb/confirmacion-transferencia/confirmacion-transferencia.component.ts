@@ -94,7 +94,7 @@ export class ConfirmacionTransferenciaComponent {
         
         this.realizarTransferencia(transferenciaOrigen);
         this.realizarTransferencia(transferenciaDestino);
-        this.router.navigate(['/productos']);
+        this.router.navigate(['/transferencias']);
       },
       (error) => {
         console.log(error);

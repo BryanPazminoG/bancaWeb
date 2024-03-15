@@ -162,7 +162,7 @@ export class TransferenciasComponent implements OnInit {
               ...this.valoresDepositante,
               ...this.valoresBeneficiario,
               monto: valorMonto,
-              detalle: this.transferencia.descripcion,
+              detalle: this.transferencia.descripcion == "" ? "Transferecia: " + this.transferencia.cuentaOrigen +" -> " + this.transferencia.beneficiarioNumeroCuenta:  this.transferencia.descripcion + ": " +  this.transferencia.cuentaOrigen + " -> " + this.transferencia.beneficiarioNumeroCuenta,
               fechaCreacion: "",
             };
 

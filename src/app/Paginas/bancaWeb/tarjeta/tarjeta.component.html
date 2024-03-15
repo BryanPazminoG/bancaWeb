@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <select class="form-select" [(ngModel)]="cuentaId" name="cuentaId">
                                             <option selected disabled>--- Seleccione la Cuenta a Debitar ---</option>
-                                            <option *ngFor="let cuenta of cuentasAhorro" [value]="cuenta.id" style="color: #3D84A7; line-height: 0.8em;">{{ cuenta.numeroCuenta }}</option>
+                                            <option *ngFor="let cuenta of cuentasAhorro" [value]="cuenta.codCuenta" style="color: #3D84A7; line-height: 0.8em;">{{ cuenta.numeroCuenta }}</option>
                                         </select>
                                     </div>
                                 </form>
