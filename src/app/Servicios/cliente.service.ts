@@ -14,7 +14,7 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   buscarClientePorParametros(tipo: string, numero: string): Observable<any> {
-    let url = `${this.clientesApi}/${tipo}/${numero}`;
+    let url = `${this.buscarClienteApi}/${tipo}/${numero}`;
     return this.http.get<any>(url);
   }
 
