@@ -21,31 +21,13 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const usuarioLoggeado = localStorage.getItem('usuario');
-    
-    if (usuarioLoggeado) {
-      const usuario = JSON.parse(usuarioLoggeado);
-      const codCliente = usuario.codCliente;
-      this.getClienteP(codCliente)
-      console.log(codCliente);
-      this.obtenerCuentasAhorro(codCliente);      
-    }
+    this.obtenerCuentasAhorro(1);
+    this.obtenerCreditos(1);
+    const usuario = this.flujoDatosService.getUsuarioLogin()
+    console.log("USUARIO", usuario);
   }
 
-  getClienteP(codCliente:String) {
-    this.serviceCliente.buscarClientePorId(codCliente).subscribe(
-      (data) => {
-        this.identificacionCliente = data.numeroIdentificacion
-        this.obtenerCreditos(this.identificacionCliente);
-      },
-      (error) => {
-        console.error('Error al hacer la solicitud:', error);
-      }
-    );
-  }
-
-  obtenerCuentasAhorro(codCliente: string) {
-    console.log(codCliente);
+  obtenerCuentasAhorro(codCliente: number) {
     this.productosService.obtenerCuentasAhorro(codCliente).subscribe(
       (data) => {
         this.cuentasAhorro = data;
@@ -56,8 +38,7 @@ export class ProductosComponent implements OnInit {
     );
   }
 
-  obtenerCreditos(codCliente: any) {
-    console.log(codCliente);
+  obtenerCreditos(codCliente: number) {
     this.productosService.obtenerCreditos(codCliente).subscribe(
       (data) => {
         console.log("CREDITOS", data)

@@ -20,14 +20,11 @@ interface Cuenta {
 }
 
 interface Transferencia {
-  codCuentaOrigen: number;
-  codCuentaDestino: number;
-  valorDebe: number;
-  valorHaber: number;
-  tipoTransaccion: string;
+  codCuenta: number;
+  tipoAfectacion: string;
   detalle: string;
-  fechaCreacion: Date;
 }
+
 @Component({
   selector: 'app-confirmacion-transferencia',
   templateUrl: './confirmacion-transferencia.component.html',
@@ -73,28 +70,20 @@ export class ConfirmacionTransferenciaComponent {
         const cuentabeneficiario: Cuenta = data[1];
 
         const transferenciaOrigen: Transferencia = {
-          codCuentaOrigen: cuentaDepositante.codCuenta,
-          codCuentaDestino: cuentabeneficiario.codCuenta,
-          valorDebe: montoTransferencia,
-          valorHaber: 0,
-          tipoTransaccion: 'TRE',
-          detalle: this.datosTransferencia.detalle,
-          fechaCreacion: new Date()
+          codCuenta: cuentaDepositante.codCuenta,
+          tipoAfectacion: "D",
+          detalle: this.datosTransferencia.detalle
         };
 
         const transferenciaDestino: Transferencia = {
-          codCuentaOrigen: cuentabeneficiario.codCuenta,
-          codCuentaDestino: cuentaDepositante.codCuenta,
-          valorDebe: 0,
-          valorHaber: montoTransferencia,
-          tipoTransaccion: 'TEN',
-          detalle: this.datosTransferencia.detalle,
-          fechaCreacion: new Date()
+          codCuenta: cuentabeneficiario.codCuenta,
+          tipoAfectacion: 'C',
+          detalle: this.datosTransferencia.detalle
         };
         
-        this.realizarTransferencia(transferenciaOrigen);
-        this.realizarTransferencia(transferenciaDestino);
-        this.router.navigate(['/transferencias']);
+        this.realizarTransferencia(transferenciaOrigen, montoTransferencia);
+        this.realizarTransferencia(transferenciaDestino, montoTransferencia);
+        this.router.navigate(['/productos']);
       },
       (error) => {
         console.log(error);
@@ -113,8 +102,8 @@ export class ConfirmacionTransferenciaComponent {
     );
   }
 
-  private realizarTransferencia(transferencia: Transferencia) {
-    this.transferenciaService.realizarTransferencia(transferencia).subscribe(
+  private realizarTransferencia(transferencia: Transferencia, monto: number) {
+    this.transferenciaService.realizarTransferencia(transferencia, monto).subscribe(
       (response) => {
         console.log('Transaccion realizada', response);
         this.mensajeExito('Transferencia exitosa');

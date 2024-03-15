@@ -28,19 +28,13 @@ export class TransferenciasComponent implements OnInit {
     private flujoDatosService: FlujoDatosService
   ) {}
 
-  ngOnInit(): void {
-    const usuarioGuardado = localStorage.getItem('usuario');
+  ngOnInit(): void {    
     this.transferencia.cuentaOrigen = '';
     this.transferencia.monto = 0;
     this.transferencia.beneficiarioNombre = '';
     this.transferencia.beneficiarioNumeroCuenta = '';
     this.transferencia.descripcion = '';
-    if (usuarioGuardado) {
-      const usuario = JSON.parse(usuarioGuardado);
-      const codCliente = usuario.codCliente;
-      console.log(codCliente);
-      this.obtenerCuentasAhorro(codCliente);
-    }
+    this.obtenerCuentasAhorro("476be3079b634e5f4c63c1994d0f13b3");
   }
 
   obtenerCuentasAhorro(codCliente: any) {
@@ -162,8 +156,7 @@ export class TransferenciasComponent implements OnInit {
               ...this.valoresDepositante,
               ...this.valoresBeneficiario,
               monto: valorMonto,
-              detalle: this.transferencia.descripcion == "" ? "Transferecia: " + this.transferencia.cuentaOrigen +" -> " + this.transferencia.beneficiarioNumeroCuenta:  this.transferencia.descripcion + ": " +  this.transferencia.cuentaOrigen + " -> " + this.transferencia.beneficiarioNumeroCuenta,
-              fechaCreacion: "",
+              detalle: this.transferencia.descripcion,
             };
 
             const monto = parseFloat(datosTransferencia.monto);

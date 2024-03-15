@@ -7,24 +7,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InfoCuentaService {
-  private infoClienteCuentaApi = "  http://34.176.119.102:9090/api/v1/cuentas/";
-  private infoCuentaByCodCuentaApi = "http://34.176.119.102:9090/api/v1/cuentas/numero";
-  private actualizarDatosCuenta = "http://34.176.119.102:9090/api/v1/cuentas";
+  private infoCuentaApi = "http://35.232.62.178:8080/api/v1/cuentas";
 
   constructor(private http: HttpClient) { }
 
   obtenerInfoCuenta(codCuenta: string): Observable<any> {
-    const url = `${this.infoClienteCuentaApi}/${codCuenta}`;
+    const url = `${this.infoCuentaApi}/${codCuenta}`;
     return this.http.get<any>(url);
   }
 
   obtenerInfoCuentaPorCodCuenta(codigoCuenta: any): Observable<any> {
-    const url = `${this.infoCuentaByCodCuentaApi}/${codigoCuenta}`;
+    const url = `${this.infoCuentaApi}/?numeroCuenta=${codigoCuenta}`;
     return this.http.get<any>(url);
   }
 
   actualizarDatosEnCuenta(objetoDatos: any): Observable<any> {
-    const url = `${this.actualizarDatosCuenta}`;
+    const url = `${this.infoCuentaApi}`;
     return this.http.put<any>(url, objetoDatos);
   }
 

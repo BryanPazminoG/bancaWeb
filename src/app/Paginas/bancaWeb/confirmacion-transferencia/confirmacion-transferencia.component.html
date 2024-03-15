@@ -1,76 +1,77 @@
 <div class="container-fluid p-0">
-  <div class="row m-0">
-    <!-- Navbar -->
-    <div class="col-12 px-0" class="borde-ancho">
-      <app-navbarbw></app-navbarbw>
+    <div class="row m-0">
+      <!-- Navbar -->
+      <div class="col-12 px-0" class="borde-ancho">
+        <app-navbarbw></app-navbarbw>
+      </div>
     </div>
-  </div>
-  <div class="row m-0">
-    <!-- Sidebar -->
-    <div class="col-2 p-0 d-flex flex-column" style="height: 85vh">
-      <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
-    </div>
-    <!-- Main Content -->
-    <div class="scroll-container">
-      <div class="scroll-content">
-        <div class="col-10 p-0 d-flex">
-          <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
-            <div class="container">
-              <div class="container-fluid">
+    <div class="row m-0">
+      <!-- Sidebar -->
+      <div class="col-2 p-0 d-flex flex-column" style="height: 85vh">
+        <app-sidebarbw class="flex-grow-1"></app-sidebarbw>
+      </div>
+      <!-- Main Content -->
+      <div class="scroll-container">
+        <div class="scroll-content">
+          <div class="col-10 p-0 d-flex">
+            <div class="p-4 flex-grow-1" style="background-color: #dbd8d8">
+              <div class="container">
                 <div class="container-fluid">
-                  <div class="row title mt-5">
-                    <h4>Transferencias Directas</h4>
-                  </div>
-                  <div class="row contenido my-3 p-5 rounded-4">
-                    <hr />
-
-                    <div class="row mt-3">
-                      <h5>Desde</h5>
+                  <div class="container-fluid">
+                    <div class="row title mt-5">
+                      <h4>Transferencias Directas</h4>
                     </div>
-                    <div
-                      class="col-12 my-3 rounded-3 border d-flex justify-content-between"
-                    >
-                      <div class="mt-4 mb-4" id="cuentaDesde">
-                        <strong style="color: #128681">Cuenta de Origen</strong>
-                        <br />
-                        {{ datosTransferencia.cuentaDepositante }}
+                    <div class="row contenido my-3 p-5 rounded-4">
+                      <hr />
+  
+                      <div class="row mt-3">
+                        <h5>Desde</h5>
                       </div>
-
-                      <div class="text-end mt-4">
-                        <strong style="color: #1c9352"
-                          >$ {{ datosTransferencia.monto }}</strong
-                        >
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <h5 class="d-flex align-items-center">
-                        Para <i class="bi bi-arrow-down"></i>
-                      </h5>
-                    </div>
-                    <div
-                      class="col-12 my-3 rounded-3 border d-flex justify-content-between"
-                      id="cuentaPara"
-                    >
-                      <div class="mt-4 mb-4">
-                        <strong style="color: #128681">{{
-                          datosTransferencia.beneficiarioNombre
-                        }}</strong>
-                        <br />
-                        {{ datosTransferencia.valorInput }}
-                      </div>
-                    </div>
-
-                    <div class="px-4 mt-3">
-                      <button
-                        type="button"
-                        class="btn btn-success mx-1"
-                        (click)="transferenciaExitosa()"
+                      <div
+                        class="col-12 my-3 rounded-3 border d-flex justify-content-between"
                       >
-                        Confirmar
-                      </button>
-                      <button (click)="cancelar()" type="button" class="btn btn-danger mx-1">
-                        Cancelar
-                      </button>
+                        <div class="mt-4 mb-4" id="cuentaDesde">
+                          <strong style="color: #128681">Cuenta de Origen</strong>
+                          <br />
+                          {{ datosTransferencia.cuentaDepositante }}
+                        </div>
+  
+                        <div class="text-end mt-4">
+                          <strong style="color: #1c9352"
+                            >$ {{ datosTransferencia.monto }}</strong
+                          >
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <h5 class="d-flex align-items-center">
+                          Para <i class="bi bi-arrow-down"></i>
+                        </h5>
+                      </div>
+                      <div
+                        class="col-12 my-3 rounded-3 border d-flex justify-content-between"
+                        id="cuentaPara"
+                      >
+                        <div class="mt-4 mb-4">
+                          <strong style="color: #128681">{{
+                            datosTransferencia.beneficiarioNombre
+                          }}</strong>
+                          <br />
+                          {{ datosTransferencia.valorInput }}
+                        </div>
+                      </div>
+  
+                      <div class="px-4 mt-3">
+                        <button
+                          type="button"
+                          class="btn btn-success mx-1"
+                          (click)="transferenciaExitosa()"
+                        >
+                          Confirmar
+                        </button>
+                        <button (click)="cancelar()" type="button" class="btn btn-danger mx-1">
+                          Cancelar
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -81,4 +82,4 @@
       </div>
     </div>
   </div>
-</div>
+  
