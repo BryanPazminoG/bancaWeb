@@ -16,12 +16,13 @@ export class LoginComponent {
   credenciales: Credenciales | null = {
     usuario: this.usuario!,
     contrasena: this.contrasena!,
+    tipo:"CLIENTE",
   };
   usuarioEncontrado: Usuario | null = null;
 
   constructor(private router: Router,
     private loginService: LoginService,
-    private flujoDatosService: FlujoDatosService 
+    private flujoDatosService: FlujoDatosService
   ) { }
 
   goToVerify () {
@@ -40,6 +41,7 @@ export class LoginComponent {
     const credenciales = {
       usuario: this.usuario,
       contrasena: this.contrasena,
+      tipo:"CLIENTE",
       idCliente: this.usuarioEncontrado?.codCliente,
     }
 
@@ -51,7 +53,7 @@ export class LoginComponent {
           console.log("USUARIO LOG", data)
           localStorage.setItem('usuario', JSON.stringify(data));
           this.goToProductos()
-        } 
+        }
       },
       error => {
         alert ("Usuario o contraseña incorrectos")

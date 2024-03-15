@@ -79,6 +79,7 @@ export class RegisterComponent {
     const usuarioACrear = {
       usuario: this.usuarioInfo?.usuario!,
       contrasena: this.usuarioInfo?.contrasena!,
+      tipo:"CLIENTE",
       codCliente: localStorage.getItem("codigoCliente"),
       fechaCreacion: this.fechaCreacion!,
       fechaUltimaModificacion: this.fechaUltimaModificacion!,
