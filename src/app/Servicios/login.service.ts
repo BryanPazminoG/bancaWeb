@@ -7,12 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   //private autenticarApi = 'http://34.125.230.91:8080/seg-cliente/autenticar';
-  private autenticarApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente/sesion';
-  private crearUsuarioApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente';
+  private autenticarApi = 'http://localhost:8080/api/v1/seguridad-cliente/sesion';
+  private crearUsuarioApi = 'http://localhost:8080/api/v1/seguridad-cliente';
   
-  
-  private actualizarMFAApi = 'http://34.125.230.91:8080/seg-cliente/actualizar-mfa';
-  private actualizarContrasenaApi = 'http://34.72.67.43:8095/api/v1/seguridad-cliente/actualizar-contrasena'
+  private actualizarMFAApi = 'http://localhost:8080/api/v1/seguridad-cliente/actualizar-mfa';
+  private actualizarContrasenaApi = 'http://localhost:8080/api/v1/seguridad-cliente/actualizar-contrasena'
 
   constructor(private http: HttpClient) {}
 
@@ -35,17 +34,33 @@ export class LoginService {
 }
 
 export interface Credenciales {
-  usuario: string;
-  contrasena: string;
+  nombreUsuario: string;
+  clave: string;
+}
+
+export interface CodigoVerificacion {
+  codigo: string,
+  fechaCreacion: Date,
+  estado: string
+}
+
+export interface Permisos {
+  cuentas: string[];
+  creditos: string[];
+  tarjetas: string[];
 }
 
 export interface Usuario {
   codCliente: any;
-  usuario: string;
-  contrasena: string;
-  mfa: string;
+  nombreUsuario: string;
+  clave: string;
+  estado: string;
+  fechaUltimoAcceso: Date;
+  tipoCliente: string;
+  codigoverificacion: CodigoVerificacion;
   fechaCreacion: Date;
   fechaUltimaModificacion: Date;
+  permisos: Permisos
 }
 
 export interface Contrasena {

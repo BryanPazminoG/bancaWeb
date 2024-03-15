@@ -22,15 +22,15 @@ export class RegisterComponent {
   isNew: boolean = this.flujoDatosService.getIsNew();
   mfa: string = '';
   codCliente: any = '';
-  usuarioCreado: Usuario | null = null;
-  usuarioInfo: NuevoUsuario | null = {
-    codCliente: this.codCliente,
-    usuario: this.usuario,
-    contrasena: this.contrasena,
-    fechaCreacion: this.fechaCreacion,
-    fechaUltimaModificacion: this.fechaUltimaModificacion,
-    mfa: this.mfa,
-  };
+  // usuarioCreado: Usuario | null = null;
+  // usuarioInfo: NuevoUsuario | null = {
+  //   codCliente: this.codCliente,
+  //   nombre: this.usuario,
+  //   contrasena: this.contrasena,
+  //   fechaCreacion: this.fechaCreacion,
+  //   fechaUltimaModificacion: this.fechaUltimaModificacion,
+  //   mfa: this.mfa,
+  // };
 
   constructor(
     private router: Router,
@@ -43,57 +43,57 @@ export class RegisterComponent {
   }
 
   validarContrasena(): void {
-    const isNew = this.flujoDatosService.getIsNew();
-    console.log('IS NEW', isNew);
-    console.log(
-      'contraseña',
-      this.contrasena,
-      'nueva contraseña',
-      this.newContrasena
-    );
-    if (this.contrasena === this.newContrasena) {
-      this.mfa = this.flujoDatosService.getCodigo();
-      this.fechaCreacion = new Date();
-      this.fechaUltimaModificacion = new Date();
-      this.usuarioInfo = {
-        codCliente: this.flujoDatosService.getId(),
-        usuario: this.usuario,
-        contrasena: this.contrasena,
-        fechaCreacion: this.fechaCreacion,
-        fechaUltimaModificacion: this.fechaUltimaModificacion,
-        mfa: this.mfa,
-      };
-      console.log('usuarioInfo antes de crearUsuario', this.usuarioInfo);
-      if (isNew) {
-        this.crearUsuario();
-      } else {
-        this.actualizarContrasena();
-      }
-    } else {
-      alert('Las contraseñas no coinciden');
-    }
+    // const isNew = this.flujoDatosService.getIsNew();
+    // console.log('IS NEW', isNew);
+    // console.log(
+    //   'contraseña',
+    //   this.contrasena,
+    //   'nueva contraseña',
+    //   this.newContrasena
+    // );
+    // if (this.contrasena === this.newContrasena) {
+    //   this.mfa = this.flujoDatosService.getCodigo();
+    //   this.fechaCreacion = new Date();
+    //   this.fechaUltimaModificacion = new Date();
+    //   this.usuarioInfo = {
+    //     codCliente: this.flujoDatosService.getId(),
+    //     usuario: this.usuario,
+    //     contrasena: this.contrasena,
+    //     fechaCreacion: this.fechaCreacion,
+    //     fechaUltimaModificacion: this.fechaUltimaModificacion,
+    //     mfa: this.mfa,
+    //   };
+    //   console.log('usuarioInfo antes de crearUsuario', this.usuarioInfo);
+    //   if (isNew) {
+    //     this.crearUsuario();
+    //   } else {
+    //     this.actualizarContrasena();
+    //   }
+    // } else {
+    //   alert('Las contraseñas no coinciden');
+    // }
   }
   crearUsuario(): void {
-    console.log("ID DEL CLIENTE", localStorage.getItem("codigoCliente"))
+    // console.log("ID DEL CLIENTE", localStorage.getItem("codigoCliente"))
 
-    const usuarioACrear = {
-      usuario: this.usuarioInfo?.usuario!,
-      contrasena: this.usuarioInfo?.contrasena!,
-      codCliente: localStorage.getItem("codigoCliente"),
-      fechaCreacion: this.fechaCreacion!,
-      fechaUltimaModificacion: this.fechaUltimaModificacion!,
-    };
-    this.loginService.crearUsuario(usuarioACrear).subscribe(
-      (data) => {
-        this.usuarioCreado = data;
-        alert('Usuario registrado');
-        this.returnToLogin();
-      },
-      (error) => {
-        alert('Error al registrar el cliente');
-        console.error('Error al registrar cliente', error);
-      }
-    );
+    // const usuarioACrear = {
+    //   usuario: this.usuarioInfo?.usuario!,
+    //   contrasena: this.usuarioInfo?.contrasena!,
+    //   codCliente: localStorage.getItem("codigoCliente"),
+    //   fechaCreacion: this.fechaCreacion!,
+    //   fechaUltimaModificacion: this.fechaUltimaModificacion!,
+    // };
+    // this.loginService.crearUsuario(usuarioACrear).subscribe(
+    //   (data) => {
+    //     this.usuarioCreado = data;
+    //     alert('Usuario registrado');
+    //     this.returnToLogin();
+    //   },
+    //   (error) => {
+    //     alert('Error al registrar el cliente');
+    //     console.error('Error al registrar cliente', error);
+    //   }
+    // );
   }
 
   actualizarContrasena(): void {

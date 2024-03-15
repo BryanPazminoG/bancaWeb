@@ -14,8 +14,8 @@ export class LoginComponent {
   usuario: string  = "";
   contrasena: string = "";
   credenciales: Credenciales | null = {
-    usuario: this.usuario!,
-    contrasena: this.contrasena!,
+    nombreUsuario: this.usuario!,
+    clave: this.contrasena!,
   };
   usuarioEncontrado: Usuario | null = null;
 
@@ -38,8 +38,8 @@ export class LoginComponent {
 
   autenticarCliente(): void {
     const credenciales = {
-      usuario: this.usuario,
-      contrasena: this.contrasena,
+      nombreUsuario: this.usuario,
+      clave: this.contrasena,
       idCliente: this.usuarioEncontrado?.codCliente,
     }
 
@@ -62,12 +62,27 @@ export class LoginComponent {
 
 }
 
+export interface CodigoVerificacion {
+  codigo: string,
+  fechaCreacion: Date,
+  estado: string
+}
+
+export interface Permisos {
+  cuentas: string[];
+  creditos: string[];
+  tarjetas: string[];
+}
+
 export interface Usuario {
-  codCliente: any,
-  usuario: string,
-  contrasena: string,
-  mfa: string,
-  fechaCreacion: string,
-  fechaUltimaModificacion: string,
-  version: number
+  codCliente: any;
+  nombreUsuario: string;
+  clave: string;
+  estado: string;
+  fechaUltimoAcceso: Date;
+  tipoCliente: string;
+  codigoverificacion: CodigoVerificacion;
+  fechaCreacion: Date;
+  fechaUltimaModificacion: Date;
+  permisos: Permisos
 }
