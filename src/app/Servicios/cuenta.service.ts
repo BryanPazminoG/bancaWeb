@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CuentaService {
   
   private getCuentaByClienteApi: string = "http://35.232.62.178:8080/cuenta/obtenerCuentasCliente/";
-  private getCuentaByNumeroApi: string = "http://35.232.62.178:8080/api/v1/cuentas/numero/";
+  private getCuentaByNumeroApi: string = "http://35.232.62.178:8080/api/v1/cuentas/?numero=";
   private postCuentaSaveApi: string = "http://35.232.62.178:8080/cuenta/save";
   
   private getTipoCuentaAllApi: string = "http://35.232.62.178:8080/api/v1/tiposcuentas"
@@ -18,7 +18,7 @@ export class CuentaService {
   private getInterByClienteApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/clientes/"
   private getCuentaByIdApi: string = "http://35.232.62.178:8080/api/v1/cuentas/";
   private getInterByCuentadApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/cuentas/"
-  private postTransaccionApi: string = "http://35.232.62.178:8080/api/v1/transacciones/transferencias"
+  private postTransaccionApi: string = "http://35.232.62.178:8080/api/v1/transacciones/depositos"
 
   constructor(private http: HttpClient) { }
 
@@ -50,6 +50,6 @@ export class CuentaService {
     return this.http.get<any>(this.getInterByClienteApi + id);
   }
   postTransaccionAPI(registroTransaccion: any): Observable<any> {
-    return this.http.put<any>(this.postTransaccionApi, registroTransaccion);
+    return this.http.post<any>(this.postTransaccionApi, registroTransaccion);
   }
 }

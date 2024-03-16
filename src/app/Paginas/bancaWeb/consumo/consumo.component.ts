@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
 export class ConsumoComponent implements OnInit{
 
   participantes = {
-    'cod_cliente': '',
+    'codCliente': '',
     'numeroCuenta': '',
     'tipo_identificacion': '',
     'numero_identificacion': '',
@@ -22,7 +22,7 @@ export class ConsumoComponent implements OnInit{
     'razonSocial': '',
   }
   participePrincipal = {
-    'cod_cliente': '',
+    'codCliente': '',
     'codCuenta': 0,
     'numeroCuenta': '',
     'tipo_identificacion': '',
@@ -47,10 +47,8 @@ export class ConsumoComponent implements OnInit{
   }];
   listaIntervinientes = [{
     "estado": "",
-    "pk": {
-      "codCuenta": 0,
-      "codClientePersona": 0,
-    }
+    "codCuenta": 0,
+    "codCliente": 0,
   }];
   cuentasParticipes = [{}];
 
@@ -86,7 +84,7 @@ export class ConsumoComponent implements OnInit{
   }
 
   getClienteP(codCliente:any) {
-    this.participePrincipal.cod_cliente = '';
+    this.participePrincipal.codCliente = '';
     this.participePrincipal.apellidos = '';
     this.participePrincipal.nombres = '';
     this.participePrincipal.razonSocial = '';
@@ -96,10 +94,8 @@ export class ConsumoComponent implements OnInit{
 
     this.listaIntervinientes = [{
       "estado": "",
-      "pk": {
-        "codCuenta": 0,
-        "codClientePersona": 0,
-      }
+      "codCuenta": 0,
+      "codCliente": 0,
     }];
 
     this.listaIntervinientes.pop();
@@ -120,7 +116,7 @@ export class ConsumoComponent implements OnInit{
         this.identPValidacion = true;
         if (data) {
           this.participePrincipal = {
-            'cod_cliente': data.idCliente,
+            'codCliente': data.codCliente,
             'codCuenta': 0,
             'numeroCuenta': '',
             'tipo_identificacion': data.tipoIdentificacion,
@@ -145,7 +141,7 @@ export class ConsumoComponent implements OnInit{
     );
   }
   getClienteS() {
-    this.participantes['cod_cliente'] = '';
+    this.participantes['codCliente'] = '';
     this.participantes['apellidos'] = '';
     this.participantes['nombres'] = '';
     this.participantes['razonSocial'] = '';
@@ -157,7 +153,8 @@ export class ConsumoComponent implements OnInit{
         this.identSFirst = false;
         this.identSValidacion = true;
         if (data) {
-          this.participantes['cod_cliente'] = data.idCliente;
+          console.log(data);
+          this.participantes['codCliente'] = data.codCliente;
           this.participantes['tipo_identificacion'] = data.tipoIdentificacion;
           this.participantes['numero_identificacion'] = data.numeroIdentificacion;
           this.participantes['apellidos'] = data.apellidos;
@@ -237,7 +234,7 @@ export class ConsumoComponent implements OnInit{
         row.appendChild(cell5);
         tableBody.appendChild(row);
 
-        this.participantes['cod_cliente'] = '';
+        this.participantes['codCliente'] = '';
         this.participantes['tipo_identificacion'] = '';
         this.participantes['numero_identificacion'] = '';
         this.participantes['apellidos'] = '';
@@ -282,15 +279,16 @@ export class ConsumoComponent implements OnInit{
   getCuentaByClienteAPI(tipoParticipante: string) {
 
     let idCliente = '';
-    if (tipoParticipante == "PRI") idCliente = this.participePrincipal.cod_cliente;
-    else idCliente = this.participantes.cod_cliente;
+    if (tipoParticipante == "PRI") idCliente = this.participePrincipal.codCliente;
+    else idCliente = this.participantes.codCliente;
+    console.log(idCliente);
     if (idCliente != '') {
       this.serviceCuenta.getInterByClienteAPI(idCliente).subscribe(
         (data) => {
           if (data) {
             this.listaIntervinientes = data;
             this.listaIntervinientes.forEach((interviniente) => {
-              this.serviceCuenta.getCuentaByIdAPI(interviniente.pk.codCuenta).subscribe(
+              this.serviceCuenta.getCuentaByIdAPI(interviniente.codCuenta).subscribe(
                 (data) => {
                   if (data) {
                     if (tipoParticipante == "PRI") {
@@ -332,7 +330,7 @@ export class ConsumoComponent implements OnInit{
     else event.target.value = valor;
   }
   restValorClienteP() {
-    this.participePrincipal.cod_cliente = '';
+    this.participePrincipal.codCliente = '';
     this.participePrincipal.codCuenta = 0;
     this.participePrincipal.numeroCuenta = "";
     //this.participePrincipal.numero_identificacion = "";
@@ -351,14 +349,12 @@ export class ConsumoComponent implements OnInit{
 
     this.listaIntervinientes = [{
       "estado": "",
-      "pk": {
-        "codCuenta": 0,
-        "codClientePersona": 0,
-      }
+      "codCuenta": 0,
+      "codCliente": 0,
     }];
   }
   restValorClienteS() {
-    this.participantes.cod_cliente = '';
+    this.participantes.codCliente = '';
     this.participantes.numeroCuenta = "";
     //this.participantes.numero_identificacion = "";
     this.participantes.apellidos = "";
@@ -373,10 +369,8 @@ export class ConsumoComponent implements OnInit{
 
     this.listaIntervinientes = [{
       "estado": "",
-      "pk": {
-        "codCuenta": 0,
-        "codClientePersona": 0,
-      }
+      "codCuenta": 0,
+      "codCliente": 0,
     }];
     this.listaIntervinientes.pop();
   }

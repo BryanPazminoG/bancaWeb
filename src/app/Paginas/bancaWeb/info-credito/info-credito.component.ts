@@ -25,18 +25,20 @@ export class InfoCreditoComponent implements OnInit {
   CreditoSeleccionado: any = {
     "codCredito": 0,
     "codTipoCredito": 0,
-    "identificacionCliente": "",
-    "tipoCliente": "",
+    "codTransaccion": "",
+    "codCliente": "",
     "numeroCuenta": "",
-    "numeroOperacion": "",
-    "fechaCreacion": "",
     "monto": 0,
     "plazo": 0,
+    "numeroCuotas": "",
+    "cuotasPagadas": 0,
+    "capitalPendiente": 0,
     "tasaInteres": 0,
+    "canalTransaccion": "",
     "estado": "",
+    "fechaAprobacion": "",
     "fechaDesembolso": "",
-    "fechaUltimoPago": "",
-    "capitalPendiente": 0
+
 }
 ProximoPago: any = {
   "codCredito": 0,
@@ -45,8 +47,8 @@ ProximoPago: any = {
   "interes": 0,
   "montoCuota": 0,
   "capitalRestante": 0,
-  "fechaPlanificadaPago": "",
   "estado": "",
+  "fechaPlanificadaPago": "",
 }
 
   constructor(private router: Router, private creditoService: CreditoService, private flujoDatosService: FlujoDatosService, private serviceCliente: ClienteService) { }
@@ -66,7 +68,7 @@ ProximoPago: any = {
     this.serviceCliente.buscarClientePorId(codCliente).subscribe(
       (data) => {
         if (data) {
-          this.cargarCreditosRealizados(data.numeroIdentificacion);
+          this.cargarCreditosRealizados(data.codCliente);
         }
       },
       (error) => {
@@ -103,7 +105,9 @@ ProximoPago: any = {
   proximoPagoCredito(id: number) {
     this.creditoService.getProximoPago(id).subscribe(
       (data) => {
-        this.ProximoPago = data;
+        console.log("Asdsd");
+        console.log(data);
+        this.ProximoPago = data[0];
       },
       (error) => {
         console.error('Error obteniendo información del crédito', error);

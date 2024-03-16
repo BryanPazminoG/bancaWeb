@@ -7,15 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private buscarClienteApi = "http://34.123.168.16:8080/cliente/buscar";
+  private buscarClienteApi = "http://34.123.168.16:8080/api/v1/clientes/naturales/";
   private buscarClientePorIdApi = "http://34.123.168.16:8080/api/v1/clientes/naturales";
   private buscarUsuarioApi = "http://34.123.168.16:8080/seg-cliente/clientes"
 
   constructor(private http: HttpClient) { }
 
   buscarClientePorParametros(tipo: string, numero: string): Observable<any> {
-    let url = `${this.buscarClienteApi}/${tipo}/${numero}`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(this.buscarClienteApi + tipo + "/" + numero);
   }
 
   buscarClientePorId(id: number): Observable<any> {

@@ -54,6 +54,7 @@ export class DatosCreditoComponent implements OnInit{
       (data) => {
         if (data) {
           this.listaTipoCredito = data;
+          this.listaTipoCredito.pop();
         }
       },
       (error) => {
@@ -67,6 +68,7 @@ export class DatosCreditoComponent implements OnInit{
     if (valorSeleccionado != 0) {
       this.serviceCredito.getByIdTipoCreAPI(valorSeleccionado).subscribe(
         (data) => {
+          console.log(data);
           this.tipoCredito = data;
           this.getByIdTasaInt();
         },
@@ -84,6 +86,7 @@ export class DatosCreditoComponent implements OnInit{
         (data) => {
           if (data) {
             this.tasaInteres = data;
+            this.credito.tasaInteres = this.tasaInteres.tasaMaxima;
           }
         },
         (error) => {
@@ -98,23 +101,6 @@ export class DatosCreditoComponent implements OnInit{
     if (valor < min) event.target.value = min;
     else if (valor > max) event.target.value = max;
     else event.target.value = valor;
-  }
-  calcularTasaInteres() {
-    let monto = this.credito.monto;
-    let plazo = this.credito.plazo;
-
-    if (monto > 0 && plazo > 0) {
-      this.serviceCredito.getCalculoTasaIntAPI(this.tasaInteres.codTasaInteres, monto, plazo).subscribe(
-        (data) => {
-          if (data) {
-            this.credito.tasaInteres = data;
-          }
-        },
-        (error) => {
-          console.error('Error al hacer la solicitud:', error);
-        }
-      );
-    }
   }
   fechaActual() {
     let fechaActual = new Date();
