@@ -8,4 +8,6 @@ RUN npm install -g @angular/cli@16.1.8
 
 RUN npm install
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+RUN npm run build
+
+CMD ["node", "index.js"]
