@@ -1,19 +1,13 @@
-FROM node:18-alpine as build-step
+FROM node:18-alpine
 
-RUN mkdir -p /app
+WORKDIR /src/app
 
-WORKDIR /app
-
-COPY package.json /app
+#COPY . /usr/src/app
 
 RUN npm install -g @angular/cli@16.1.8
 
 RUN npm install
 
-COPY . /app
+RUN npm run build
 
-RUN npm run build --prod
-
-FROM nginx: 1.17.1-alpine
-COPY --from=build-step /app/dist/back-office /usr/share/nginx/html
-# CMD ["ng", "serve", "--host", "0.0.0.0"]
+CMD ["ng", "serve", "--host", "0.0.0.0","--port", "8080"]
