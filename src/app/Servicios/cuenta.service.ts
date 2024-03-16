@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class CuentaService {
   
-  private getCuentaByClienteApi: string = "http://34.125.120.215:8080/cuenta/obtenerCuentasCliente/";
-  private getCuentaByNumeroApi: string = "http://35.192.152.130:8089/api/v1/cuentas/numero/";
-  private postCuentaSaveApi: string = "http://34.125.120.215:8080/cuenta/save";
+  private getCuentaByClienteApi: string = "http://35.232.62.178:8080/cuenta/obtenerCuentasCliente/";
+  private getCuentaByNumeroApi: string = "http://35.232.62.178:8080/api/v1/cuentas/numero/";
+  private postCuentaSaveApi: string = "http://35.232.62.178:8080/cuenta/save";
   
-  private getTipoCuentaAllApi: string = "http://35.192.152.130:8089/api/v1/tiposcuentas"
-  private getTipoCuentaByIdApi: string = "http://35.192.152.130:8089/api/v1/tiposcuentas/"
-  private postCuentaApi: string = "http://35.192.152.130:8089/api/v1/cuentas"
-  private postCuentaParticipantesApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes"
-  private getInterByClienteApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes/clientes/"
-  private getCuentaByIdApi: string = "http://35.192.152.130:8089/api/v1/cuentas/";
-  private getInterByCuentadApi: string = "http://35.192.152.130:8089/api/v1/cuentaintervinientes/cuentas/"
-  private postTransaccionApi: string = "http://35.192.152.130:8089/api/v1/transacciones/transferencias"
+  private getTipoCuentaAllApi: string = "http://35.232.62.178:8080/api/v1/tiposcuentas"
+  private getTipoCuentaByIdApi: string = "http://35.232.62.178:8080/api/v1/tiposcuentas/"
+  private postCuentaApi: string = "http://35.232.62.178:8080/api/v1/cuentas"
+  private postCuentaParticipantesApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes"
+  private getInterByClienteApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/clientes/"
+  private getCuentaByIdApi: string = "http://35.232.62.178:8080/api/v1/cuentas/";
+  private getInterByCuentadApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/cuentas/"
+  private postTransaccionApi: string = "http://35.232.62.178:8080/api/v1/transacciones/transferencias"
 
   constructor(private http: HttpClient) { }
 

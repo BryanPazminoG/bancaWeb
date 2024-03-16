@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class InfoCreditoService {
 
-  private infoCreditoApi = "http://34.125.114.60:8080/credito/getbyid";
-  private infoAdicionalCreditoApi = "http://34.125.114.60:8080/creditotablapagos/pagos-realizados"
+  private infoCreditoApi = "http://34.72.172.227:8080/credito/getbyid";
+  private infoAdicionalCreditoApi = "http://34.72.172.227:8080/creditotablapagos/pagos-realizados"
   constructor(private http: HttpClient) { }
 
 

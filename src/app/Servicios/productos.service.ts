@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ProductosService {
 
   private cuentasAhorroApi = "http://35.232.62.178:8080/api/v1/cuentas/clientes/";
-  private creditosApi = " http://34.72.172.227:8080/api/v1/creditos/clientes/";
+  private creditosApi = " http://35.232.62.178:8080/api/v1/creditos/clientes/";
 
   constructor(private http: HttpClient) { }
 
