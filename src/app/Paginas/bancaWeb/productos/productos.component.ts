@@ -21,8 +21,14 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro(1);
-    this.obtenerCreditos(1);
+
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      this.obtenerCuentasAhorro(JSON.parse(usuarioGuardado).codCliente);
+      this.obtenerCreditos(JSON.parse(usuarioGuardado).codCliente);
+    }
+    // this.obtenerCuentasAhorro(1);
+    // this.obtenerCreditos(1);
     const usuario = this.flujoDatosService.getUsuarioLogin()
     console.log("USUARIO", usuario);
   }
