@@ -1,5 +1,3 @@
-
-JavaScript
 // Importar Express
 var express = require("express");
 
