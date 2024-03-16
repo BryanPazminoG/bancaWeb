@@ -62,7 +62,7 @@ ProximoPago: any = {
       this.CreditosLoad.pop();
     }
   }
-  getClienteP(codCliente:String) {
+  getClienteP(codCliente:any) {
     this.serviceCliente.buscarClientePorId(codCliente).subscribe(
       (data) => {
         if (data) {

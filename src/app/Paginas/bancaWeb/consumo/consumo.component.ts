@@ -37,12 +37,12 @@ export class ConsumoComponent implements OnInit{
   participeSecundario = [{}];
   cuentasClienteP = [{
     'codCuenta': 0,
-    'codCliente': 0,
+    'codCliente': '0',
     'numeroCuenta': '',
   }];
   cuentasClienteS = [{
     'codCuenta': 0,
-    'codCliente': 0,
+    'codCliente': '0',
     'numeroCuenta': '',
   }];
   listaIntervinientes = [{
@@ -85,7 +85,7 @@ export class ConsumoComponent implements OnInit{
     }
   }
 
-  getClienteP(codCliente:String) {
+  getClienteP(codCliente:any) {
     this.participePrincipal.cod_cliente = '';
     this.participePrincipal.apellidos = '';
     this.participePrincipal.nombres = '';
@@ -106,7 +106,7 @@ export class ConsumoComponent implements OnInit{
 
     this.cuentasClienteP = [{
       'codCuenta': 0,
-      'codCliente': 0,
+      'codCliente': '0',
       'numeroCuenta': '',
     }];
 
@@ -248,7 +248,7 @@ export class ConsumoComponent implements OnInit{
         this.cuentasClienteS =
           [{
             'codCuenta': 0,
-            'codCliente': 0,
+            'codCliente': '0',
             'numeroCuenta': '',
           }];
 
@@ -344,7 +344,7 @@ export class ConsumoComponent implements OnInit{
     this.participePrincipal.correo_electronico = "";
     this.cuentasClienteP = [{
       'codCuenta': 0,
-      'codCliente': 0,
+      'codCliente': '0',
       'numeroCuenta': '',
     }];
     this.cuentasClienteP.pop();
@@ -366,7 +366,7 @@ export class ConsumoComponent implements OnInit{
     this.participantes.razonSocial = "";
     this.cuentasClienteS = [{
       'codCuenta': 0,
-      'codCliente': 0,
+      'codCliente': '0',
       'numeroCuenta': '',
     }];
     this.cuentasClienteS.pop();

@@ -12,14 +12,13 @@ export class NavbarbwComponent implements OnInit {
   constructor(private serviceCliente: ClienteService) { }
 
   ngOnInit(): void {
-    const usuarioGuardado = localStorage.getItem('codigoCliente');
+    const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
-      this.getClienteP(usuarioGuardado);
+      this.getClienteP(JSON.parse(usuarioGuardado).codCliente);
     }
-    
   }
 
-  getClienteP(codCliente:String) {
+  getClienteP(codCliente:any) {
     this.serviceCliente.buscarClientePorId(codCliente).subscribe(
       (data) => {
         if (data) {
