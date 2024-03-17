@@ -28,8 +28,8 @@
                     />
                     <div class="ms-5">
                       {{ datosPerfil.nombres }} {{ datosPerfil.apellidos }}
-                      <!-- <br />
-                  Último ingreso {{ datosPerfil.ultimoIngreso }} -->
+                      <br />
+                      Último ingreso {{ ultimoIngreso }}
                     </div>
                   </div>
 
@@ -91,7 +91,10 @@
                       <div class="col-6">
                         Actividad
                         <br />
-                        Estado: {{ datosPerfil.estado }}
+                        Estado:
+                        {{
+                          datosPerfil.estado === "ACT" ? "Activo" : "Inactivo"
+                        }}
                       </div>
                     </div>
                   </div>
@@ -141,7 +144,6 @@
                         Dirección
                         <ul>
                           <li>{{ datosPerfil.direcciones[0].linea1 }}</li>
-                          <li>{{ datosPerfil.direcciones[0].linea2 }}</li>
                         </ul>
                       </div>
                     </div>

@@ -9,7 +9,7 @@ import { FlujoDatosService } from './flujo-datos.service';
 })
 export class PerfilService {
 
-  private perfilApiBase = "http://35.192.130.249:8081/api/v1/clientes";
+  private perfilApiBase = "http://34.123.168.16:8080/api/v1/clientes/naturales";
 
   constructor(private http: HttpClient, private flujoDatosService: FlujoDatosService) { }
 
