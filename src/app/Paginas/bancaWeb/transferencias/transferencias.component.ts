@@ -34,7 +34,10 @@ export class TransferenciasComponent implements OnInit {
     this.transferencia.beneficiarioNombre = '';
     this.transferencia.beneficiarioNumeroCuenta = '';
     this.transferencia.descripcion = '';
-    this.obtenerCuentasAhorro("476be3079b634e5f4c63c1994d0f13b3");
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      this.obtenerCuentasAhorro(JSON.parse(usuarioGuardado).codCliente);
+    }
   }
 
   obtenerCuentasAhorro(codCliente: any) {
