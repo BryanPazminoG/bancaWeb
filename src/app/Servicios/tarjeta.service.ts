@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class TarjetaService {
 
-  private tarjetaApi = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/tarjetas"; 
+  private apiKey = 'da94a3ed7cc54b47882d3bf39a236c69';
+  private headers = new HttpHeaders().set('Ocp-Apim-Subscription-Key', this.apiKey);
+
+  private tarjetaApi = "https://banquitoapi.azure-api.net/api/v1/tarjetas"; 
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +18,6 @@ export class TarjetaService {
     //const params = { tarjeta };
     console.log("el cuerpo de envio es: ",tarjeta);
     console.log("El resultado es: ",this.http.post<any>(`${this.tarjetaApi}`, tarjeta));
-    return this.http.post<any>(`${this.tarjetaApi}`, tarjeta);
+    return this.http.post<any>(`${this.tarjetaApi}`, tarjeta, { headers: this.headers });
   }
 }
