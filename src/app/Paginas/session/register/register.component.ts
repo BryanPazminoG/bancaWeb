@@ -97,21 +97,23 @@ export class RegisterComponent {
   }
 
   actualizarContrasena(): void {
-    const contrasena = {
-      idCliente: this.flujoDatosService.getId(),
-      contrasenaAntigua: this.antiguaContrasena,
-      nuevaContrasena: this.newContrasena,
-    };
-    this.loginService.actualizarContrasena(contrasena).subscribe(
-      (data) => {
-        console.log('Contraseña actualizada');
-        alert('Contraseña actualizada');
-        this.returnToLogin();
-      },
-      (error) => {
-        console.error('Error al actualizar contraseña', error);
-        alert('Error al actualizar la contraseña');
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if(usuarioGuardado){
+      
+      const contrasena = {
+        nombreUsuario: JSON.parse(usuarioGuardado).nombreUsuario,
+        clave: this.newContrasena,
       }
-    );
+      this.loginService.actualizarContrasena(contrasena).subscribe(
+        data => {
+          console.log("Contraseña actualizada")
+          alert("Contraseña actualizada")
+        },
+        error => {
+          console.error("Error al actualizar contraseña", error)
+          alert("Error al actualizar la contraseña")
+        }
+      )
+    }
   }
 }

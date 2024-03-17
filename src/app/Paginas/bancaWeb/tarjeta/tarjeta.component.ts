@@ -18,7 +18,10 @@ export class TarjetaComponent implements OnInit {
   constructor(private router: Router, private productosService: ProductosService, private tarjetaService: TarjetaService) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasAhorro(1);
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      this.obtenerCuentasAhorro(JSON.parse(usuarioGuardado).codCliente);
+    }
   }
 
   obtenerCuentasAhorro(codCliente: number) {
@@ -26,6 +29,7 @@ export class TarjetaComponent implements OnInit {
       (data) => {
         this.cuentasAhorro = data;
         //this.cuentaId=data.
+        console.log("DATA", data)
       },
       (error) => {
         console.error('Error obteniendo cuentas de ahorro', error);
