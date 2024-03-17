@@ -26,5 +26,9 @@ button {
 
 /* Estilo para los valores positivos */
 .positive-value {
-    color: green;
+    color: red;
   }
+
+.negative-value {
+    color: green;
+}
