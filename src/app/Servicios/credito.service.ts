@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreditoService {
-  private getAllTipoCreApi: string = "http://34.72.172.227:8080/api/v1/tipoCreditos";
-  private getByIdTipoCreApi: string = "http://34.72.172.227:8080/api/v1/tipoCreditos/";
-  private getByIdTasaIntApi: string = "http://34.72.172.227:8080/api/v1/tasaInteres/";
-  private getCalculoTasaIntApi: string = "http://34.72.172.227:8080/api/v1/tasaInteres/";
-  private getPreTablaPagoApi: string = "http://34.72.172.227:8080/api/v1/tablaAmortizacion/";
-  private postCreditoApi: string = "http://34.72.172.227:8080/api/v1/creditos";
-  private postCredIntApi: string = "http://34.72.172.227:8080/api/v1/intervinientes";
-  private postTablaPagApi: string = "http://34.72.172.227:8080/api/v1/tablaAmortizacion";
-  private getCreditoByIdent: string = "http://34.72.172.227:8080/api/v1/creditos/clientes/";
-  private getCreditoById: string = "http://34.72.172.227:8080/api/v1/creditos/";
-  private getPoximoPago: string = "http://34.72.172.227:8080/api/v1/tablaAmortizacion/estados?codCredito=";
-  private getTablaAmortizacion: string = "http://34.72.172.227:8080/api/v1/tablaAmortizacion/";
+  private getAllTipoCreApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tipoCreditos";
+  private getByIdTipoCreApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tipoCreditos/";
+  private getByIdTasaIntApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tasaInteres/";
+  private getCalculoTasaIntApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tasaInteres/";
+  private getPreTablaPagoApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tablaAmortizacion/";
+  private postCreditoApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/creditos";
+  private postCredIntApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/intervinientes";
+  private postTablaPagApi: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tablaAmortizacion";
+  private getCreditoByIdent: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/creditos/clientes/";
+  private getCreditoById: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/creditos/";
+  private getPoximoPago: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tablaAmortizacion/estados?codCredito=";
+  private getTablaAmortizacion: string = "https://creditos-atnhilz3dq-uc.a.run.app/api/v1/tablaAmortizacion/";
 
   constructor(private http: HttpClient, private flujoDatosService: FlujoDatosService) { }
 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InfoCuentaService {
-  private infoCuentaApi = "http://35.232.62.178:8080/api/v1/cuentas";
+  private infoCuentaApi = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentas";
 
   constructor(private http: HttpClient) { }
 

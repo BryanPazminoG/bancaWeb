@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TarjetaService {
 
-  private tarjetaApi = "http://35.232.62.178:8080/api/v1/tarjetas"; 
+  private tarjetaApi = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/tarjetas"; 
 
   constructor(private http: HttpClient) { }
 

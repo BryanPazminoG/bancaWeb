@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class CuentaService {
   
-  private getCuentaByClienteApi: string = "http://35.232.62.178:8080/cuenta/obtenerCuentasCliente/";
-  private getCuentaByNumeroApi: string = "http://35.232.62.178:8080/api/v1/cuentas/?numero=";
-  private postCuentaSaveApi: string = "http://35.232.62.178:8080/cuenta/save";
+  private getCuentaByClienteApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/cuenta/obtenerCuentasCliente/";
+  private getCuentaByNumeroApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentas/?numero=";
+  private postCuentaSaveApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/cuenta/save";
   
-  private getTipoCuentaAllApi: string = "http://35.232.62.178:8080/api/v1/tiposcuentas"
-  private getTipoCuentaByIdApi: string = "http://35.232.62.178:8080/api/v1/tiposcuentas/"
-  private postCuentaApi: string = "http://35.232.62.178:8080/api/v1/cuentas"
-  private postCuentaParticipantesApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes"
-  private getInterByClienteApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/clientes/"
-  private getCuentaByIdApi: string = "http://35.232.62.178:8080/api/v1/cuentas/";
-  private getInterByCuentadApi: string = "http://35.232.62.178:8080/api/v1/cuentaintervinientes/cuentas/"
-  private postTransaccionApi: string = "http://35.232.62.178:8080/api/v1/transacciones/depositos"
+  private getTipoCuentaAllApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/tiposcuentas"
+  private getTipoCuentaByIdApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/tiposcuentas/"
+  private postCuentaApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentas"
+  private postCuentaParticipantesApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentaintervinientes"
+  private getInterByClienteApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentaintervinientes/clientes/"
+  private getCuentaByIdApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentas/";
+  private getInterByCuentadApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/cuentaintervinientes/cuentas/"
+  private postTransaccionApi: string = "https://cuentas-atnhilz3dq-uc.a.run.app/api/v1/transacciones/depositos"
 
   constructor(private http: HttpClient) { }
 
