@@ -11,7 +11,7 @@ export class LoginService {
   private crearUsuarioApi = 'https://seguridadclientes-clientes-atnhilz3dq-uc.a.run.app/api/v1/seguridad-cliente';
   
   private actualizarMFAApi = 'https://seguridadclientes-clientes-atnhilz3dq-uc.a.run.app/api/v1/seguridad-cliente/actualizar-mfa';
-  private actualizarContrasenaApi = 'https://seguridadclientes-clientes-atnhilz3dq-uc.a.run.app/api/v1/seguridad-cliente/actualizar-contrasena'
+  private actualizarContrasenaApi = 'https://seguridadclientes-clientes-atnhilz3dq-uc.a.run.app/api/v1/seguridad-cliente'
 
   constructor(private http: HttpClient) {}
 
@@ -28,7 +28,7 @@ export class LoginService {
     return this.http.post<any>(this.crearUsuarioApi, usuario);
   }
 
-  actualizarContrasena(contrasena: Contrasena): Observable<any> {
+  actualizarContrasena(contrasena: Credenciales): Observable<any> {
     return this.http.put<any>(this.actualizarContrasenaApi, contrasena)
   }
 }
@@ -63,8 +63,3 @@ export interface Usuario {
   permisos: Permisos
 }
 
-export interface Contrasena {
-  idCliente: string;
-  contrasenaAntigua: string;
-  nuevaContrasena: string;
-}
